@@ -1,4 +1,4 @@
-app = 'react-template-api-staging'
+app = 'wdcc-uads-member-app-v2-api-staging'
 primary_region = 'syd'
 
 [build]
