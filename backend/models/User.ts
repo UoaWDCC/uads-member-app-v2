@@ -13,6 +13,8 @@ const userSchema = new Schema({
     maxLength: 40,
     minLength: 1,
   },
+}, {
+  timestamps: {},
 });
 
 const User = model('User', userSchema);
