@@ -6,7 +6,7 @@ import About from '@pages/About';
 import Event from '@pages/Event';
 import Sponsor from '@pages/Sponsor';
 import Login from '@pages/Login';
-import SignUp from '@pages/Signup';
+import SignUp from '@pages/SignUp';
 import Setting from '@pages/Setting';
 
 const router = createBrowserRouter([
