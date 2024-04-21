@@ -4,7 +4,7 @@ import { connect } from 'mongoose';
 import { config } from 'dotenv';
 
 // Import Routers
-import helloRoutes from './routes/hello';
+import router from './routes/routes';
 
 const app = express();
 config();
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.static('public'));
 
 // Routes
-app.use('/hello', helloRoutes);
+app.use('/', router);
 
 const port = Number.parseInt(process.env.PORT || '3000');
 app.listen(port, () => {
