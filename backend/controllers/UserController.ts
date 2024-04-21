@@ -1,5 +1,5 @@
 import { Request, Response, Router } from "express";
-import User from "../db/User";
+import User from "../models/User";
 
 const getUsers = async (req: Request, res: Response) => {
     res.json({msg: "Implement GET endpoint"});
