@@ -6,7 +6,6 @@ import About from "@pages/About";
 import Event from "@pages/Event";
 import Sponsor from "@pages/Sponsor";
 import SignUp from "@pages/SignUp";
-import Setting from "@pages/Setting";
 
 const router = createBrowserRouter([
   {
@@ -28,10 +27,6 @@ const router = createBrowserRouter([
   {
     path: "/sponsors",
     element: <Sponsor />,
-  },
-  {
-    path: "/settings",
-    element: <Setting />,
   },
 ]);
 
