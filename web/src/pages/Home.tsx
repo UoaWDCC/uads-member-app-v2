@@ -1,9 +1,13 @@
+import { NavLink } from "react-router-dom";
+import placeholder from "../assets/placeholder.png"
+
 export default function Home() {
   return (
     <>
       <Landing>
         <p className="h-20 w-full bg-red-50">Placeholder navbar</p>
       </Landing>
+      <EventSection />
 
       <ExampleComponent />
     </>
@@ -29,4 +33,71 @@ function ExampleComponent() {
       </h1>
     </div>
   );
+}
+
+
+function EventSection() {
+  return (
+    <>
+      <div class="flex flex-col gap-10 h-screen bg-blue-500">
+        <h1 className="p-10 text-center text-3xl font-bold">
+          Our Events
+        </h1>
+        <EventGroups />
+        <EventButton />
+      </div>
+    </>
+  );
+}
+
+function EventGroups() {
+  return (
+    <>
+      <div className="flex flex-row flex-nowrap justify-center gap-5">
+        <EventCard />
+        <EventCard />
+        <EventCard />
+      </div>
+    </>
+  );
+}
+
+function EventCard() {
+  return (
+    <>
+      <div className="h-1/2 bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
+        <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={placeholder}></img>
+        <div className="flex flex-row">
+          <div className="flex flex-col justify-start px-5">
+            <h3 className="text-center">Mar</h3>
+            <h2 className="text-center font-bold text-black">17</h2>
+          </div>
+          <div className="flex flex-col justify-between content-start mx-10">
+            <h2 className="text-center font-bold text-black">Sparkle Gala Dinner</h2>
+            <p className="text-center">Come and enjoy this dinner where our sponsors will be present</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function EventButton() {
+  return (
+    <>
+    <NavLink to="/events">
+      <button className="bg-white" >See More Events</button>
+    </NavLink>
+    </>
+  )
+}
+
+function SponsorsButton() {
+  return (
+    <>
+    <NavLink to="/sponsors">
+      <button className="bg-white" >See More Events</button>
+    </NavLink>
+    </>
+  )
 }
