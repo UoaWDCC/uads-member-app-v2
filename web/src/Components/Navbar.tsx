@@ -7,7 +7,7 @@ export default function Navbar() {
         About
         </NavLink>
         <NavLink to="/events">
-        About
+        Events
         </NavLink>
         <NavLink to="/sponsors">
         About
