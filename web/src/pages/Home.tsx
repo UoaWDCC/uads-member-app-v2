@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import placeholder from "../assets/placeholder.png"
+import tsujiri from "../assets/tsujiri.jpeg"
 
 export default function Home() {
   return (
@@ -7,12 +8,98 @@ export default function Home() {
       <Landing>
         <p className="h-20 w-full bg-red-50">Placeholder navbar</p>
       </Landing>
+
+      <Sponsor/>
+
       <EventSection />
 
       <ExampleComponent />
+
+      
     </>
   );
 }
+
+
+function Sponsor() {
+  return (
+    <div className="w-screen h-80 bg-orange-500">
+      <h1 className=" text-center text-3xl font-bold text-gray-900">
+        Sponsors
+      </h1>
+      <SponsorGroups />
+      <SponsorsButton />
+      
+    </div>
+  );
+}
+
+function SponsorGroups() {
+  return (
+    <>
+      <div className="flex flex-row flex-nowrap justify-center gap-5">
+        <SponsorCard1 />
+        <SponsorCard2 />
+        <SponsorCard3 />
+      </div>
+    </>
+  );
+}
+
+function SponsorCard1() {
+  return (
+    <>
+      <div className="h-1/2 bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
+        <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
+        <div className="flex flex-row">
+          <div className="flex flex-col justify-start px-5">
+          <h2 className="text-center">Tsujiri</h2>
+          </div>
+          <div className="flex flex-col justify-between content-start mx-10">
+
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function SponsorCard2() {
+  return (
+    <>
+      <div className="h-1/2 bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
+        <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
+        <div className="flex flex-row">
+          <div className="flex flex-col justify-start px-5">
+          <h2 className="text-center">Waffler's</h2>
+          </div>
+          <div className="flex flex-col justify-between content-start mx-10">
+
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function SponsorCard3() {
+  return (
+    <>
+      <div className="h-1/2 bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
+        <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
+        <div className="flex flex-row">
+          <div className="flex flex-col justify-start px-5">
+          <h2 className="text-center">Mighty Hotdog</h2>
+          </div>
+          <div className="flex flex-col justify-between content-start mx-10">
+
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
 
 function Landing({ children }: { children: JSX.Element }) {
   return (
