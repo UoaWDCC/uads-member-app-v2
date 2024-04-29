@@ -10,10 +10,10 @@ export default function Navbar() {
         About
         </NavLink>
         <NavLink to="/sponsors">
-        About
+        Sponsors
         </NavLink>
         <NavLink to="/signup">
-        About
+        Signup
         </NavLink>
         
 
