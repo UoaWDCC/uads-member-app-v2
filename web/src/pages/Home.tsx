@@ -62,11 +62,11 @@ function EventGroups() {
   );
 }
 
-function EventCard() {
+function EventCards() {
   return (
     <>
-      <div className="h-1/2 bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
-        <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={placeholder}></img>
+      <div className=" bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
+        <img className="max-w-full rounded-b-none overflow-hidden rounded-3xl justify-self-start" src={placeholder}></img>
         <div className="flex flex-row">
           <div className="flex flex-col justify-start px-5">
             <h3 className="text-center">Mar</h3>
@@ -80,6 +80,29 @@ function EventCard() {
       </div>
     </>
   );
+}
+
+function EventCard() {
+  return (
+    <>
+      <div className="bg-white h-500 gap-10 rounded-3xl">
+        <img className="max-w-full overflow-hidden rounded-3xl rounded-b-none" src={placeholder}></img>
+        <div className="flex flex-row m-5">
+          <div className="justify-start px-5">
+            <h3 className="text-centre">Mar</h3>
+            <h2 className="text-center font-bold text-black">17</h2>
+          </div>
+          <div>
+            <h2 className="text-center font-bold text-black">Sparkle Gala Dinner</h2>
+            <p className="text center">Come and enjoy this dinner where our sponsors will be present</p>
+          </div>
+          
+        </div>
+      </div>
+    
+    
+    </>
+  )
 }
 
 function EventButton() {
