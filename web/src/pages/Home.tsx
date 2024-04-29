@@ -20,15 +20,14 @@ export default function Home() {
   );
 }
 
-
 function Sponsor() {
   return (
-    <div className="w-screen h-80 bg-orange-500">
+    <div className="flex flex-col gap-10 h-screen bg-orange-500">
       <h1 className=" text-center text-3xl font-bold text-gray-900">
-        Sponsors
+        Supported by our Sponsors
       </h1>
       <SponsorGroups />
-      <SponsorsButton />
+      
       
     </div>
   );
@@ -37,7 +36,7 @@ function Sponsor() {
 function SponsorGroups() {
   return (
     <>
-      <div className="flex flex-row flex-nowrap justify-center gap-5">
+      <div className="flex flex-row flex-nowrap justify-center gap-20">
         <SponsorCard1 />
         <SponsorCard2 />
         <SponsorCard3 />
@@ -49,11 +48,12 @@ function SponsorGroups() {
 function SponsorCard1() {
   return (
     <>
-      <div className="h-1/2 bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
-        <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
+      <div className="bg-white h-80 gap-10 rounded-3xl">
+      <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
         <div className="flex flex-row">
-          <div className="flex flex-col justify-start px-5">
-          <h2 className="text-center">Tsujiri</h2>
+          <div className=" justify-start">
+          <h2 className="text-center font-bold">Tsujiri</h2>
+          <SponsorsButton />
           </div>
           <div className="flex flex-col justify-between content-start mx-10">
 
@@ -67,11 +67,12 @@ function SponsorCard1() {
 function SponsorCard2() {
   return (
     <>
-      <div className="h-1/2 bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
-        <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
+      <div className="bg-white h-80 gap-10 rounded-3xl">
+      <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
         <div className="flex flex-row">
-          <div className="flex flex-col justify-start px-5">
-          <h2 className="text-center">Waffler's</h2>
+          <div className=" justify-start">
+          <h2 className="text-center font-bold">Tsujiri</h2>
+          <SponsorsButton />
           </div>
           <div className="flex flex-col justify-between content-start mx-10">
 
@@ -85,11 +86,12 @@ function SponsorCard2() {
 function SponsorCard3() {
   return (
     <>
-      <div className="h-1/2 bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
-        <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
+      <div className="bg-white h-80 gap-10 rounded-3xl">
+      <img className="max-w-full overflow-hidden rounded-3xl justify-self-start" src={tsujiri}></img>
         <div className="flex flex-row">
-          <div className="flex flex-col justify-start px-5">
-          <h2 className="text-center">Mighty Hotdog</h2>
+          <div className=" justify-start">
+          <h2 className="text-center font-bold">Tsujiri</h2>
+          <SponsorsButton />
           </div>
           <div className="flex flex-col justify-between content-start mx-10">
 
@@ -126,7 +128,7 @@ function ExampleComponent() {
 function EventSection() {
   return (
     <>
-      <div class="flex flex-col gap-10 h-screen bg-blue-500">
+      <div className="flex flex-col gap-10 h-screen bg-blue-500">
         <h1 className="p-10 text-center text-3xl font-bold">
           Our Events
         </h1>
@@ -149,25 +151,6 @@ function EventGroups() {
   );
 }
 
-function EventCards() {
-  return (
-    <>
-      <div className=" bg-white flex flex-col rounded-3xl gap-10 max-w-s mx-10 max-h-">
-        <img className="max-w-full rounded-b-none overflow-hidden rounded-3xl justify-self-start" src={placeholder}></img>
-        <div className="flex flex-row">
-          <div className="flex flex-col justify-start px-5">
-            <h3 className="text-center">Mar</h3>
-            <h2 className="text-center font-bold text-black">17</h2>
-          </div>
-          <div className="flex flex-col justify-between content-start mx-10">
-            <h2 className="text-center font-bold text-black">Sparkle Gala Dinner</h2>
-            <p className="text-center">Come and enjoy this dinner where our sponsors will be present</p>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
 
 function EventCard() {
   return (
@@ -206,7 +189,7 @@ function SponsorsButton() {
   return (
     <>
     <NavLink to="/sponsors">
-      <button className="bg-white" >See More Events</button>
+      <button className="bg-white" >Read more</button>
     </NavLink>
     </>
   )
