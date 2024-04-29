@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import placeholder from "../assets/placeholder.png"
 import tsujiri from "../assets/tsujiri.jpeg"
+import uadslogo from "../assets/UADSLogo.svg"
 
 export default function Home() {
   return (
@@ -10,6 +11,8 @@ export default function Home() {
       </Landing>
 
       <Sponsor/>
+
+      <SignupSection />
 
       <EventSection />
 
@@ -27,7 +30,7 @@ function Sponsor() {
         Supported by our Sponsors
       </h1>
       <SponsorGroups />
-      
+      <PinkButton linkto="/sponsors" buttontext="See our sponsors" />
       
     </div>
   );
@@ -110,6 +113,7 @@ function Landing({ children }: { children: JSX.Element }) {
       <h1 className=" text-center text-3xl font-bold text-gray-900">
         Home page
       </h1>
+      <img src={uadslogo} className="colour"></img>
     </div>
   );
 }
@@ -125,15 +129,25 @@ function ExampleComponent() {
 }
 
 
+function SignupSection() {
+  return (
+    <div className="flex flex-col gap-10 h-fit bg-purple-800 space-y-10 p-10">
+      <h1 className="p-10 text-center text-6xl font-bold text-pink-300">Join UADS Today!</h1>
+      <PinkButton linkto="/signup" buttontext="Sign Up Now" />
+    </div>
+  )
+
+}
+
 function EventSection() {
   return (
     <>
-      <div className="flex flex-col gap-10 h-screen bg-blue-500">
-        <h1 className="p-10 text-center text-3xl font-bold">
+      <div className="flex flex-col gap-10 h-screen bg-yellow-800">
+        <h1 className="p-10 text-center text-3xl font-bold text-pink-300">
           Our Events
         </h1>
         <EventGroups />
-        <EventButton />
+        <PinkButton linkto="/events" buttontext="See More Events" />
       </div>
     </>
   );
@@ -142,7 +156,7 @@ function EventSection() {
 function EventGroups() {
   return (
     <>
-      <div className="flex flex-row flex-nowrap justify-center gap-5">
+      <div className="flex flex-row flex-nowrap justify-center gap-5 m-10">
         <EventCard />
         <EventCard />
         <EventCard />
@@ -151,36 +165,41 @@ function EventGroups() {
   );
 }
 
-
 function EventCard() {
   return (
     <>
-      <div className="bg-white h-500 gap-10 rounded-3xl">
-        <img className="max-w-full overflow-hidden rounded-3xl rounded-b-none" src={placeholder}></img>
-        <div className="flex flex-row m-5">
-          <div className="justify-start px-5">
-            <h3 className="text-centre">Mar</h3>
-            <h2 className="text-center font-bold text-black">17</h2>
+    <NavLink to="/events">
+    <button>
+      <div className="bg-white h-500 gap-10 rounded-3xl w-11/12">
+        <div className="h-64 overflow-hidden">
+        <img className="w-full rounded-3xl rounded-b-none" src={placeholder}></img>
+        </div>
+        <div className="flex flex-row m-5 pb-5">
+          <div className="justify-start pl-1">
+            <h3 className="text-center text-pink-500 text-lg">Mar</h3>
+            <h2 className="text-center font-bold text-black text-3xl">17</h2>
           </div>
-          <div>
-            <h2 className="text-center font-bold text-black">Sparkle Gala Dinner</h2>
-            <p className="text center">Come and enjoy this dinner where our sponsors will be present</p>
+          <div className="pl-1">
+            <h2 className="text-center font-bold text-black text-xl">Sparkle Gala Dinner</h2>
+            <p className="text-black text-sm">Come and enjoy this dinner where our sponsors will be present</p>
           </div>
           
         </div>
       </div>
-    
-    
+      </button>
+      </NavLink>
     </>
   )
 }
 
-function EventButton() {
+function PinkButton(props) {
   return (
     <>
-    <NavLink to="/events">
-      <button className="bg-white" >See More Events</button>
-    </NavLink>
+    <div className="text-center">
+      <NavLink to={props.linkto}>
+        <button className="bg-pink-300 p-5 rounded-2xl text-yellow-900 font-bold text-2xl">{props.buttontext}</button>
+      </NavLink>
+    </div>
     </>
   )
 }
