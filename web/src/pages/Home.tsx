@@ -145,7 +145,7 @@ function SignupSection() {
 function EventSection() {
   return (
     <>
-      <div className="flex flex-col gap-10 h-screen bg-yellow-800">
+      <div className="flex flex-col gap-10 h-screen bg-yellow-800 content-center">
         <h1 className="p-10 text-center text-3xl font-bold text-pink-300">
           Our Events
         </h1>
@@ -159,16 +159,39 @@ function EventSection() {
 function EventGroups() {
   return (
     <>
-      <div className="flex flex-row flex-nowrap justify-center gap-5 m-10">
-        <EventCard />
-        <EventCard />
-        <EventCard />
+      <div className="flex flex-row flex-nowrap justify-between gap-5 m-10">
+        <EventCard 
+          image={placeholder}
+          eventname="Sparkle Gala Dinner" 
+          eventdesc="Come and enjoy this dinner where our sponsors will be present" 
+          month="Mar" 
+          date="17" />
+        <EventCard 
+          image={placeholder}
+          eventname="Poopy Poo Poo" 
+          eventdesc="Poopy poo likes poo but poo doesn't like poopy" 
+          month="Sep" 
+          date="9" />
+        <EventCard 
+          image={placeholder}
+          eventname="Placeholder Event Name" 
+          eventdesc="Placeholder word placeholder replacement poo word yes" 
+          month="Jan" 
+          date="22" />
       </div>
     </>
   );
 }
 
-function EventCard() {
+
+interface EventCardProps {
+  image:  string;
+  eventname: string;
+  eventdesc: string;
+  month: string;
+  date: string;
+}
+function EventCard({ image, eventname, eventdesc, month, date }: EventCardProps) {
   return (
     <>
       <NavLink to="/events">
@@ -177,22 +200,25 @@ function EventCard() {
             <div className="h-64 overflow-hidden">
               <img
                 className="w-full rounded-3xl rounded-b-none"
-                src={placeholder}
+                src={image}
               ></img>
             </div>
-            <div className="flex flex-row m-5 pb-5">
+            <div className="flex flex-row justify-evenly m-5 pb-5">
               <div className="justify-start pl-1">
-                <h3 className="text-center text-pink-500 text-lg">Mar</h3>
+                <h3 className="text-center text-pink-500 text-lg">
+                  {month}
+                  </h3>
                 <h2 className="text-center font-bold text-black text-3xl">
-                  17
+                  {date}
                 </h2>
               </div>
-              <div className="pl-1">
+              <div className="pl-1 text-center grow-0">
+                {/* eventdesc not centered on card need to fix */}
                 <h2 className="text-center font-bold text-black text-xl">
-                  Sparkle Gala Dinner
+                  {eventname}
                 </h2>
                 <p className="text-black text-sm">
-                  Come and enjoy this dinner where our sponsors will be present
+                  {eventdesc}
                 </p>
               </div>
             </div>
