@@ -1,18 +1,31 @@
-import { Schema, model } from 'mongoose';
+import { Schema, model } from "mongoose";
 
-const sponsorSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
+const sponsorSchema = new Schema(
+  {
+    image: {
+      type: String,
+      required: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    sponsorDescription: {
+      type: String,
+    },
+    discountDescription: {
+      type: String,
+      required: true,
+    },
+    sponsorWebsite: {
+      type: String,
+    },
   },
-  location: {
-    type: String,
-    required: true,
-  },
-}, {
+  {
     timestamps: {},
-});
+  }
+);
 
-const Sponsor = model('Sponsor', sponsorSchema);
+const Sponsor = model("Sponsor", sponsorSchema);
 
 export default Sponsor;
