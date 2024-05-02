@@ -21,10 +21,22 @@ export default function Home() {
   );
 }
 
+function Landing({ children }: { children: JSX.Element }) {
+  return (
+    <div className="flex flex-col h-screen bg-gradient-to-b from-pink-200 to-pink-800 items-center gap-10">
+      {children}
+      <h1 className=" text-center text-3xl font-bold text-gray-900">
+        Home page
+      </h1>
+      <img src={uadslogo} className="colour" />
+    </div>
+  );
+}
+
 function Sponsor() {
   return (
-    <div className="flex flex-col gap-10 h-screen bg-orange-500">
-      <h1 className=" text-center text-3xl font-bold text-gray-900">
+    <div className="flex flex-col gap-10 h-500 pb-20 bg-pink-800">
+      <h1 className=" text-center text-3xl font-bold pt-10 text-neutral-100">
         Supported by our Sponsors
       </h1>
       <SponsorGroups />
@@ -37,9 +49,15 @@ function SponsorGroups() {
   return (
     <>
       <div className="flex flex-row flex-nowrap justify-center gap-20">
-        <SponsorCard image={tsujiri} />
-        <SponsorCard2 />
-        <SponsorCard3 />
+        <SponsorCard 
+        image={tsujiri} 
+        sponsor="tsujiri"/>
+        <SponsorCard 
+        sponsor="tsujiri"
+        image={tsujiri} />
+        <SponsorCard
+        sponsor="tsujiri"
+        image={tsujiri} />
       </div>
     </>
   );
@@ -47,79 +65,39 @@ function SponsorGroups() {
 
 interface SponsorCardProps {
   image: string;
+  sponsor: string;
 }
 
-function SponsorCard({ image }: SponsorCardProps) {
+function SponsorCard({ image, sponsor }: SponsorCardProps) {
   return (
     <>
-      <div className="bg-white h-80 gap-10 rounded-3xl">
-        <img
-          className="max-w-full overflow-hidden rounded-3xl justify-self-start"
-          src={image}
-        />
-        <div className="flex flex-row">
-          <div className=" justify-start">
-            <h2 className="text-center font-bold">Tsujiri</h2>
-            <SponsorsButton />
+   <NavLink to="/sponsors">
+        <button>
+          <div className="bg-white h-500 gap-20 rounded-3xl ">
+            <div className="h-64 overflow-hidden">
+              <img
+                className="w-full rounded-3xl rounded-b-none"
+                src={image}
+              ></img>
+            </div>
+            <div className="flex flex-row ">
+              <div className="justify-start pl-1 text-center grow-0 pb-3 ml-3 text-xl text-yellow-900">
+                <h3 className="text-center font-bold">{sponsor} </h3>
+              </div>
+            
+            </div>
+            <div className="pb-5">
+            <ReadMoreButton linkto="/sponsors" buttontext="Read more"/>
+            </div>
           </div>
-          <div className="flex flex-col justify-between content-start mx-10"></div>
-        </div>
-      </div>
+        </button>
+      </NavLink>
     </>
   );
 }
 
-function SponsorCard2() {
-  return (
-    <>
-      <div className="bg-white h-80 gap-10 rounded-3xl">
-        <img
-          className="max-w-full overflow-hidden rounded-3xl justify-self-start"
-          src={tsujiri}
-        ></img>
-        <div className="flex flex-row">
-          <div className=" justify-start">
-            <h2 className="text-center font-bold">Tsujiri</h2>
-            <SponsorsButton />
-          </div>
-          <div className="flex flex-col justify-between content-start mx-10"></div>
-        </div>
-      </div>
-    </>
-  );
-}
 
-function SponsorCard3() {
-  return (
-    <>
-      <div className="bg-white h-80 gap-10 rounded-3xl">
-        <img
-          className="max-w-full overflow-hidden rounded-3xl justify-self-start"
-          src={tsujiri}
-        ></img>
-        <div className="flex flex-row">
-          <div className=" justify-start">
-            <h2 className="text-center font-bold">Tsujiri</h2>
-            <SponsorsButton />
-          </div>
-          <div className="flex flex-col justify-between content-start mx-10"></div>
-        </div>
-      </div>
-    </>
-  );
-}
 
-function Landing({ children }: { children: JSX.Element }) {
-  return (
-    <div className="flex flex-col h-screen bg-slate-500 items-center gap-10">
-      {children}
-      <h1 className=" text-center text-3xl font-bold text-gray-900">
-        Home page
-      </h1>
-      <img src={uadslogo} className="colour" />
-    </div>
-  );
-}
 
 function ExampleComponent() {
   return (
@@ -248,10 +226,21 @@ function PinkButton({ linkto, buttontext }: PinkButtonProps) {
   );
 }
 
-function SponsorsButton() {
+interface ReadMoreButtonProps {
+  linkto: string;
+  buttontext: string;
+}
+
+function ReadMoreButton({ linkto, buttontext }:ReadMoreButtonProps) {
   return (
-    <NavLink to="/sponsors">
-      <button className="bg-white">Read more</button>
-    </NavLink>
+    <>
+    <div className="text-center">
+        <NavLink to={linkto}>
+        <button className="bg-red-200 rounded-2xl p-2 text-yellow-900">
+            {buttontext}
+          </button>
+        </NavLink>
+      </div>
+    </>
   );
 }
