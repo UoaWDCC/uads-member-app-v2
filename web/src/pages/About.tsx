@@ -8,8 +8,11 @@ export default function About() {
 				{/* Add UADS logo */}
 				{/* <p>ADD UADS LOGO</p> */}
 
-				<p className="text-2xl text-center text-[#5F4444] font-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo ex cum animi labore enim, error dolorem explicabo modi, dolorum est quidem perferendis blanditiis quis nemo, sunt veritatis voluptates dolores inventore?</p>
-
+				<p className="text-2xl text-center text-[#5F4444] font-semibold">Welcome to the sweetest corner of the University of Auckland – the Dessert Society!</p>
+				<p className="text-2xl text-center text-[#5F4444] font-semibold">At the University of Auckland Dessert Society, we're more than just a club; we're a community united by our love for all things sweet. Whether you're an avid baker, a dessert connoisseur, or simply someone with a sweet tooth, you'll find a home among us.</p>
+				<p className="text-2xl text-center text-[#5F4444] font-semibold">Our society is dedicated to exploring the diverse world of desserts, from classic recipes to innovative creations. Through our events, workshops, and gatherings, we aim to inspire creativity, foster friendships, and indulge in the joy of sharing delicious treats.</p>
+				<p className="text-2xl text-center text-[#5F4444] font-semibold">Join us as we embark on a delightful journey through the art of dessert-making. From mastering the perfect bakes to our annual dessert crawls, there's always something new to experience and savor.</p>
+				<p className="text-2xl text-center text-[#5F4444] font-semibold">No matter your skill level or background, everyone is welcome at the University of Auckland Dessert Society. So come join us, and let's satisfy our sweet cravings together! </p>
 			</div>
 
 			<div className="fixed bottom-10 w-96 h-10 flex justify-between ">
