@@ -23,20 +23,23 @@ export default function Home() {
 
 function Landing({ children }: { children: JSX.Element }) {
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-b from-pink-200 to-pink-800 items-center gap-10">
+    <div className="flex flex-col h-auto bg-gradient-to-b from-pink-200 to-pink-800 items-center">
       {children}
-      <h1 className=" text-center text-3xl font-bold text-gray-900">
-        Home page
-      </h1>
+      
       <img src={uadslogo} className="colour" />
+      <div className=" z-10 mt-[-250px]">
+      <p className="text-center text-xl font-bold">University of Auckland</p>
+      <h1 className=" text-center text-4xl font-bold text-neutral-100">Dessert Society</h1>
+      <p className=" text-center text-xl font-bold text-neutral-100">Where dessert lovers go to celebrate the art of making and eating desserts</p>
+      </div>
     </div>
   );
 }
 
 function Sponsor() {
   return (
-    <div className="flex flex-col gap-10 h-500 pb-20 bg-pink-800">
-      <h1 className=" text-center text-3xl font-bold pt-10 text-neutral-100">
+    <div className="flex flex-col gap-10 h-screen pb-20 bg-pink-800">
+      <h1 className="  text-center text-3xl font-bold pt-10 text-neutral-100">
         Supported by our Sponsors
       </h1>
       <SponsorGroups />
