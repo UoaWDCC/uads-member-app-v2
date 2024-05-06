@@ -16,7 +16,7 @@ export default {
         'light-pink': '#E6C3BE',
         'pink': '#B04F61',
         'gray': '#3D3F4B',
-        'brown': '#472A25',
+        'brown': '#5F4444',
         'yellow': '#FCBA04'
       },
     },

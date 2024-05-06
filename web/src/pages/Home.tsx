@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import placeholder from "../assets/placeholder.png";
 import tsujiri from "../assets/tsujiri.jpeg";
 import uadslogo from "../assets/UADS Brown logo.svg";
+import cupcake from "../assets/cupcake.svg";
+import cakeslice from "../assets/cake slice.svg";
 
 export default function Home() {
   return (
@@ -37,7 +39,7 @@ function Landing({ children }: { children: JSX.Element }) {
 function Sponsor() {
   return (
     <div className="flex flex-col gap-10 h-screen pb-20 bg-pink">
-      <h1 className="  text-center text-3xl font-bold pt-10 text-light-pink font-body">
+      <h1 className="  text-center text-3xl font-bold pt-10 text-neutral-100">
         Supported by our Sponsors
       </h1>
       <SponsorGroups />
@@ -111,11 +113,13 @@ function SignupSection() {
 function EventSection() {
   return (
     <>
-      <div className="flex flex-col gap-10 h-screen bg-gray content-center">
+      <div className="flex flex-col gap-10 h-screen bg-brown content-center">
         <h1 className="p-10 text-center text-6xl font-bold text-light-pink font-raleway">
-          Our Events
+          Our Upcoming Events
         </h1>
+        {/* event group cards not centered */}
         <EventGroups />
+    
         <PinkButton linkto="/events" buttontext="See More Events" />
       </div>
     </>
@@ -125,7 +129,7 @@ function EventSection() {
 function EventGroups() {
   return (
     <>
-      <div className="flex flex-row flex-nowrap justify-between gap-5 m-10">
+      <div className="flex flex-row flex-nowrap justify-between  m-10">
         <EventCard 
           image={placeholder}
           eventname="Sparkle Gala Dinner" 
@@ -205,7 +209,7 @@ function PinkButton({ linkto, buttontext }: PinkButtonProps) {
     <>
       <div className="text-center">
         <NavLink to={linkto}>
-          <button className="bg-light-pink p-5 rounded-2xl text-gray font-bold text-2xl font-raleway">
+          <button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-2xl font-raleway">
             {buttontext}
           </button>
         </NavLink>
