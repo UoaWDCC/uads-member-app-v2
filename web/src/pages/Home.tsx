@@ -26,11 +26,11 @@ function Landing({ children }: { children: JSX.Element }) {
     <div className="min-h-screen flex flex-col h-auto bg-gradient-to-b from-light-pink to-pink items-center">
       {children}
       
-      <img src={uadslogo} className="colour" className="w-2/5" />
-      <div className=" z-10 mt-[-250px]">
-      <p className="text-center text-xl font-bold">University of Auckland</p>
-      <h1 className=" text-center text-4xl font-bold text-neutral-100">Dessert Society</h1>
-      <p className=" text-center text-xl font-bold text-neutral-100">Where dessert lovers go to celebrate the art of making and eating desserts</p>
+      <img src={uadslogo} className="colour w-2/5" />
+      <div className=" z-10 mt-[-10px] w-7/12">
+      <p className="text-center text-xl font-bold text-brown font-body">University of Auckland</p>
+      <h1 className=" text-center text-5xl font-bold text-brown font-sans">Dessert Society</h1>
+      <p className=" text-center text-xl font-bold text-pink font-body ">Where dessert lovers go to celebrate the art of making and eating desserts</p>
       </div>
     </div>
   );
