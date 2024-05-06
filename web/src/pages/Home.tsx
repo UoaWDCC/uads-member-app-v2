@@ -86,9 +86,9 @@ function SponsorCard({ image, sponsor }: SponsorCardProps) {
               </div>
             
             </div>
-            <div className="pb-5">
+            {/* <div className="pb-5">
             <ReadMoreButton linkto="/sponsors" buttontext="Read more"/>
-            </div>
+            </div> */}
           </div>
         </button>
       </NavLink>
@@ -231,16 +231,16 @@ interface ReadMoreButtonProps {
   buttontext: string;
 }
 
-function ReadMoreButton({ linkto, buttontext }:ReadMoreButtonProps) {
-  return (
-    <>
-    <div className="text-center">
-        <NavLink to={linkto}>
-        <button className="bg-red-200 rounded-2xl p-2 text-yellow-900">
-            {buttontext}
-          </button>
-        </NavLink>
-      </div>
-    </>
-  );
-}
+// function ReadMoreButton({ linkto, buttontext }:ReadMoreButtonProps) {
+//   return (
+//     <>
+//     <div className="text-center">
+//         <NavLink to={linkto}>
+//         <button className="bg-red-200 rounded-2xl p-2 text-yellow-900">
+//             {buttontext}
+//           </button>
+//         </NavLink>
+//       </div>
+//     </>
+//   );
+// }
