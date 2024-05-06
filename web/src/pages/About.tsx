@@ -2,13 +2,13 @@ import people from '../assets/people.jpg'
 
 export default function About() {
 	return (
+		<>
+		<img src={people} alt="people" className="max-w-full h-auto opacity-60"/>
 		<div className="w-screen h-auto bg-[#FFBBBB] flex justify-center items-center py-10 px-40 flex-col">
-			<div className="flex flex-col items-center">
+			<div className="absolute top-0 left-0 w-full h-full flex flex-col items-center py-10 px-40">
 				<h1 className="text-5xl text-center text-[#5F4444] mb-10 font-bold"> What we do</h1>
 				{/* Add UADS logo */}
 				{/* <p>ADD UADS LOGO</p> */}
-				<img src={people} alt="people" />
-
 
 				<p className="text-2xl text-center text-[#5F4444] font-semibold">Welcome to the sweetest corner of the University of Auckland – the Dessert Society!</p> <br />
 				<p className="text-2xl text-center text-[#5F4444] font-semibold">At the University of Auckland Dessert Society, we're more than just a club; we're a community united by our love for all things sweet. Whether you're an avid baker, a dessert connoisseur, or simply someone with a sweet tooth, you'll find a home among us.</p> <br />
@@ -37,6 +37,6 @@ export default function About() {
 			</div>
 
 		</div>
-
+</>
 	)
 }
