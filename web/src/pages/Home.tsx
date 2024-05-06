@@ -37,7 +37,7 @@ function Landing({ children }: { children: JSX.Element }) {
 function Sponsor() {
   return (
     <div className="flex flex-col gap-10 h-screen pb-20 bg-pink">
-      <h1 className="  text-center text-3xl font-bold pt-10 text-neutral-100">
+      <h1 className="  text-center text-3xl font-bold pt-10 text-light-pink font-body">
         Supported by our Sponsors
       </h1>
       <SponsorGroups />
@@ -49,7 +49,7 @@ function Sponsor() {
 function SponsorGroups() {
   return (
     <>
-      <div className="flex flex-row flex-nowrap justify-center gap-20">
+      <div className="flex flex-row flex-nowrap justify-center gap-[2.75rem]">
         <SponsorCard 
         image={tsujiri} 
         sponsor="tsujiri"/>
