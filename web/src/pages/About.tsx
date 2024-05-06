@@ -1,4 +1,4 @@
-
+import people from '../assets/people.jpg'
 
 export default function About() {
 	return (
@@ -7,6 +7,8 @@ export default function About() {
 				<h1 className="text-5xl text-center text-[#5F4444] mb-10 font-bold"> What we do</h1>
 				{/* Add UADS logo */}
 				{/* <p>ADD UADS LOGO</p> */}
+				<img src={people} alt="people" />
+
 
 				<p className="text-2xl text-center text-[#5F4444] font-semibold">Welcome to the sweetest corner of the University of Auckland – the Dessert Society!</p> <br />
 				<p className="text-2xl text-center text-[#5F4444] font-semibold">At the University of Auckland Dessert Society, we're more than just a club; we're a community united by our love for all things sweet. Whether you're an avid baker, a dessert connoisseur, or simply someone with a sweet tooth, you'll find a home among us.</p> <br />
