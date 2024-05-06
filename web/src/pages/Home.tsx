@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import placeholder from "../assets/placeholder.png";
 import tsujiri from "../assets/tsujiri.jpeg";
-import uadslogo from "../assets/UADSLogo.svg";
+import uadslogo from "../assets/UADS Brown logo.svg";
 
 export default function Home() {
   return (
