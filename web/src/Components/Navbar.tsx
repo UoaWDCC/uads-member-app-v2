@@ -12,7 +12,7 @@ export default function Navbar() {
           }`
         }
       >
-        <span className="px-3">Home</span>
+        <span className="px-3 select-none">Home</span>
       </NavLink>
       <NavLink
         to="/about"
@@ -23,7 +23,7 @@ export default function Navbar() {
           }`
         }
       >
-        <span className="px-3">About Us</span>
+        <span className="px-3 select-none">About Us</span>
       </NavLink>
       <NavLink
         to="/events"
@@ -34,7 +34,7 @@ export default function Navbar() {
           }`
         }
       >
-        <span className="px-3">Events</span>
+        <span className="px-3 select-none">Events</span>
       </NavLink>
       <NavLink
         to="/sponsors"
@@ -45,7 +45,7 @@ export default function Navbar() {
           }`
         }
       >
-        <span className="px-3">Sponsors</span>
+        <span className="px-3 select-none">Sponsors</span>
       </NavLink>
       <NavLink
         to="/signup"
@@ -56,7 +56,7 @@ export default function Navbar() {
           }`
         }
       >
-        <span className="px-3">Sign Up</span>
+        <span className="px-3 select-none">Sign Up</span>
       </NavLink>
     </nav>
   );
