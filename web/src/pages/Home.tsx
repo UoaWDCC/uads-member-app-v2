@@ -12,11 +12,9 @@ export default function Home() {
 
       <Sponsor />
 
-      <SignupSection />
-
       <EventSection />
 
-      <ExampleComponent />
+      <SignupSection />
     </>
   );
 }
@@ -25,7 +23,7 @@ function Landing({ children }: { children: JSX.Element }) {
   return (
     <div className="flex flex-col h-screen bg-gradient-to-b from-pink-200 to-pink-800 items-center gap-10">
       {children}
-      <h1 className=" text-center text-3xl font-bold text-gray-900">
+      <h1 className=" text-center text-3xl font-bold text-gray font-raleway">
         Home page
       </h1>
       <img src={uadslogo} className="colour" />
@@ -35,8 +33,8 @@ function Landing({ children }: { children: JSX.Element }) {
 
 function Sponsor() {
   return (
-    <div className="flex flex-col gap-10 h-500 pb-20 bg-pink-800">
-      <h1 className=" text-center text-3xl font-bold pt-10 text-neutral-100">
+    <div className="flex flex-col gap-10 h-500 pb-20 bg-pink">
+      <h1 className=" text-center text-6xl font-bold pt-10 text-light-pink font-raleway">
         Supported by our Sponsors
       </h1>
       <SponsorGroups />
@@ -82,7 +80,7 @@ function SponsorCard({ image, sponsor }: SponsorCardProps) {
             </div>
             <div className="flex flex-row ">
               <div className="justify-start pl-1 text-center grow-0 pb-3 ml-3 text-xl text-yellow-900">
-                <h3 className="text-center font-bold">{sponsor} </h3>
+                <h3 className="text-center font-bold font-raleway">{sponsor} </h3>
               </div>
             
             </div>
@@ -96,23 +94,10 @@ function SponsorCard({ image, sponsor }: SponsorCardProps) {
   );
 }
 
-
-
-
-function ExampleComponent() {
-  return (
-    <div className="w-screen h-80 bg-orange-500">
-      <h1 className=" text-center text-3xl font-bold text-gray-900">
-        EXAMPLE COMPONENT
-      </h1>
-    </div>
-  );
-}
-
 function SignupSection() {
   return (
-    <div className="flex flex-col gap-10 h-fit bg-purple-800 space-y-10 p-10">
-      <h1 className="p-10 text-center text-6xl font-bold text-pink-300">
+    <div className="flex flex-col gap-10 h-fit bg-pink space-y-10 p-10">
+      <h1 className="p-10 text-center text-6xl font-bold text-light-pink font-raleway">
         Join UADS Today!
       </h1>
       <PinkButton linkto="/signup" buttontext="Sign Up Now" />
@@ -123,8 +108,8 @@ function SignupSection() {
 function EventSection() {
   return (
     <>
-      <div className="flex flex-col gap-10 h-screen bg-yellow-800 content-center">
-        <h1 className="p-10 text-center text-3xl font-bold text-pink-300">
+      <div className="flex flex-col gap-10 h-screen bg-gray content-center">
+        <h1 className="p-10 text-center text-6xl font-bold text-light-pink font-raleway">
           Our Events
         </h1>
         <EventGroups />
@@ -183,19 +168,19 @@ function EventCard({ image, eventname, eventdesc, month, date }: EventCardProps)
             </div>
             <div className="flex flex-row justify-evenly m-5 pb-5">
               <div className="justify-start pl-1">
-                <h3 className="text-center text-pink-500 text-lg">
+                <h3 className="text-center text-pink text-lg font-raleway">
                   {month}
                   </h3>
-                <h2 className="text-center font-bold text-black text-3xl">
+                <h2 className="text-center font-bold text-black text-3xl font-raleway">
                   {date}
                 </h2>
               </div>
               <div className="pl-1 text-center grow-0">
                 {/* eventdesc not centered on card need to fix */}
-                <h2 className="text-center font-bold text-black text-xl">
+                <h2 className="text-center font-bold text-black text-xl font-raleway">
                   {eventname}
                 </h2>
-                <p className="text-black text-sm">
+                <p className="text-black text-sm font-raleway">
                   {eventdesc}
                 </p>
               </div>
@@ -217,7 +202,7 @@ function PinkButton({ linkto, buttontext }: PinkButtonProps) {
     <>
       <div className="text-center">
         <NavLink to={linkto}>
-          <button className="bg-pink-300 p-5 rounded-2xl text-yellow-900 font-bold text-2xl">
+          <button className="bg-light-pink p-5 rounded-2xl text-gray font-bold text-2xl font-raleway">
             {buttontext}
           </button>
         </NavLink>
@@ -225,22 +210,3 @@ function PinkButton({ linkto, buttontext }: PinkButtonProps) {
     </>
   );
 }
-
-interface ReadMoreButtonProps {
-  linkto: string;
-  buttontext: string;
-}
-
-// function ReadMoreButton({ linkto, buttontext }:ReadMoreButtonProps) {
-//   return (
-//     <>
-//     <div className="text-center">
-//         <NavLink to={linkto}>
-//         <button className="bg-red-200 rounded-2xl p-2 text-yellow-900">
-//             {buttontext}
-//           </button>
-//         </NavLink>
-//       </div>
-//     </>
-//   );
-// }
