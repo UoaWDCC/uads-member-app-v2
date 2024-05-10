@@ -25,12 +25,19 @@ function Landing({ children }: { children: JSX.Element }) {
   return (
     <div className="min-h-screen flex flex-col h-auto bg-gradient-to-b from-light-pink to-pink items-center">
       {children}
-      
+
       <img src={uadslogo} className="colour w-2/5" />
       <div className=" z-10 mt-[-10px] w-7/12">
-      <p className="text-center text-xl font-bold text-brown font-body">University of Auckland</p>
-      <h1 className=" text-center text-5xl font-bold text-brown font-sans">Dessert Society</h1>
-      <p className=" text-center text-xl font-bold text-pink font-body ">Where dessert lovers go to celebrate the art of making and eating desserts</p>
+        <p className="text-center text-xl font-bold text-brown font-body">
+          University of Auckland
+        </p>
+        <h1 className=" text-center text-5xl font-bold text-brown font-sans">
+          Dessert Society
+        </h1>
+        <p className=" text-center text-xl font-bold text-pink font-body ">
+          Where dessert lovers go to celebrate the art of making and eating
+          desserts
+        </p>
       </div>
     </div>
   );
@@ -39,7 +46,7 @@ function Landing({ children }: { children: JSX.Element }) {
 function Sponsor() {
   return (
     <div className="flex flex-col gap-10 h-screen pb-20 bg-pink">
-      <h1 className="  text-center text-3xl font-bold pt-10 text-neutral-100">
+      <h1 className="  text-center font-bold pt-10 text-light-pink font-raleway text-6xl">
         Supported by our Sponsors
       </h1>
       <SponsorGroups />
@@ -52,15 +59,9 @@ function SponsorGroups() {
   return (
     <>
       <div className="flex flex-row flex-nowrap justify-center gap-[2.75rem]">
-        <SponsorCard 
-        image={tsujiri} 
-        sponsor="tsujiri"/>
-        <SponsorCard 
-        sponsor="tsujiri"
-        image={tsujiri} />
-        <SponsorCard
-        sponsor="tsujiri"
-        image={tsujiri} />
+        <SponsorCard image={tsujiri} sponsor="tsujiri" />
+        <SponsorCard sponsor="tsujiri" image={tsujiri} />
+        <SponsorCard sponsor="tsujiri" image={tsujiri} />
       </div>
     </>
   );
@@ -74,7 +75,7 @@ interface SponsorCardProps {
 function SponsorCard({ image, sponsor }: SponsorCardProps) {
   return (
     <>
-   <NavLink to="/sponsors">
+      <NavLink to="/sponsors">
         <button>
           <div className="bg-white h-500 gap-20 rounded-3xl ">
             <div className="h-64 overflow-hidden">
@@ -85,9 +86,10 @@ function SponsorCard({ image, sponsor }: SponsorCardProps) {
             </div>
             <div className="flex flex-row ">
               <div className="justify-start pl-1 text-center grow-0 pb-3 ml-3 text-xl text-yellow-900">
-                <h3 className="text-center font-bold font-raleway">{sponsor} </h3>
+                <h3 className="text-center font-bold font-raleway">
+                  {sponsor}{" "}
+                </h3>
               </div>
-            
             </div>
             {/* <div className="pb-5">
             <ReadMoreButton linkto="/sponsors" buttontext="Read more"/>
@@ -119,7 +121,7 @@ function EventSection() {
         </h1>
         {/* event group cards not centered */}
         <EventGroups />
-    
+
         <PinkButton linkto="/events" buttontext="See More Events" />
       </div>
     </>
@@ -130,38 +132,46 @@ function EventGroups() {
   return (
     <>
       <div className="flex flex-row flex-nowrap justify-between  m-10">
-        <EventCard 
+        <EventCard
           image={placeholder}
-          eventname="Sparkle Gala Dinner" 
-          eventdesc="Come and enjoy this dinner where our sponsors will be present" 
-          month="Mar" 
-          date="17" />
-        <EventCard 
+          eventname="Sparkle Gala Dinner"
+          eventdesc="Come and enjoy this dinner where our sponsors will be present"
+          month="Mar"
+          date="17"
+        />
+        <EventCard
           image={placeholder}
-          eventname="Poopy Poo Poo" 
-          eventdesc="Poopy poo likes poo but poo doesn't like poopy" 
-          month="Sep" 
-          date="9" />
-        <EventCard 
+          eventname="Poopy Poo Poo"
+          eventdesc="Poopy poo likes poo but poo doesn't like poopy"
+          month="Sep"
+          date="9"
+        />
+        <EventCard
           image={placeholder}
-          eventname="Placeholder Event Name" 
-          eventdesc="Placeholder word placeholder replacement poo word yes" 
-          month="Jan" 
-          date="22" />
+          eventname="Placeholder Event Name"
+          eventdesc="Placeholder word placeholder replacement poo word yes"
+          month="Jan"
+          date="22"
+        />
       </div>
     </>
   );
 }
 
-
 interface EventCardProps {
-  image:  string;
+  image: string;
   eventname: string;
   eventdesc: string;
   month: string;
   date: string;
 }
-function EventCard({ image, eventname, eventdesc, month, date }: EventCardProps) {
+function EventCard({
+  image,
+  eventname,
+  eventdesc,
+  month,
+  date,
+}: EventCardProps) {
   return (
     <>
       <NavLink to="/events">
@@ -177,7 +187,7 @@ function EventCard({ image, eventname, eventdesc, month, date }: EventCardProps)
               <div className="justify-start pl-1">
                 <h3 className="text-center text-pink text-lg font-raleway">
                   {month}
-                  </h3>
+                </h3>
                 <h2 className="text-center font-bold text-black text-3xl font-raleway">
                   {date}
                 </h2>
@@ -187,9 +197,7 @@ function EventCard({ image, eventname, eventdesc, month, date }: EventCardProps)
                 <h2 className="text-center font-bold text-black text-xl font-raleway">
                   {eventname}
                 </h2>
-                <p className="text-black text-sm font-raleway">
-                  {eventdesc}
-                </p>
+                <p className="text-black text-sm font-raleway">{eventdesc}</p>
               </div>
             </div>
           </div>
