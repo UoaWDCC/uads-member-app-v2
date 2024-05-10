@@ -1,10 +1,10 @@
 import { NavLink } from "react-router-dom";
-import placeholder from "../assets/placeholder.png";
-import tsujiri from "../assets/example-tsujiri-logo.png";
+import Slider from "react-slick";
 import uadslogo from "../assets/UADS Brown logo.svg";
-import cupcake from "../assets/cupcake.svg";
-import cakeslice from "../assets/cake slice.svg";
-
+import tsujiri from "../assets/example-tsujiri-logo.png";
+import placeholder from "../assets/placeholder.png";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 export default function Home() {
   return (
     <>
@@ -44,26 +44,48 @@ function Landing({ children }: { children: JSX.Element }) {
 }
 
 function Sponsor() {
+  //TODO: Get images from db
+  const hardCodedArrayOfLogos: string[] = [
+    tsujiri,
+    tsujiri,
+    tsujiri,
+    tsujiri,
+    tsujiri,
+    tsujiri,
+    tsujiri,
+    tsujiri,
+  ];
   return (
     <div className="flex flex-col gap-10 h-1/5 pb-20 bg-pink">
       <h1 className="  text-center font-bold pt-10 text-light-pink font-raleway text-6xl">
         Supported by our Sponsors
       </h1>
-      <SponsorGroups />
+      <ImageSlider images={hardCodedArrayOfLogos} />
       <PinkButton linkto="/sponsors" buttontext="See our sponsors" />
     </div>
   );
 }
 
-function SponsorGroups() {
+function ImageSlider({ images }: { images: string[] }) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 4000,
+    centerPadding: "0px",
+  };
+
   return (
-    <>
-      <div className="flex flex-row flex-nowrap justify-center gap-[2.75rem]">
-        <SponsorCard image={tsujiri} sponsor="tsujiri" />
-        <SponsorCard sponsor="tsujiri" image={tsujiri} />
-        <SponsorCard sponsor="tsujiri" image={tsujiri} />
-      </div>
-    </>
+    <div className="h-80 container self-center -mx-10">
+      <Slider {...settings}>
+        {images.map((image) => (
+          <SponsorCard key={"logo:" + image} image={image} />
+        ))}
+      </Slider>
+    </div>
   );
 }
 
@@ -75,9 +97,9 @@ interface SponsorCardProps {
 function SponsorCard({ image }: SponsorCardProps) {
   return (
     <>
-      <NavLink to="/sponsors">
+      <NavLink to="/sponsors" className="flex justify-center mx-10">
         <button>
-          <div className="flex items-center justify-center h-80 w-80 ">
+          <div className="flex items-center justify-center h-80">
             <img className="object-contain" src={image} />
           </div>
         </button>
