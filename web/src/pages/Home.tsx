@@ -28,11 +28,10 @@ export default function Home() {
 
 function Landing({ children }: { children: JSX.Element }) {
   return (
-    <div className="min-h-screen flex flex-col h-auto bg-gradient-to-b from-light-pink to-pink items-center">
+    <div className="min-h-screen flex flex-col h-auto bg-light-pink items-center">
       {children}
-
       <img src={uadslogo} className="colour w-2/5" />
-      <div className=" z-10 mt-[-10px] w-7/12">
+      <div className="flex flex-col z-10 w-7/12">
         <p className="text-center text-xl font-bold text-brown font-body">
           University of Auckland
         </p>
@@ -44,10 +43,12 @@ function Landing({ children }: { children: JSX.Element }) {
           desserts
         </p>
       </div>
+      <div className="flex-1 bg-gradient-to-b from-light-pink to-pink w-screen">
+        {/** socials */}
+      </div>
     </div>
   );
 }
-
 function Sponsor() {
   //TODO: Get images from db
   const hardCodedArrayOfLogos: string[] = [
