@@ -43,7 +43,7 @@ function Landing({ children }: { children: JSX.Element }) {
           desserts
         </p>
       </div>
-      <div className="flex-1 bg-gradient-to-b from-light-pink to-pink w-screen">
+      <div className="flex-1 bg-gradient-to-b from-light-pink to-pink w-full">
         {/** socials */}
       </div>
     </div>
