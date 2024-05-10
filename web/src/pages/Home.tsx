@@ -27,11 +27,14 @@ function Landing({ children }: { children: JSX.Element }) {
       {children}
       
       <img src={uadslogo} className="colour w-2/5" />
+      <img src={cupcake} className="z-10 mt-[-200px]"/>
+
       <div className=" z-10 mt-[-10px] w-7/12">
       <p className="text-center text-xl font-bold text-brown font-body">University of Auckland</p>
       <h1 className=" text-center text-5xl font-bold text-brown font-sans">Dessert Society</h1>
       <p className=" text-center text-xl font-bold text-pink font-body ">Where dessert lovers go to celebrate the art of making and eating desserts</p>
       </div>
+
     </div>
   );
 }
@@ -39,7 +42,7 @@ function Landing({ children }: { children: JSX.Element }) {
 function Sponsor() {
   return (
     <div className="flex flex-col gap-10 h-screen pb-20 bg-pink">
-      <h1 className="  text-center text-3xl font-bold pt-10 text-neutral-100">
+      <h1 className="  text-center text-3xl font-bold pt-10 text-light-pink">
         Supported by our Sponsors
       </h1>
       <SponsorGroups />
