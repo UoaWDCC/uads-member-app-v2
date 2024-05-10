@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import placeholder from "../assets/placeholder.png";
-import tsujiri from "../assets/tsujiri.jpeg";
+import tsujiri from "../assets/example-tsujiri-logo.png";
 import uadslogo from "../assets/UADS Brown logo.svg";
 import cupcake from "../assets/cupcake.svg";
 import cakeslice from "../assets/cake slice.svg";
@@ -45,7 +45,7 @@ function Landing({ children }: { children: JSX.Element }) {
 
 function Sponsor() {
   return (
-    <div className="flex flex-col gap-10 h-screen pb-20 bg-pink">
+    <div className="flex flex-col gap-10 h-1/5 pb-20 bg-pink">
       <h1 className="  text-center font-bold pt-10 text-light-pink font-raleway text-6xl">
         Supported by our Sponsors
       </h1>
@@ -69,31 +69,16 @@ function SponsorGroups() {
 
 interface SponsorCardProps {
   image: string;
-  sponsor: string;
+  sponsor?: string;
 }
 
-function SponsorCard({ image, sponsor }: SponsorCardProps) {
+function SponsorCard({ image }: SponsorCardProps) {
   return (
     <>
       <NavLink to="/sponsors">
         <button>
-          <div className="bg-white h-500 gap-20 rounded-3xl ">
-            <div className="h-64 overflow-hidden">
-              <img
-                className="w-full rounded-3xl rounded-b-none"
-                src={image}
-              ></img>
-            </div>
-            <div className="flex flex-row ">
-              <div className="justify-start pl-1 text-center grow-0 pb-3 ml-3 text-xl text-yellow-900">
-                <h3 className="text-center font-bold font-raleway">
-                  {sponsor}{" "}
-                </h3>
-              </div>
-            </div>
-            {/* <div className="pb-5">
-            <ReadMoreButton linkto="/sponsors" buttontext="Read more"/>
-            </div> */}
+          <div className="flex items-center justify-center h-80 w-80 ">
+            <img className="object-contain" src={image} />
           </div>
         </button>
       </NavLink>
