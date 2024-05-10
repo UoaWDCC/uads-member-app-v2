@@ -3,8 +3,13 @@ import Slider from "react-slick";
 import uadslogo from "../assets/UADS Brown logo.svg";
 import tsujiri from "../assets/example-tsujiri-logo.png";
 import placeholder from "../assets/placeholder.png";
+import donut from "../assets/donut.png";
+import cake from "../assets/cake.png";
+import chocolate from "../assets/chocolate.png";
+import cupcake from "../assets/cupcake.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+
 export default function Home() {
   return (
     <>
@@ -56,13 +61,23 @@ function Sponsor() {
     tsujiri,
   ];
   return (
-    <div className="flex flex-col gap-10 h-1/5 pb-20 bg-pink">
-      <h1 className="  text-center font-bold pt-10 text-light-pink font-raleway text-6xl">
-        Supported by our Sponsors
-      </h1>
-      <ImageSlider images={hardCodedArrayOfLogos} />
-      <PinkButton linkto="/sponsors" buttontext="See our sponsors" />
-    </div>
+    <>
+      <div className="pb-20  h-1/5  bg-pink relative z-0">
+        <div className="flex flex-col  gap-10 z-10">
+          <h1 className="  text-center font-bold pt-10 text-light-pink font-raleway text-6xl">
+            Supported by our Sponsors
+          </h1>
+          <ImageSlider images={hardCodedArrayOfLogos} />
+          <PinkButton linkto="/sponsors" buttontext="See our sponsors" />
+        </div>
+
+        {/** TODO: replace all images as inconsistent */}
+        <img src={donut} className="absolute bottom-0 right-1/4 -z-10" />
+        <img src={cake} className="absolute  top-0 -z-10" />
+        <img src={cupcake} className="absolute top-5 right-10 -z-10" />
+        <img src={chocolate} className="absolute bottom-10 -z-10" />
+      </div>
+    </>
   );
 }
 
