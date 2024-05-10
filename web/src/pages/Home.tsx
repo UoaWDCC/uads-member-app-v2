@@ -10,6 +10,18 @@ import cupcake from "../assets/cupcake.png";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+//TODO: Get actual info from db
+const sponsorsDummyData: string[] = [
+  tsujiri,
+  tsujiri,
+  tsujiri,
+  tsujiri,
+  tsujiri,
+  tsujiri,
+  tsujiri,
+  tsujiri,
+];
+
 export default function Home() {
   return (
     <>
@@ -17,7 +29,7 @@ export default function Home() {
         <p className="h-20 w-full bg-red-50">Placeholder navbar</p>
       </Landing>
 
-      <Sponsor />
+      <Sponsor images={sponsorsDummyData} />
 
       <EventSection />
 
@@ -49,18 +61,8 @@ function Landing({ children }: { children: JSX.Element }) {
     </div>
   );
 }
-function Sponsor() {
-  //TODO: Get images from db
-  const hardCodedArrayOfLogos: string[] = [
-    tsujiri,
-    tsujiri,
-    tsujiri,
-    tsujiri,
-    tsujiri,
-    tsujiri,
-    tsujiri,
-    tsujiri,
-  ];
+
+function Sponsor({ images }: { images: string[] }) {
   return (
     <>
       <div className="pb-20  h-1/5  bg-pink relative z-0">
@@ -68,7 +70,7 @@ function Sponsor() {
           <h1 className="  text-center font-bold pt-10 text-light-pink font-raleway text-6xl">
             Supported by our Sponsors
           </h1>
-          <ImageSlider images={hardCodedArrayOfLogos} />
+          <SponsorLogoSlider images={images} />
           <PinkButton linkto="/sponsors" buttontext="See our sponsors" />
         </div>
 
@@ -82,7 +84,7 @@ function Sponsor() {
   );
 }
 
-function ImageSlider({ images }: { images: string[] }) {
+function SponsorLogoSlider({ images }: { images: string[] }) {
   const settings = {
     dots: true,
     infinite: true,
@@ -188,6 +190,7 @@ interface EventCardProps {
   month: string;
   date: string;
 }
+
 function EventCard({
   image,
   eventname,
