@@ -116,11 +116,9 @@ function SponsorCard({ image }: SponsorCardProps) {
   return (
     <>
       <NavLink to="/sponsors" className="flex justify-center mx-10">
-        <button>
-          <div className="flex items-center justify-center h-80">
-            <img className="object-contain" src={image} />
-          </div>
-        </button>
+        <div className="flex items-center justify-center h-80">
+          <img className="object-contain" src={image} />
+        </div>
       </NavLink>
     </>
   );
