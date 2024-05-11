@@ -4,69 +4,94 @@ import email from "../assets/email.svg";
 import fb from "../assets/facebook-app-symbol.svg";
 import insta from "../assets/insta.svg";
 import tiktok from "../assets/tik-tok.svg";
+import icecream from "../assets/ice-cream.svg";
 
 export default function About() {
 	return (
 		<>
-			<img src={people} alt="people" className="w-screen" />
+			<div className="max-w-screen h-full bg-light-pink">
+				<div className="w-full h-96 px-20 flex justify-between mt-20">
+					<div className="w-[760px] h-96 text-brown font-bold">
+						<h1 className="text-3xl mb-10">About Us</h1>
 
-			<div className="w-screen h-auto bg-[#FFBBBB] flex justify-center items-center py-10 px-40 flex-col">
-				<div className="absolute top-0 left-0 w-full h-full flex flex-col items-center py-10 px-40">
-					<h1 className="text-5xl text-center text-[#5F4444] mb-10 font-bold">
-						{" "}
-						What we do
-					</h1>
-					{/* Add UADS logo */}
-					{/* <p>ADD UADS LOGO</p> */}
-					<p className="text-2xl text-center text-[#5F4444] font-semibold">
-						Welcome to the sweetest corner of the University of Auckland – the
-						Dessert Society!
-					</p>{" "}
-					<br />
-					<p className="text-2xl text-center text-[#5F4444] font-semibold">
-						At the University of Auckland Dessert Society, we're more than just
-						a club; we're a community united by our love for all things sweet.
-						Whether you're an avid baker, a dessert connoisseur, or simply
-						someone with a sweet tooth, you'll find a home among us.
-					</p>{" "}
-					<br />
-					<p className="text-2xl text-center text-[#5F4444] font-semibold">
-						Our society is dedicated to exploring the diverse world of desserts,
-						from classic recipes to innovative creations. Through our events,
-						workshops, and gatherings, we aim to inspire creativity, foster
-						friendships, and indulge in the joy of sharing delicious treats.
-					</p>{" "}
-					<br />
-					<p className="text-2xl text-center text-[#5F4444] font-semibold">
-						Join us as we embark on a delightful journey through the art of
-						dessert-making. From mastering the perfect bakes to our annual
-						dessert crawls, there's always something new to experience and
-						savor.
-					</p>{" "}
-					<br />
-					<p className="text-2xl text-center text-[#5F4444] font-semibold">
-						No matter your skill level or background, everyone is welcome at the
-						University of Auckland Dessert Society. So come join us, and let's
-						satisfy our sweet cravings together!{" "}
-					</p>
+						<p> Welcome to the sweetest corner of the University of Auckland – the Dessert Society!</p> <br />
+						<p> Whether you're a baker, connoisseur, or simply love sweets, you'll find a home with us.   </p> <br />
+						<p>Explore classic recipes to innovative creations through our events, workshops, and gatherings. Join us on a delightful journey through dessert-making, from perfect bakes to annual dessert crawls.</p> <br />
+						<p>	No matter your skill level or background, everyone is welcome at the University of Auckland Dessert Society!</p> <br />
+
+					</div>
+
+					<div className="w-96 h-96 rounded-full bg-pink flex justify-center items-center">
+						<img className="transform -rotate-45" src={icecream} alt="ice-cream photo" />
+					</div>
 				</div>
 
-				<div className="mt-10 w-96 h-10 flex justify-between ">
-					<div className="w-10 h-full bg-[#5F4444] rounded-full flex justify-center items-center">
-						<img src={fb} alt="Facebook" className="w-5 h-5" />
+				<div className="w-full h-auto bg-pink text-light-pink mt-20 flex flex-col items-center">
+					<h1 className="text-4xl font-bold">The Executive Team</h1>
+					<div className="w-full h-auto flex px-20 justify-between">
+						<div className="w-96 h-auto flex flex-col items-center justify-center py-10">
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+						</div>
+						<div className="w-96 h-auto flex flex-col items-center justify-center py-10">
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+						</div>
+						<div className="w-96 h-auto flex flex-col items-center justify-center py-10">
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+							<h2 className="font-bold">President</h2>
+							<p>Kai</p> <br />
+
+						</div>
 					</div>
-					<div className="w-10 h-full bg-[#5F4444]  rounded-full flex justify-center items-center">
-						<img src={insta} alt="Instagram" className="w-6 h-6/" />
+				</div>
+
+				<div className="w-full h-auto  flex flex-col px-20">
+					<div className="w-full h-96 flex justify-between items-center ">
+						<div className="w-48 h-48 bg-pink">
+							
+						</div>
+						<div className="w-48 h-48 bg-pink">
+							
+						</div>
+						<div className="w-48 h-48 bg-pink">
+							
+						</div>
+						<div className="w-48 h-48 bg-pink">
+							
+						</div>
+						<div className="w-48 h-48 bg-pink">
+							
+						</div>
+						
 					</div>
-					<div className="w-10 h-full bg-[#5F4444]  rounded-full flex justify-center items-center">
-						<img src={discord} alt="Discord" className="w-7 h-7/" />
-					</div>
-					<div className="w-10 h-full bg-[#5F4444]  rounded-full flex justify-center items-center">
-						<img src={tiktok} alt="Tiktok" className="w-5 h-5/" />
-					</div>
-					<div className="w-10 h-full bg-[#5F4444]  rounded-full flex justify-center items-center">
-						<img src={email} alt="Email" className="w-5 h-5/" />
-					</div>
+
+					<div className="w-full h-96 flex justify-between items-center">
+						<div className = "w-48 h-48 bg-pink"></div>
+						<div className = "w-48 h-48 bg-pink"></div>
+						<div className = "w-48 h-48 bg-pink"></div>
+						<div className = "w-48 h-48 bg-pink"></div>
+						<div className = "w-48 h-48 bg-pink"></div>	
+					</div>	
 
 				</div>
 
