@@ -3,11 +3,11 @@ import logo from "../assets/UADS_Logo.svg"
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center px-20 py-4 bg-[#B04F61] uppercase min-w-[900px] justify-between">
+    <nav className="flex items-center px-20 py-1 bg-[#B04F61] uppercase min-w-[900px] justify-between">
       <div>
         <img src={logo} alt="UADS_Logo"/>
       </div>
-      <div className=""> 
+      <div className="w-[670px]"> 
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -17,7 +17,7 @@ export default function Navbar() {
             }`
           }
         >
-          <span className="px-3 select-none text-transform: capitalize">Home</span>
+          <span className="px-3 text-2xl select-none text-transform: capitalize">Home</span>
         </NavLink>
         <NavLink
           to="/about"
@@ -28,7 +28,7 @@ export default function Navbar() {
             }`
           }
         >
-          <span className="px-3 select-none text-transform: capitalize">About</span>
+          <span className="px-3 text-2xl select-none text-transform: capitalize">About</span>
         </NavLink>
         <NavLink
           to="/events"
@@ -39,7 +39,7 @@ export default function Navbar() {
             }`
           }
         >
-          <span className="px-3 select-none text-transform: capitalize">Events</span>
+          <span className="px-3 text-2xl select-none text-transform: capitalize">Events</span>
         </NavLink>
         <NavLink
           to="/sponsors"
@@ -50,7 +50,7 @@ export default function Navbar() {
             }`
           }
         >
-          <span className="px-3 select-none text-transform: capitalize">Sponsors</span>
+          <span className="px-3 text-2xl select-none text-transform: capitalize">Sponsors</span>
         </NavLink>
       </div>
       <div className="">
@@ -63,7 +63,7 @@ export default function Navbar() {
           }`
         }
       >
-        <span className="px-1 select-none text-transform: capitalize">Join</span>
+        <span className="px-1 text-2xl select-none text-transform: capitalize">Join</span>
       </NavLink>
       </div>
     </nav>
