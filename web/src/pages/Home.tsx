@@ -3,6 +3,8 @@ import Slider from "react-slick";
 import uadslogo from "../assets/UADS Brown logo.svg";
 import tsujiri from "../assets/example-tsujiri-logo.png";
 import placeholder from "../assets/placeholder.png";
+import icecream from "../assets/dessert-svgrepo-com 1.png";
+import creamcup from "../assets/cream-cup-dessert-svgrepo-com 1.svg";
 import donut from "../assets/donut.png";
 import cake from "../assets/cake.png";
 import chocolate from "../assets/chocolate.png";
@@ -40,13 +42,17 @@ export default function Home() {
 
 function Landing({ children }: { children: JSX.Element }) {
   return (
-    <div className="min-h-screen flex flex-col h-auto bg-light-pink items-center">
+    
+    <div className="min-h-screen flex flex-col  h-auto bg-gradient-to-b from-light-pink to-pink items-center relative">
       {children}
-      <img src={uadslogo} className="colour w-2/5" />
+      
+      <img src={icecream} className="absolute top-15 left-0 scale-75 opacity-50 -rotate-12 mt-24" />
+      <img src={creamcup} className="absolute right-0 scale-50 opacity-50 rotate-12 mt-8" />
+      <img src={uadslogo} className="colour w-2/5 mt-11" />
       <div className=" z-10 mt-[-10px] w-7/12">
-      <p className="text-center text-xl font-bold text-brown font-body">University of Auckland</p>
-      <h1 className=" text-center text-5xl font-bold text-brown font-sans">Dessert Society</h1>
-      <p className=" text-center text-xl font-bold text-pink font-body ">Where dessert lovers go to celebrate the art of making and eating desserts</p>
+      <p className="text-center text-xl font-bold text-brown">University of Auckland</p>
+      <h1 className=" text-center text-5xl font-bold text-brown ">Dessert Society</h1>
+      <p className=" text-center text-xl font-bold text-pink  ">Where dessert lovers go to celebrate the art of making and eating desserts</p>
       </div>
 
     </div>
