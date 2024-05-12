@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Slider from "react-slick";
+// import Slider from "react-slick";
 import uadslogo from "../assets/UADS Brown logo.svg";
 import tsujiri from "../assets/example-tsujiri-logo.png";
 import placeholder from "../assets/placeholder.png";
@@ -9,8 +9,10 @@ import donut from "../assets/donut.png";
 import cake from "../assets/cake.png";
 import chocolate from "../assets/chocolate.png";
 import cupcake from "../assets/cupcake.png";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useState, useEffect } from 'react';
+
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 //TODO: Get actual info from db
 const sponsorsDummyData: string[] = [
@@ -41,18 +43,42 @@ export default function Home() {
 }
 
 function Landing({ children }: { children: JSX.Element }) {
+  const [isSmallerScreen, setIsSmallerScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallerScreen(window.innerWidth <= 768); // Adjust threshold as needed
+    };
+
+    // Initial call to handleResize to set initial state
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   return (
     
-    <div className="min-h-screen flex flex-col  h-auto bg-gradient-to-b from-light-pink to-pink items-center relative">
+    <div className="min-h-screen flex flex-col  h-auto bg-gradient-to-b from-light-pink via-light-pink to-pink items-center relative">
       {children}
       
-      <img src={icecream} className="absolute top-15 left-0 scale-75 opacity-50 -rotate-12 mt-24" />
-      <img src={creamcup} className="absolute right-0 scale-50 opacity-50 rotate-12 mt-8" />
-      <img src={uadslogo} className="colour w-2/5 mt-11" />
-      <div className=" z-10 mt-[-10px] w-7/12">
+      <img src={icecream} className={`absolute top-15 left-12 scale-75 opacity-50 -rotate-12 mt-24 ${isSmallerScreen && 'hidden'}`}/>
+      
+      <img src={creamcup} className={`absolute right-0 scale-50 opacity-50 rotate-12 mt-8 ${
+          isSmallerScreen && 'hidden'
+        }`} />
+      
+      <img src={uadslogo} className="colour w-2/5  mt-11" />
+      
+      <div className=" z-10 mt-[-10px] w-7/12 ">
       <p className="text-center text-xl font-bold text-brown">University of Auckland</p>
       <h1 className=" text-center text-5xl font-bold text-brown ">Dessert Society</h1>
-      <p className=" text-center text-xl font-bold text-pink  ">Where dessert lovers go to celebrate the art of making and eating desserts</p>
+      <p className=" text-center text-xl font-bold text-pink ">Where dessert lovers go to celebrate the art of making and eating desserts</p>
       </div>
 
     </div>
@@ -89,28 +115,28 @@ function SponsorGroups() {
   );
 }
 
-function SponsorLogoSlider({ images }: { images: string[] }) {
-  const settings = {
-    dots: true,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 4000,
-    centerPadding: "0px",
-  };
+// function SponsorLogoSlider({ images }: { images: string[] }) {
+//   const settings = {
+//     dots: true,
+//     infinite: true,
+//     slidesToShow: 3,
+//     slidesToScroll: 1,
+//     autoplay: true,
+//     speed: 2000,
+//     autoplaySpeed: 4000,
+//     centerPadding: "0px",
+//   };
 
-  return (
-    <div className="h-80 container self-center -mx-10">
-      <Slider {...settings}>
-        {images.map((image) => (
-          <SponsorCard key={"logo:" + image} image={image} />
-        ))}
-      </Slider>
-    </div>
-  );
-}
+//   return (
+//     <div className="h-80 container self-center -mx-10">
+//       <Slider {...settings}>
+//         {images.map((image) => (
+//           <SponsorCard key={"logo:" + image} image={image} />
+//         ))}
+//       </Slider>
+//     </div>
+//   );
+// }
 
 interface SponsorCardProps {
   image: string;
