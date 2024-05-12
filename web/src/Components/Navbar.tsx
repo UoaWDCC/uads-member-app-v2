@@ -4,7 +4,7 @@ import logo from "../assets/UADS_Logo.svg"
 export default function Navbar() {
   return (
     <nav className="flex items-center px-20 py-4 bg-[#B04F61] uppercase min-w-[900px] justify-between">
-      <div className = "h-7 w-7">
+      <div>
         <img src={logo} alt="UADS_Logo"/>
       </div>
       <div className=""> 
@@ -53,7 +53,7 @@ export default function Navbar() {
           <span className="px-3 select-none text-transform: capitalize">Sponsors</span>
         </NavLink>
       </div>
-      <div className="bg-pink">
+      <div className="">
       <NavLink
         to="/signup"
         className={({ isActive }) =>
