@@ -73,7 +73,7 @@ function Landing({ children }: { children: JSX.Element }) {
           isSmallerScreen && 'hidden'
         }`} />
       
-      <img src={uadslogo} className="colour w-2/5  mt-11" />
+      <img src={uadslogo} className="colour w-2/5 z-10 mt-11" />
       
       <div className=" z-10 mt-[-10px] w-7/12 ">
       <p className="text-center text-xl font-bold text-brown">University of Auckland</p>
@@ -185,7 +185,7 @@ function EventSection() {
 function EventGroups() {
   return (
     <>
-      <div className="flex flex-row sm:flex-wrap flex-nowrap justify-start m-10">
+      <div className=" flex flex-wrap justify-start m-10">
         <EventCard
           image={placeholder}
           eventname="Sparkle Gala Dinner"
