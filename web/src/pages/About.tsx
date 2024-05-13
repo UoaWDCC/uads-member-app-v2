@@ -4,8 +4,8 @@ import icecream from "../assets/ice-cream.svg";
 export default function About() {
 	return (
 		<>
-			<div className="max-w-screen h-full bg-light-pink">
-				<div className="w-full h-96 px-20 flex justify-between mt-20">
+			<div className="max-w-screen h-auto bg-light-pink ">
+				<div className="w-full h-[500px] px-20 flex justify-between mt-20 items-center">
 					<div className="w-[760px] h-96 text-brown font-bold">
 						<h1 className="text-3xl mb-10">About Us</h1>
 						<p>
@@ -30,12 +30,12 @@ export default function About() {
 						<br />
 					</div>
 
-					<div className="w-96 h-96 rounded-full bg-pink flex justify-center items-center">
-						<img className="transform -rotate-45" src={icecream} alt="ice-cream photo" />
+					<div className="w-80 h-80 rounded-full bg-pink flex justify-center items-center mt-10">
+						<img className="transform -rotate-45 absolute w-[500px] h-[500px]" src={icecream} alt="ice-cream photo" />
 					</div>
 				</div>
 
-				<div className="w-full h-auto bg-pink text-light-pink mt-20 flex flex-col items-center">
+				<div className="w-full h-auto bg-pink text-light-pink flex flex-col items-center pt-8">
 					<h1 className="text-4xl font-bold">The Executive Team</h1>
 					<div className="w-full h-auto flex px-20 justify-between">
 						<div className="w-96 h-auto flex flex-col items-center justify-center py-10">
@@ -66,20 +66,40 @@ export default function About() {
 				</div>
 
 				<div className="w-full h-auto  flex flex-col px-20">
-					<div className="w-full h-96 flex justify-between items-center ">
-						<div className="w-48 h-48 bg-pink"></div>
-						<div className="w-48 h-48 bg-pink"></div>
-						<div className="w-48 h-48 bg-pink"></div>
-						<div className="w-48 h-48 bg-pink"></div>
-						<div className="w-48 h-48 bg-pink"></div>
+					<div className="w-full h-auto flex justify-between items-center my-10">
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
 					</div>
 
-					<div className="w-full h-96 flex justify-between items-center">
-						<div className="w-48 h-48 bg-pink"></div>
-						<div className="w-48 h-48 bg-pink"></div>
-						<div className="w-48 h-48 bg-pink"></div>
-						<div className="w-48 h-48 bg-pink"></div>
-						<div className="w-48 h-48 bg-pink"></div>
+					<div className="w-full h-auto flex justify-between items-center my-10">
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
+						<div className="w-64 h-64 bg-pink rounded-3xl hover:bg-brown hover:cursor-pointer">
+							<h1 className="w-full h-full flex justify-center items-center opacity-0 hover:text-light-pink hover:opacity-100">Kai</h1>
+						</div>
 					</div>
 				</div>
 
