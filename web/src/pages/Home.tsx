@@ -169,8 +169,11 @@ function SignupSection() {
 function EventSection() {
   return (
     <>
-      <div className="flex flex-col h-auto bg-brown content-center">
-        <h1 className="p-10 text-center text-6xl font-bold text-light-pink font-raleway">
+      <div className="h-auto bg-brown content-center">
+        <h1 className="z-0 text-9xl font-raleway text-gray opacity-35 font-extrabold">
+          UADS
+          </h1>
+        <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
           Our Upcoming Events
         </h1>
         {/* event group cards not centered */}
@@ -185,7 +188,7 @@ function EventSection() {
 function EventGroups() {
   return (
     <>
-      <div className="flex flex-row sm:flex-wrap flex-nowrap justify-start m-10">
+      <div className="flex flex-col justify-center gap-10 m-10 lg:m-5 lg:flex-row xl:flex-nowrap xl:flex-row lg:m-10">
         <EventCard
           image={placeholder}
           eventname="Sparkle Gala Dinner"
@@ -229,35 +232,31 @@ function EventCard({
 }: EventCardProps) {
   return (
     <>
-      <NavLink to="/events">
-        <button>
-          <div className="bg-white h-500 rounded-3xl md:w-1/2 lg:w-2/6"> {/* Adjust width for medium screens */}
-            <div className="h-64 overflow-hidden">
-              <img
-                className=" rounded-3xl rounded-b-none"
-                src={image}
-                alt="Event"
-              />
-            </div>
-            <div className="flex flex-row justify-evenly m-5 pb-5">
-              <div className="justify-start pl-1">
-                <h3 className="text-center text-gray text-lg font-raleway bg-white">
-                  {month}
-                </h3>
-                <h2 className="text-center font-bold text-black text-3xl font-raleway">
-                  {date}
-                </h2>
-              </div>
-              <div className="pl-1 text-center md:text-left md:pl-0 bg-pink m-0"> {/* Adjust alignment for medium screens */}
-                <h2 className="text-center md:text-left font-bold text-light-pink text-xl font-raleway">
-                  {eventname}
-                </h2>
-                <p className="text-light-pink text-sm font-raleway">{eventdesc}</p>
-              </div>
-            </div>
+      <div className="bg-pink rounded-3xl m-auto lg:w-4/5 w-3/4"> {/* Adjust width for medium screens */}
+        <div className="h-2/6 overflow-hidden">
+          <img
+            className="w-auto rounded-3xl rounded-b-none"
+            src={image}
+            alt="Event"
+          />
+        </div>
+        <div className="flex flex-col sm:flex-row justify-evenly m-5 pb-5">
+          <div className="justify-start pl-1 bg-white">
+            <h3 className="text-center text-gray text-lg font-raleway">
+              {month}
+            </h3>
+            <h2 className="text-center font-bold text-black text-3xl font-raleway">
+              {date}
+            </h2>
           </div>
-        </button>
-      </NavLink>
+          <div className="pl-1 text-center md:text-left md:pl-0 m-0"> {/* Adjust alignment for medium screens */}
+            <h2 className="text-center md:text-left font-bold text-light-pink text-xl font-raleway truncate">
+              {eventname}
+            </h2>
+            <p className="text-light-pink text-sm font-raleway truncate">{eventdesc}</p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
