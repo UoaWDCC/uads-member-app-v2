@@ -169,7 +169,7 @@ function SignupSection() {
 function EventSection() {
   return (
     <>
-      <div className="flex flex-col gap-10 h-screen bg-brown content-center">
+      <div className="flex flex-col h-auto bg-brown content-center">
         <h1 className="p-10 text-center text-6xl font-bold text-light-pink font-raleway">
           Our Upcoming Events
         </h1>
@@ -185,7 +185,7 @@ function EventSection() {
 function EventGroups() {
   return (
     <>
-      <div className="flex flex-row flex-nowrap justify-between  m-10">
+      <div className="flex flex-row sm:flex-wrap flex-nowrap justify-start m-10">
         <EventCard
           image={placeholder}
           eventname="Sparkle Gala Dinner"
@@ -231,28 +231,28 @@ function EventCard({
     <>
       <NavLink to="/events">
         <button>
-          <div className="bg-white h-500 gap-10 rounded-3xl w-11/12">
+          <div className="bg-white h-500 rounded-3xl md:w-1/2 lg:w-2/6"> {/* Adjust width for medium screens */}
             <div className="h-64 overflow-hidden">
               <img
-                className="w-full rounded-3xl rounded-b-none"
+                className=" rounded-3xl rounded-b-none"
                 src={image}
-              ></img>
+                alt="Event"
+              />
             </div>
             <div className="flex flex-row justify-evenly m-5 pb-5">
               <div className="justify-start pl-1">
-                <h3 className="text-center text-pink text-lg font-raleway">
+                <h3 className="text-center text-gray text-lg font-raleway bg-white">
                   {month}
                 </h3>
                 <h2 className="text-center font-bold text-black text-3xl font-raleway">
                   {date}
                 </h2>
               </div>
-              <div className="pl-1 text-center grow-0">
-                {/* eventdesc not centered on card need to fix */}
-                <h2 className="text-center font-bold text-black text-xl font-raleway">
+              <div className="pl-1 text-center md:text-left md:pl-0 bg-pink m-0"> {/* Adjust alignment for medium screens */}
+                <h2 className="text-center md:text-left font-bold text-light-pink text-xl font-raleway">
                   {eventname}
                 </h2>
-                <p className="text-black text-sm font-raleway">{eventdesc}</p>
+                <p className="text-light-pink text-sm font-raleway">{eventdesc}</p>
               </div>
             </div>
           </div>
@@ -261,6 +261,7 @@ function EventCard({
     </>
   );
 }
+
 
 interface PinkButtonProps {
   linkto: string;
