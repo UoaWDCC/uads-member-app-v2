@@ -170,16 +170,17 @@ function EventSection() {
   return (
     <>
       <div className="h-auto bg-brown content-center">
-        <h1 className="z-0 text-9xl font-raleway text-gray opacity-35 font-extrabold">
+        {/*<h1 className="absolute  text-[40em] font-raleway text-light-brown opacity-35 font-extrabold text-center">
           UADS
+  </h1>*/}
+        <div className="pb-10 z-40">
+          <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
+            Our Upcoming Events
           </h1>
-        <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
-          Our Upcoming Events
-        </h1>
-        {/* event group cards not centered */}
-        <EventGroups />
+          <EventGroups />
 
-        <PinkButton linkto="/events" buttontext="See More Events" />
+          <PinkButton linkto="/events" buttontext="See More Events" />
+        </div>
       </div>
     </>
   );
@@ -232,7 +233,7 @@ function EventCard({
 }: EventCardProps) {
   return (
     <>
-      <div className="bg-pink rounded-3xl m-auto lg:w-4/5 w-3/4"> {/* Adjust width for medium screens */}
+      <div className="sm:bg-gradient-to-r sm:from-white sm:from-20% sm:via-pink sm:via-20% sm:to-pink lg:via-30% lg:to-30%  lg:from-30%  rounded-3xl m-auto lg:w-4/5 w-3/4 bg-gradient-to-b from-white via-pink to-pink from-80% via-80% to-70% "> {/* Adjust width for medium screens */}
         <div className="h-2/6 overflow-hidden">
           <img
             className="w-auto rounded-3xl rounded-b-none"
@@ -240,20 +241,20 @@ function EventCard({
             alt="Event"
           />
         </div>
-        <div className="flex flex-col sm:flex-row justify-evenly m-5 pb-5">
-          <div className="justify-start pl-1 bg-white">
-            <h3 className="text-center text-gray text-lg font-raleway">
+        <div className="flex flex-col sm:flex-row justify-evenly sm:m-5 sm:mb-1 sm:pb-2 sm:mr-0 sm:ml-5 pb-7">
+          <div className="justify-center pl-1 flex flex-row sm:flex-col gap-3 pt-3 align-text-bottom pb-2 ">
+            <h3 className="text-black sm:text-lg font-raleway text-center text-2xl">
               {month}
             </h3>
             <h2 className="text-center font-bold text-black text-3xl font-raleway">
               {date}
             </h2>
           </div>
-          <div className="pl-1 text-center md:text-left md:pl-0 m-0"> {/* Adjust alignment for medium screens */}
-            <h2 className="text-center md:text-left font-bold text-light-pink text-xl font-raleway truncate">
+          <div className= "justify-center align-center text-center sm:pl-20 m-0 w-auto pl-3 pr-3"> {/* Adjust alignment for medium screens */}
+            <h2 className="text-center md:text-left font-bold text-light-pink md:text-2xl lg:text-lg font-raleway truncate text-xl">
               {eventname}
             </h2>
-            <p className="text-light-pink text-sm font-raleway truncate">{eventdesc}</p>
+            <p className="justify-center text-light-pink md:text-md text-sm font-raleway truncate text-center lg:text-md">{eventdesc}</p>
           </div>
         </div>
       </div>
