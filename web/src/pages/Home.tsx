@@ -233,7 +233,15 @@ function EventCard({
 }: EventCardProps) {
   return (
     <>
-      <div className="sm:bg-gradient-to-r sm:from-white sm:from-20% sm:via-pink sm:via-20% sm:to-pink lg:via-30% lg:to-30%  lg:from-30%  rounded-3xl m-auto lg:w-4/5 w-3/4 bg-gradient-to-b from-white via-pink to-pink from-80% via-80% to-70% "> {/* Adjust width for medium screens */}
+      <div className=
+      "rounded-3xl m-auto lg:w-4/5 w-3/4 
+      bg-gradient-to-b from-white via-pink to-pink 
+      sm:bg-gradient-to-r sm:from-white sm:from-15% sm:via-pink sm:via-15% sm:to-pink
+      from-80% via-80% to-70% 
+      xl:from-20% xl:via-20% xl:to-70% 
+      md:from-25% md:via-0% md:to-70% 
+      lg:via-30% lg:to-30%  lg:from-30%"
+      > {/* Adjust width for medium screens */}
         <div className="h-2/6 overflow-hidden">
           <img
             className="w-auto rounded-3xl rounded-b-none"
@@ -254,7 +262,7 @@ function EventCard({
             <h2 className="text-center md:text-left font-bold text-light-pink md:text-2xl lg:text-lg font-raleway truncate text-xl">
               {eventname}
             </h2>
-            <p className="justify-center text-light-pink md:text-md text-sm font-raleway truncate text-center lg:text-md">{eventdesc}</p>
+            <p className="justify-center text-light-pink md:text-md text-sm font-raleway sm:text-start lg:text-md line-clamp-2">{eventdesc}</p>
           </div>
         </div>
       </div>
