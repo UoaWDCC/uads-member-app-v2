@@ -157,11 +157,11 @@ function SponsorCard({ image }: SponsorCardProps) {
 
 function SignupSection() {
   return (
-    <div className="flex flex-col gap-10 h-fit bg-pink space-y-10 p-10">
-      <h1 className="p-10 text-center text-6xl font-bold text-light-pink font-raleway">
+    <div className="h-fit bg-pink space-y-10 p-12">
+      <h1 className="text-center text-6xl font-bold text-light-pink font-raleway">
         Join UADS Today!
       </h1>
-      <PinkButton linkto="/signup" buttontext="Sign Up Now" />
+      <SignUpButton linkto="/signup" buttontext="Join" />
     </div>
   );
 }
@@ -234,14 +234,7 @@ function EventCard({
   return (
     <>
       <div className=
-      "rounded-3xl m-auto lg:w-4/5 w-3/4 
-      bg-gradient-to-b from-white via-pink to-pink 
-      sm:bg-gradient-to-r sm:from-white sm:from-15% sm:via-pink sm:via-15% sm:to-pink
-      from-80% via-80% to-70% 
-      xl:from-20% xl:via-20% xl:to-70% 
-      md:from-25% md:via-0% md:to-70% 
-      lg:via-30% lg:to-30%  lg:from-30%"
-      > {/* Adjust width for medium screens */}
+      "rounded-3xl m-auto lg:w-4/5 w-3/4 bg-gradient-to-b from-white via-pink to-pink sm:bg-gradient-to-r sm:from-white sm:from-15% sm:via-pink sm:via-15% sm:to-pink from-80% via-80% to-70% xl:from-20% xl:via-20% xl:to-70% md:from-25% md:via-0% md:to-70% lg:via-30% lg:to-30%  lg:from-30%"> {/* Adjust width for medium screens */}
         <div className="h-2/6 overflow-hidden">
           <img
             className="w-auto rounded-3xl rounded-b-none"
@@ -282,6 +275,20 @@ function PinkButton({ linkto, buttontext }: PinkButtonProps) {
       <div className="text-center">
         <NavLink to={linkto}>
           <button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-2xl font-raleway">
+            {buttontext}
+          </button>
+        </NavLink>
+      </div>
+    </>
+  );
+}
+
+function SignUpButton({ linkto, buttontext }: PinkButtonProps) {
+  return (
+    <>
+      <div className="text-center">
+        <NavLink to={linkto}>
+          <button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-5xl font-raleway w-1/4">
             {buttontext}
           </button>
         </NavLink>
