@@ -6,9 +6,9 @@ import joinImage from "../assets/joinimage.svg"
 export default function Navbar() {
   return (
     <div className="relative">
-       <div>
-          <img src={BackgroundSVG} alt="sin.svg" className="mt-[-20px]"/>
-        </div>
+      <div>
+          <img src={BackgroundSVG} alt="sin.svg" className="mt-[-20px]" width="100%"/>
+      </div>
       <nav className="absolute inset-0 flex items-center px-12 py-1 bg-transparent uppercase min-w-[900px] justify-between">
         <div>
           <img src={logo} alt="UADS_Logo" width="100" height="100"/>
