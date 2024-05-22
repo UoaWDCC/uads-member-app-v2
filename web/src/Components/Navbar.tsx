@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <div className="relative">
       <div>
-          <img src={BackgroundSVG} alt="sin.svg" className="mt-[-20px]" width="100%"/>
+          <img src={BackgroundSVG} alt="sin.svg" className="mt-[-2.5%]" width="100%"/>
       </div>
       <nav className="absolute inset-0 flex items-center px-12 py-1 bg-transparent uppercase min-w-[900px] justify-between">
         <div>
@@ -18,8 +18,8 @@ export default function Navbar() {
           to="/"
           className={({ isActive }) =>
             `font-raleway py-2 px-4 transition-all duration-300 font-bold ${isActive
-              ? "text-[#FCBA04]"
-              : "text-[#E6C3BE]  hover:text-[#FCBA04] "
+              ? "text-yellow"
+              : "text-light-pink  hover:text-yellow "
             }`
           }
         >
@@ -29,8 +29,8 @@ export default function Navbar() {
           to="/about"
           className={({ isActive }) =>
             `font-raleway py-2 px-4 transition-all duration-300 font-bold ${isActive
-              ? "text-[#FCBA04]"
-              : "text-[#E6C3BE] hover:text-[#FCBA04] "
+              ? "text-yellow"
+              : "text-light-pink hover:text-yellow "
             }`
           }
         >
@@ -40,8 +40,8 @@ export default function Navbar() {
           to="/events"
           className={({ isActive }) =>
             `font-raleway py-2 px-4 transition-all duration-300 font-bold ${isActive
-              ? "text-[#FCBA04]"
-              : "text-[#E6C3BE] hover:text-[#FCBA04]"
+              ? "text-yellow"
+              : "text-light-pink hover:text-yellow"
             }`
           }
         >
@@ -51,8 +51,8 @@ export default function Navbar() {
           to="/sponsors"
           className={({ isActive }) =>
             `font-raleway py-2 px-4 transition-all duration-300 font-bold ${isActive
-              ? "text-[#FCBA04] "
-              : "text-[#E6C3BE] hover:text-[#FCBA04]"
+              ? "text-yellow "
+              : "text-light-pink hover:text-yellow"
             }`
           }
         >
@@ -64,8 +64,8 @@ export default function Navbar() {
         to="/signup"
         className={({ isActive }) =>
           `font-raleway py-2 px-4 transition-all duration-300 font-bold ${isActive
-            ? "text-[#FCBA04] "
-            : "text-[#E6C3BE]  hover:text-[#FCBA04] "
+            ? "text-yellow "
+            : "text-light-pink  hover:text-yellow "
           }`
         }
       >
