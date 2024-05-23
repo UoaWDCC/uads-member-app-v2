@@ -96,8 +96,8 @@ function Landing({ children }: { children: JSX.Element }) {
 
 function Sponsor({ images }: { images: string[] }) {
   return (
-    <div className="flex flex-col gap-10 h-screen pb-20 bg-pink">
-      <h1 className="  text-center text-3xl font-bold pt-10 text-neutral-100">
+    <div className="flex flex-col gap-10 pb-20 bg-pink">
+      <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
         Supported by our Sponsors
       </h1>
       <SponsorLogoSlider images={images} />
@@ -171,28 +171,20 @@ function SignupSection() {
 
 function EventSection() {
   return (
-    <>
-      <div className="h-auto bg-brown content-center">
-        {/*<h1 className="absolute  text-[40em] font-raleway text-light-brown opacity-35 font-extrabold text-center">
-          UADS
-  </h1>*/}
-        <div className="pb-10 z-40">
-          <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
-            Our Upcoming Events
-          </h1>
-          <EventGroups />
-
-          <PinkButton linkto="/events" buttontext="See More Events" />
-        </div>
-      </div>
-    </>
+    <div className="flex flex-col gap-10 pb-20 bg-brown">
+      <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
+        Our Upcoming Events
+      </h1>
+      <EventGroups />
+      <PinkButton linkto="/events" buttontext="See More Events" />
+    </div>
   );
 }
 
 function EventGroups() {
   return (
     <>
-      <div className="flex flex-col justify-center gap-10 m-10 lg:m-5 lg:flex-row xl:flex-nowrap xl:flex-row lg:m-10">
+      <div className="flex justify-center p-10 gap-10 flex-row">
         <EventCard
           image={placeholder}
           eventname="Sparkle Gala Dinner"
@@ -234,40 +226,27 @@ function EventCard({
   month,
   date,
 }: EventCardProps) {
+  console.log(image);
   return (
-    <>
-      <div className="rounded-3xl m-auto lg:w-4/5 w-3/4 bg-gradient-to-b from-white via-pink to-pink sm:bg-gradient-to-r sm:from-white sm:from-15% sm:via-pink sm:via-15% sm:to-pink from-80% via-80% to-70% xl:from-20% xl:via-20% xl:to-70% md:from-25% md:via-0% md:to-70% lg:via-30% lg:to-30%  lg:from-30%">
-        {" "}
-        {/* Adjust width for medium screens */}
-        <div className="h-2/6 overflow-hidden">
-          <img
-            className="w-auto rounded-3xl rounded-b-none"
-            src={image}
-            alt="Event"
-          />
+    <div className="flex flex-col container h-80 bg-white rounded-3xl overflow-hidden relative z-10">
+      <img
+        src={image}
+        className="flex object-cover h-full w-full absolute z-0 blur-sm"
+      />
+      <div className="flex overflow-hidden h-56 relative justify-center ">
+        <img src={image} className="flex object-contain z-10" />
+      </div>
+      <div className="flex flex-row h-24 w-full z-10">
+        <div className="flex flex-col w-1/6 p-4 bg-white justify-center items-center text-black">
+          <h1>{month}</h1>
+          <h1 className="font-bold">{date}</h1>
         </div>
-        <div className="flex flex-col sm:flex-row justify-evenly sm:m-5 sm:mb-1 sm:pb-2 sm:mr-0 sm:ml-5 pb-7">
-          <div className="justify-center pl-1 flex flex-row sm:flex-col gap-3 pt-3 align-text-bottom pb-2 ">
-            <h3 className="text-black sm:text-lg font-raleway text-center text-2xl">
-              {month}
-            </h3>
-            <h2 className="text-center font-bold text-black text-3xl font-raleway">
-              {date}
-            </h2>
-          </div>
-          <div className="justify-center align-center text-center sm:pl-20 m-0 w-auto pl-3 pr-3">
-            {" "}
-            {/* Adjust alignment for medium screens */}
-            <h2 className="text-center md:text-left font-bold text-light-pink md:text-2xl lg:text-lg font-raleway truncate text-xl">
-              {eventname}
-            </h2>
-            <p className="justify-center text-light-pink md:text-md text-sm font-raleway sm:text-start lg:text-md line-clamp-2">
-              {eventdesc}
-            </p>
-          </div>
+        <div className="flex flex-col p-4 bg-pink w-full text-light-pink">
+          <h1 className="font-bold">{eventname}</h1>
+          <h1>{eventdesc}</h1>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
