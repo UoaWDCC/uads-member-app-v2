@@ -169,13 +169,53 @@ function SignupSection() {
   );
 }
 
+function EventSlider() {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    speed: 2000,
+    autoplaySpeed: 4000,
+    centerPadding: "0px",
+  };
+
+  return (
+    <div className="h-80 container self-center -mx-10">
+      <Slider {...settings}>
+        <EventCard
+          image={placeholder}
+          eventname="Sparkle Gala Dinner"
+          eventdesc="Come and enjoy this dinner where our sponsors will be present"
+          month="Mar"
+          date="17"
+        />
+        <EventCard
+          image={placeholder}
+          eventname="Poopy Poo Poo"
+          eventdesc="Poopy poo likes poo but poo doesn't like poopy"
+          month="Sep"
+          date="9"
+        />
+        <EventCard
+          image={placeholder}
+          eventname="Placeholder Event Name"
+          eventdesc="Placeholder word placeholder replacement poo word yes"
+          month="Jan"
+          date="22"
+        />
+      </Slider>
+    </div>
+  );
+}
+
 function EventSection() {
   return (
     <div className="flex flex-col gap-10 pb-20 bg-brown">
       <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
         Our Upcoming Events
       </h1>
-      <EventGroups />
+      <EventSlider />
       <PinkButton linkto="/events" buttontext="See More Events" />
     </div>
   );
@@ -228,7 +268,7 @@ function EventCard({
 }: EventCardProps) {
   console.log(image);
   return (
-    <div className="flex flex-col container h-80 bg-white rounded-3xl overflow-hidden relative z-10">
+    <div className=" mx-10 flex flex-col h-80 bg-white rounded-3xl overflow-hidden relative z-10">
       <img
         src={image}
         className="flex object-cover h-full w-full absolute z-0 blur-sm"
