@@ -1,18 +1,14 @@
 import { NavLink } from "react-router-dom";
-// import Slider from "react-slick";
 import uadslogo from "../assets/UADS Brown logo.svg";
 import tsujiri from "../assets/example-tsujiri-logo.png";
 import placeholder from "../assets/placeholder.png";
 import icecream from "../assets/dessert-svgrepo-com 1.png";
 import creamcup from "../assets/cream-cup-dessert-svgrepo-com 1.svg";
-import donut from "../assets/donut.png";
-import cake from "../assets/cake.png";
-import chocolate from "../assets/chocolate.png";
-import cupcake from "../assets/cupcake.png";
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 //TODO: Get actual info from db
 const sponsorsDummyData: string[] = [
@@ -54,33 +50,46 @@ function Landing({ children }: { children: JSX.Element }) {
     handleResize();
 
     // Add event listener for window resize
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
   return (
-    
     <div className="min-h-screen flex flex-col  h-auto bg-gradient-to-b from-light-pink via-light-pink to-pink items-center relative">
       {children}
-      
-      <img src={icecream} className={`absolute top-15 left-12 scale-75 opacity-50 -rotate-12 mt-24 ${isSmallerScreen && 'hidden'}`}/>
-      
-      <img src={creamcup} className={`absolute right-0 scale-50 opacity-50 rotate-12 mt-8 ${
-          isSmallerScreen && 'hidden'
-        }`} />
-      
-      <img src={uadslogo} className="colour w-2/5 z-10 mt-11" />
-      
-      <div className=" z-10 mt-[-10px] w-7/12 ">
-      <p className="text-center text-xl font-bold text-brown">University of Auckland</p>
-      <h1 className=" text-center text-5xl font-bold text-brown ">Dessert Society</h1>
-      <p className=" text-center text-xl font-bold text-pink ">Where dessert lovers go to celebrate the art of making and eating desserts</p>
-      </div>
 
+      <img
+        src={icecream}
+        className={`absolute top-15 left-12 scale-75 opacity-50 -rotate-12 mt-24 ${
+          isSmallerScreen && "hidden"
+        }`}
+      />
+
+      <img
+        src={creamcup}
+        className={`absolute right-0 scale-50 opacity-50 rotate-12 mt-8 ${
+          isSmallerScreen && "hidden"
+        }`}
+      />
+
+      <img src={uadslogo} className="colour w-2/5 z-10 mt-11" />
+
+      <div className=" z-10 mt-[-10px] w-7/12 ">
+        <p className="text-center text-xl font-bold text-brown">
+          University of Auckland
+        </p>
+        <h1 className=" text-center text-5xl font-bold text-brown ">
+          Dessert Society
+        </h1>
+        <p className=" text-center text-xl font-bold text-pink ">
+          Where dessert lovers go to celebrate the art of making and eating
+          desserts
+        </p>
+      </div>
     </div>
   );
 }
@@ -91,7 +100,7 @@ function Sponsor({ images }: { images: string[] }) {
       <h1 className="  text-center text-3xl font-bold pt-10 text-neutral-100">
         Supported by our Sponsors
       </h1>
-      <SponsorGroups />
+      <SponsorLogoSlider images={images} />
       <PinkButton linkto="/sponsors" buttontext="See our sponsors" />
     </div>
   );
@@ -101,42 +110,36 @@ function SponsorGroups() {
   return (
     <>
       <div className="flex flex-row flex-nowrap justify-center gap-[2.75rem]">
-        <SponsorCard 
-        image={tsujiri} 
-        sponsor="tsujiri"/>
-        <SponsorCard 
-        sponsor="tsujiri"
-        image={tsujiri} />
-        <SponsorCard
-        sponsor="tsujiri"
-        image={tsujiri} />
+        <SponsorCard image={tsujiri} sponsor="tsujiri" />
+        <SponsorCard sponsor="tsujiri" image={tsujiri} />
+        <SponsorCard sponsor="tsujiri" image={tsujiri} />
       </div>
     </>
   );
 }
 
-// function SponsorLogoSlider({ images }: { images: string[] }) {
-//   const settings = {
-//     dots: true,
-//     infinite: true,
-//     slidesToShow: 3,
-//     slidesToScroll: 1,
-//     autoplay: true,
-//     speed: 2000,
-//     autoplaySpeed: 4000,
-//     centerPadding: "0px",
-//   };
+function SponsorLogoSlider({ images }: { images: string[] }) {
+  const settings = {
+    dots: true,
+    infinite: true,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 4000,
+    centerPadding: "0px",
+  };
 
-//   return (
-//     <div className="h-80 container self-center -mx-10">
-//       <Slider {...settings}>
-//         {images.map((image) => (
-//           <SponsorCard key={"logo:" + image} image={image} />
-//         ))}
-//       </Slider>
-//     </div>
-//   );
-// }
+  return (
+    <div className="h-80 container self-center -mx-10">
+      <Slider {...settings}>
+        {images.map((image) => (
+          <SponsorCard key={"logo:" + image} image={image} />
+        ))}
+      </Slider>
+    </div>
+  );
+}
 
 interface SponsorCardProps {
   image: string;
@@ -233,8 +236,9 @@ function EventCard({
 }: EventCardProps) {
   return (
     <>
-      <div className=
-      "rounded-3xl m-auto lg:w-4/5 w-3/4 bg-gradient-to-b from-white via-pink to-pink sm:bg-gradient-to-r sm:from-white sm:from-15% sm:via-pink sm:via-15% sm:to-pink from-80% via-80% to-70% xl:from-20% xl:via-20% xl:to-70% md:from-25% md:via-0% md:to-70% lg:via-30% lg:to-30%  lg:from-30%"> {/* Adjust width for medium screens */}
+      <div className="rounded-3xl m-auto lg:w-4/5 w-3/4 bg-gradient-to-b from-white via-pink to-pink sm:bg-gradient-to-r sm:from-white sm:from-15% sm:via-pink sm:via-15% sm:to-pink from-80% via-80% to-70% xl:from-20% xl:via-20% xl:to-70% md:from-25% md:via-0% md:to-70% lg:via-30% lg:to-30%  lg:from-30%">
+        {" "}
+        {/* Adjust width for medium screens */}
         <div className="h-2/6 overflow-hidden">
           <img
             className="w-auto rounded-3xl rounded-b-none"
@@ -251,18 +255,21 @@ function EventCard({
               {date}
             </h2>
           </div>
-          <div className= "justify-center align-center text-center sm:pl-20 m-0 w-auto pl-3 pr-3"> {/* Adjust alignment for medium screens */}
+          <div className="justify-center align-center text-center sm:pl-20 m-0 w-auto pl-3 pr-3">
+            {" "}
+            {/* Adjust alignment for medium screens */}
             <h2 className="text-center md:text-left font-bold text-light-pink md:text-2xl lg:text-lg font-raleway truncate text-xl">
               {eventname}
             </h2>
-            <p className="justify-center text-light-pink md:text-md text-sm font-raleway sm:text-start lg:text-md line-clamp-2">{eventdesc}</p>
+            <p className="justify-center text-light-pink md:text-md text-sm font-raleway sm:text-start lg:text-md line-clamp-2">
+              {eventdesc}
+            </p>
           </div>
         </div>
       </div>
     </>
   );
 }
-
 
 interface PinkButtonProps {
   linkto: string;
