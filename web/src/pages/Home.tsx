@@ -2,8 +2,8 @@ import { NavLink } from "react-router-dom";
 import uadslogo from "../assets/UADS Brown logo.svg";
 import tsujiri from "../assets/example-tsujiri-logo.png";
 import placeholder from "../assets/placeholder.png";
-import icecream from "../assets/dessert-svgrepo-com 1.png";
-import creamcup from "../assets/cream-cup-dessert-svgrepo-com 1.svg";
+import icecream from "../assets/sundae.svg";
+import creamcup from "../assets/cupcake.svg";
 import { useState, useEffect } from "react";
 
 import "slick-carousel/slick/slick.css";
