@@ -364,7 +364,7 @@ function SignUpButton({ linkto, buttontext }: PinkButtonProps) {
     <>
       <div className="text-center">
         <NavLink to={linkto}>
-          <button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-5xl font-raleway w-1/4">
+          <button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-5xl font-raleway">
             {buttontext}
           </button>
         </NavLink>
