@@ -100,17 +100,47 @@ function Landing({ children }: { children: JSX.Element }) {
 }
 
 function Sponsor({ images }: { images: string[] }) {
+  const [isSmallerScreen, setIsSmallerScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallerScreen(window.innerWidth <= 768); // Adjust threshold as needed
+    };
+
+    // Initial call to handleResize to set initial state
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   return (
     <div className="flex flex-col gap-10 pb-20 bg-pink relative z-10">
-      <img src={cookies} className="absolute z-0 right-2 h-80" />
-      <img src={icecream} className="absolute z-0 left-2 h-80" />
+      <img
+        src={cookies}
+        className={`absolute z-0 right-2 h-80 ${isSmallerScreen && "hidden"}`}
+      />
+      <img
+        src={icecream}
+        className={`absolute z-0 left-2 h-80 ${
+          isSmallerScreen && "top-1/4 h-44 left-1/2 transform -translate-x-1/2"
+        }`}
+      />
       <img
         src={donutChocolate}
-        className="absolute z-0 bottom-2 right-2 h-80"
+        className={`absolute z-0 right-2 bottom-2 h-80 ${
+          isSmallerScreen && "left-1/2 transform -translate-x-1/2 "
+        }`}
       />
       <img
         src={icecreamWhiteCup}
-        className="absolute z-0 left-2 bottom-2 h-80"
+        className={`absolute z-0 left-2 bottom-2 h-80 ${
+          isSmallerScreen && "hidden"
+        }`}
       />
       <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway z-10">
         Supported by our Sponsors
