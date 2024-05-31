@@ -128,6 +128,27 @@ function SponsorLogoSlider({ images }: { images: string[] }) {
     speed: 2000,
     autoplaySpeed: 4000,
     centerPadding: "0px",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          speed: 1000,
+          autoplaySpeed: 2000,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          speed: 1000,
+          autoplaySpeed: 2000,
+        },
+      },
+    ],
   };
 
   return (
@@ -178,6 +199,27 @@ function EventSlider() {
     speed: 2000,
     autoplaySpeed: 4000,
     centerPadding: "0px",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+          speed: 1000,
+          autoplaySpeed: 2000,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          speed: 1000,
+          autoplaySpeed: 2000,
+        },
+      },
+    ],
   };
 
   return (
