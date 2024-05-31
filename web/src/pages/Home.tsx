@@ -164,7 +164,7 @@ function SponsorLogoSlider({ images }: { images: string[] }) {
     centerPadding: "0px",
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1536,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -174,7 +174,7 @@ function SponsorLogoSlider({ images }: { images: string[] }) {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
@@ -236,7 +236,7 @@ function EventSlider() {
     centerPadding: "0px",
     responsive: [
       {
-        breakpoint: 1024,
+        breakpoint: 1536,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
@@ -246,7 +246,7 @@ function EventSlider() {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
