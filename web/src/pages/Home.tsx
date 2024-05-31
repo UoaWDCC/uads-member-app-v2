@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-//TODO: Get actual info from db
+//TODO: Get actual info from db or cms
 const sponsorsDummyData: string[] = [
   tsujiri,
   tsujiri,
@@ -103,18 +103,6 @@ function Sponsor({ images }: { images: string[] }) {
       <SponsorLogoSlider images={images} />
       <PinkButton linkto="/sponsors" buttontext="See our sponsors" />
     </div>
-  );
-}
-
-function SponsorGroups() {
-  return (
-    <>
-      <div className="flex flex-row flex-nowrap justify-center gap-[2.75rem]">
-        <SponsorCard image={tsujiri} sponsor="tsujiri" />
-        <SponsorCard sponsor="tsujiri" image={tsujiri} />
-        <SponsorCard sponsor="tsujiri" image={tsujiri} />
-      </div>
-    </>
   );
 }
 
@@ -260,36 +248,6 @@ function EventSection() {
       <EventSlider />
       <PinkButton linkto="/events" buttontext="See More Events" />
     </div>
-  );
-}
-
-function EventGroups() {
-  return (
-    <>
-      <div className="flex justify-center p-10 gap-10 flex-row">
-        <EventCard
-          image={placeholder}
-          eventname="Sparkle Gala Dinner"
-          eventdesc="Come and enjoy this dinner where our sponsors will be present"
-          month="Mar"
-          date="17"
-        />
-        <EventCard
-          image={placeholder}
-          eventname="Poopy Poo Poo"
-          eventdesc="Poopy poo likes poo but poo doesn't like poopy"
-          month="Sep"
-          date="9"
-        />
-        <EventCard
-          image={placeholder}
-          eventname="Placeholder Event Name"
-          eventdesc="Placeholder word placeholder replacement poo word yes"
-          month="Jan"
-          date="22"
-        />
-      </div>
-    </>
   );
 }
 
