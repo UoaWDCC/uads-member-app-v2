@@ -65,37 +65,38 @@ function Landing({ children }: { children: JSX.Element }) {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col  h-auto bg-gradient-to-b from-light-pink via-light-pink to-pink items-center relative">
+    <div className="min-h-screen flex flex-col bg-light-pink h-auto items-center relative">
       {children}
 
       <img
         src={sundae}
-        className={`absolute top-15 left-12 scale-75 opacity-50 -rotate-12 mt-24 ${
+        className={`absolute top-40 left-12 scale-150 opacity-50 -rotate-12 mt-24 ${
           isSmallerScreen && "hidden"
         }`}
       />
 
       <img
         src={creamcup}
-        className={`absolute right-0 scale-50 opacity-50 rotate-12 mt-8 ${
+        className={`absolute top-40 right-0 scale-100 opacity-50 rotate-12 mt-8 ${
           isSmallerScreen && "hidden"
         }`}
       />
 
       <img src={uadslogo} className="colour w-2/5 z-10 mt-11" />
 
-      <div className=" z-10 mt-[-10px] w-7/12 ">
-        <p className="text-center text-xl font-bold text-brown">
+      <div className=" z-10 w-7/12 ">
+        <p className="text-center text-xl lg:text-5xl font-bold text-brown">
           University of Auckland
         </p>
-        <h1 className=" text-center text-5xl font-bold text-brown ">
+        <h1 className=" text-center text-5xl lg:text-9xl font-bold text-brown pb-4">
           Dessert Society
         </h1>
-        <p className=" text-center text-xl font-bold text-pink ">
+        <p className=" text-center text-xl lg:text-5xl font-bold text-pink ">
           Where dessert lovers go to celebrate the art of making and eating
           desserts
         </p>
       </div>
+      <div className="grow w-full bg-gradient-to-b from-light-pink via-light-pink to-pink" />
     </div>
   );
 }
