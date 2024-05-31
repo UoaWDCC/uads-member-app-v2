@@ -2,8 +2,13 @@ import { NavLink } from "react-router-dom";
 import uadslogo from "../assets/UADS Brown logo.svg";
 import tsujiri from "../assets/example-tsujiri-logo.png";
 import placeholder from "../assets/placeholder.png";
-import icecream from "../assets/sundae.svg";
+import sundae from "../assets/sundae.svg";
 import creamcup from "../assets/cupcake.svg";
+import cookies from "../assets/cookies.svg";
+import icecream from "../assets/iceream_cone.svg";
+import icecreamWhiteCup from "../assets/icecream_white.svg";
+import pumpkinPie from "../assets/pumpkin_pie.svg";
+import donutChocolate from "../assets/donut_chocolate.svg";
 import { useState, useEffect } from "react";
 
 import "slick-carousel/slick/slick.css";
@@ -63,7 +68,7 @@ function Landing({ children }: { children: JSX.Element }) {
       {children}
 
       <img
-        src={icecream}
+        src={sundae}
         className={`absolute top-15 left-12 scale-75 opacity-50 -rotate-12 mt-24 ${
           isSmallerScreen && "hidden"
         }`}
@@ -96,8 +101,18 @@ function Landing({ children }: { children: JSX.Element }) {
 
 function Sponsor({ images }: { images: string[] }) {
   return (
-    <div className="flex flex-col gap-10 pb-20 bg-pink">
-      <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
+    <div className="flex flex-col gap-10 pb-20 bg-pink relative z-10">
+      <img src={cookies} className="absolute z-0 right-2 h-80" />
+      <img src={icecream} className="absolute z-0 left-2 h-80" />
+      <img
+        src={donutChocolate}
+        className="absolute z-0 bottom-2 right-2 h-80"
+      />
+      <img
+        src={icecreamWhiteCup}
+        className="absolute z-0 left-2 bottom-2 h-80"
+      />
+      <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway z-10">
         Supported by our Sponsors
       </h1>
       <SponsorLogoSlider images={images} />
@@ -112,7 +127,7 @@ function SponsorLogoSlider({ images }: { images: string[] }) {
     infinite: true,
     slidesToShow: 3,
     slidesToScroll: 1,
-    autoplay: true,
+    autoplay: false,
     speed: 2000,
     autoplaySpeed: 4000,
     centerPadding: "0px",
@@ -300,7 +315,7 @@ interface PinkButtonProps {
 function PinkButton({ linkto, buttontext }: PinkButtonProps) {
   return (
     <>
-      <div className="text-center">
+      <div className="relative text-center z-10">
         <NavLink to={linkto}>
           <button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-2xl font-raleway">
             {buttontext}
