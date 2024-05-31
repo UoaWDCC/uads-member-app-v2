@@ -286,7 +286,10 @@ function EventSlider() {
 
 function EventSection() {
   return (
-    <div className="flex flex-col gap-10 pb-20 bg-brown">
+    <div className="relative flex flex-col gap-10 pb-20 bg-brown">
+      <h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[40rem] text-light-brown font-raleway font-bold opacity-30">
+        UADS
+      </h1>
       <h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
         Our Upcoming Events
       </h1>
