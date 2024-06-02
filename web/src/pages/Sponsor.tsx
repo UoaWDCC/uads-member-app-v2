@@ -25,40 +25,25 @@ function SponsorSection() {
 
 function SponsorGroups() {
   return (
-    <div className="container mx-auto p-10 pl-10 pr-10">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <>
+      <div className=" flex flex-wrap justify-start m-10">
         <SponsorCard
           image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-        <SponsorCard
-          image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
+          sponsorName="Sparkle Gala Dinner"
+          sponsorDesc="Come and enjoy this dinner where our sponsors will be present"
         />
         <SponsorCard
           image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
+          sponsorName="Sparkle Gala Dinner"
+          sponsorDesc="Come and enjoy this dinner where our sponsors will be present"
         />
         <SponsorCard
-         image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-        <SponsorCard
-         image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-        <SponsorCard
-         image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
+          image={placeholder}
+          sponsorName="Sparkle Gala Dinner"
+          sponsorDesc="Come and enjoy this dinner where our sponsors will be present"
         />
       </div>
-    </div>
+    </>
   );
 }
 
@@ -74,19 +59,41 @@ function SponsorCard({
   sponsorDesc,
 }: SponsorCardProps) {
   return (
-    <div className="p-4">
-      <div className="rounded-3xl rounded-t-none bg-pink shadow-lg pl-10 pt-10">
-        <img
-          className="rounded-3xl w-1/2 object-cover"
-          src={image}
-          alt={`${sponsorName} logo`}
-        />
-        <div className="text-center mt-2 p-4">
-          <h2 className="text-lg font-semibold">{sponsorName}</h2>
-          <p className="text-sm">{sponsorDesc}</p>
-        </div>
-      </div>
+    <>
+
+    <div>
+    <div className="grid grid-cols-3">
+
+<div className="">
+<img
+                className=" rounded-3xl rounded-b-none"
+                src={image}
+                
+              />
+</div>
+
+<div className="">
+<img
+                className=" rounded-3xl rounded-b-none"
+                src={image}
+                
+              />
+</div>
+
+<div className="">
+<img
+                className=" rounded-3xl rounded-b-none"
+                src={image}
+                
+              />
+</div>
+
+
+
     </div>
+    </div>
+      
+    </>
   );
 }
 
