@@ -95,15 +95,15 @@ function SponsorCard({
 }: SponsorCardProps) {
   return (
     <div className="p-4">
-      <div className="rounded-3xl rounded-t-none bg-pink shadow-lg flex items-center p-10 pb-15">
+      <div className="rounded-3xl rounded-t-none bg-pink shadow-lg flex flex-col lg:flex-row items-center lg:items-start p-10 pb-15">
         <img
-          className="rounded-3xl"
+          className="rounded-3xl w-1/2 lg:w-full object-cover sm:rounded-2xl"
           src={image}
           alt={`${sponsorName} logo`}
         />
-        <div className="ml-4">
-          <h2 className="text-lg font-semibold">{sponsorName}</h2>
-          <p className="text-sm">{sponsorDesc}</p>
+        <div className="lg:ml-4 mt-4 lg:mt-0 text-center lg:text-left">
+          <h2 className="text-lg text-light-pink font-semibold">{sponsorName}</h2>
+          <p className="text-sm text-light-pink">{sponsorDesc}</p>
         </div>
       </div>
     </div>
