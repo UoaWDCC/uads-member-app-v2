@@ -1,50 +1,84 @@
 import placeholder from "../assets/download.jpg";
+import donut from "../assets/dessert-donut-doughnut-svgrepo-com 1.svg";
 
 export default function Sponsor() {
     return (
       <>
-     <SponsorSection />
-     <SponsorSection />
+      <p className="h-20 w-full bg-red-50">
+        Placeholder navbar
+        </p>
+      <SponsorSection />
       </>
     )
 }
+
 
 
 function SponsorSection() {
   return (
     <>
       <div className="flex flex-col h-auto bg-light-pink content-center">
-        <h1 className="p-10 text-left text-6xl font-bold text-brown font-raleway">
-          Our Sponsors
-        </h1>
-        {/* event group cards not centered */}
-        <SponsorGroups />
+        <div className="mx-20 z-10">
+          <h1 className="mt-10 mb-5 text-6xl font-bold text-brown font-raleway">
+            Our Sponsors
+          </h1>
+          <SearchBar />
+          {/* event group cards not centered */}
+          <SponsorGroups />
+        </div>
+        <img className="absolute md:top-32 md:right-36 md:w-36 invisible md:visible " src={donut}></img>
       </div>
+      
     </>
   );
 }
 
-function SponsorGroups() {
+function SearchBar() {
   return (
     <>
-      <div className=" flex flex-wrap justify-start m-10">
-        <SponsorCard
-          image={placeholder}
-          sponsorName="Sparkle Gala Dinner"
-          sponsorDesc="Come and enjoy this dinner where our sponsors will be present"
-        />
-        <SponsorCard
-          image={placeholder}
-          sponsorName="Sparkle Gala Dinner"
-          sponsorDesc="Come and enjoy this dinner where our sponsors will be present"
-        />
-        <SponsorCard
-          image={placeholder}
-          sponsorName="Sparkle Gala Dinner"
-          sponsorDesc="Come and enjoy this dinner where our sponsors will be present"
-        />
+      <div className="pt-2 mx-auto text-gray-600 w-full">
+        <input className="bg-white h-14 px-5 rounded-xl text-lg focus:outline-none font-raleway font-thin justify-center w-full" type="search" name="search" placeholder="Search Sponsors..."></input>
       </div>
     </>
+  )
+}
+
+function SponsorGroups() {
+  return (
+    <div className="container mx-auto p-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <SponsorCard
+          image={placeholder}
+          sponsorName="Tsujiri"
+          sponsorDesc="Upsize and toppings for our club events"
+        />
+        <SponsorCard
+          image={placeholder}
+          sponsorName="Tsujiri"
+          sponsorDesc="Upsize and toppings for our club events"
+        />
+        <SponsorCard
+          image={placeholder}
+          sponsorName="Tsujiri"
+          sponsorDesc="Upsize and toppings for our club events"
+        />
+        <SponsorCard
+         image={placeholder}
+          sponsorName="Tsujiri"
+          sponsorDesc="Upsize and toppings for our club events"
+        />
+        <SponsorCard
+          image={placeholder}
+          sponsorName="Tsujiri"
+          sponsorDesc="Upsize and toppings for our club events"
+        />
+        <SponsorCard
+         image={placeholder}
+          sponsorName="Tsujiri"
+          sponsorDesc="Upsize and toppings for our club events"
+        />
+      </div>
+    </div>
   );
 }
 
@@ -60,41 +94,18 @@ function SponsorCard({
   sponsorDesc,
 }: SponsorCardProps) {
   return (
-    <>
-
-    <div>
-    <div className="grid grid-cols-3">
-
-<div className="">
-<img
-                className=" rounded-3xl rounded-b-none"
-                src={image}
-                
-              />
-</div>
-
-<div className="">
-<img
-                className=" rounded-3xl rounded-b-none"
-                src={image}
-                
-              />
-</div>
-
-<div className="">
-<img
-                className=" rounded-3xl rounded-b-none"
-                src={image}
-                
-              />
-</div>
-
-
-
+    <div className="p-4">
+      <div className="rounded-3xl rounded-t-none bg-pink shadow-lg flex items-center p-10 pb-15">
+        <img
+          className="rounded-3xl"
+          src={image}
+          alt={`${sponsorName} logo`}
+        />
+        <div className="ml-4">
+          <h2 className="text-lg font-semibold">{sponsorName}</h2>
+          <p className="text-sm">{sponsorDesc}</p>
+        </div>
+      </div>
     </div>
-    </div>
-      
-    </>
   );
 }
-
