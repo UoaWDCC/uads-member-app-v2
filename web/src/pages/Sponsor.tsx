@@ -4,6 +4,7 @@ export default function Sponsor() {
     return (
       <>
      <SponsorSection />
+     <SponsorSection />
       </>
     )
 }
