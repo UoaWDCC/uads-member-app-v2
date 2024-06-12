@@ -1,0 +1,29 @@
+name: DEV Continuous Integration
+
+on:
+  push:
+    branches-ignore:
+      - "main"
+
+jobs:
+  BuildApp:
+    runs-on: ubuntu-latest
+    environment: DEV
+    defaults:
+      run:
+        working-directory: ./web
+
+    steps:
+      - name: Checkout the Repository 
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js  
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Build the Project
+        run: yarn build
