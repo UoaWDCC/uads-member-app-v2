@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../assets/UADS_Logo.svg";
+import logo from "../assets/uads_logo.svg";
 import brownBackground from "../assets/brownBackground.png";
 import { useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";

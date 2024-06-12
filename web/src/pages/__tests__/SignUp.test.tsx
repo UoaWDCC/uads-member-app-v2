@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import SignUp from "../SignUp";
+import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 
 /*
@@ -7,8 +8,12 @@ import "@testing-library/jest-dom";
  */
 describe("SignUp Page Rendering", () => {
 	it("Should display the SignUp page title", () => {
-		// Render the About component in a simulated DOM
-		render(<SignUp />);
+		// Render the SignUp component in a simulated DOM
+		render(
+			<MemoryRouter>
+				<SignUp />
+			</MemoryRouter>
+		);
 
 		const message = screen.getByText(/Sign Up Page/i);
 
