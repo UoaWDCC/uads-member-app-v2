@@ -25,5 +25,8 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
+      - name: Run Test Cases
+        run: yarn test
+
       - name: Build the Project
         run: yarn build
