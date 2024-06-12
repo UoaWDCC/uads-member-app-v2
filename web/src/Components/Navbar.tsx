@@ -35,7 +35,7 @@ export default function Navbar() {
 			<div className="relative z-10 flex justify-center items-center h-full">
 				<div className="w-full h-auto flex justify-between items-center select-none">
 					<NavLink to={"/"}>
-						<img src={logo} alt="UADS Logo" className="w-[183px] h-[64px]"/>
+						<img src={logo} alt="UADS Logo" className="w-[183px] h-[64px]" />
 					</NavLink>
 					{/* Navlinks */}
 					<div className="hidden lg:flex justify-between text-2xl">
@@ -53,7 +53,7 @@ export default function Navbar() {
 
 					{/* Hamburger button */}
 					<div className="lg:hidden">
-						<button type="button" onClick={handleMenu} className="inline-flex items-center justify-center  rounded-lg text-light-pink hover:text-yellow">
+						<button type="button" onClick={handleMenu} aria-label="openMenu" className="inline-flex items-center justify-center rounded-lg text-light-pink hover:text-yellow">
 							<FaBars size={30} color="pink" />
 						</button>
 					</div>
@@ -63,7 +63,7 @@ export default function Navbar() {
 			{/* Mobile Menu */}
 			{open && (
 				<div className="lg:hidden absolute top-0 right-0 w-full bg-pink pt-20 pb-4 z-10 flex flex-col items-center">
-					<button type="button" onClick={handleMenu} className="absolute top-7 right-10">
+					<button type="button" onClick={handleMenu} aria-label="closeMenu" className="absolute top-7 right-10">
 						<FaTimes size={30} color="pink" />
 					</button>
 
