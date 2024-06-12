@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Navbar from "../Navbar";
+import Navbar from "../../components/Navbar";
 import "@testing-library/jest-dom";
 
 describe("Navbar Component", () => {
