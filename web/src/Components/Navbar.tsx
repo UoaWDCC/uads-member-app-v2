@@ -35,7 +35,7 @@ export default function Navbar() {
 			<div className="relative z-10 flex justify-center items-center h-full">
 				<div className="w-full h-auto flex justify-between items-center select-none">
 					<NavLink to={"/"}>
-						<img src={logo} alt="UADS Logo" />
+						<img src={logo} alt="UADS Logo" className="w-[183px] h-[64px]"/>
 					</NavLink>
 					{/* Navlinks */}
 					<div className="hidden lg:flex justify-between text-2xl">
@@ -69,7 +69,7 @@ export default function Navbar() {
 
 					<div className="absolute top-4 left-10">
 						<NavLink to={"/"}>
-							<img src={logo} alt="UADS Logo" />
+							<img src={logo} alt="UADS Logo" className="w-[183px] h-[64px]" />
 						</NavLink>
 					</div>
 
