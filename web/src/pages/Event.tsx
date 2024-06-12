@@ -1,7 +1,10 @@
+import Navbar from "../component/Navbar";
+
 export default function Event() {
-  return (
-    <div>
-      <h1> Events Page</h1>
-    </div>
-  )
+	return (
+		<div>
+			<Navbar />
+			<h1> Events Page</h1>
+		</div>
+	);
 }
