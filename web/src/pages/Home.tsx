@@ -13,7 +13,8 @@ import { useState, useEffect } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import EventCard from "@components/EventCard";
+import EventCard from "../component/EventCard";
+import Navbar from "../component/Navbar";
 
 //TODO: Get actual info from db or cms
 const sponsorsDummyData: string[] = [
@@ -30,10 +31,10 @@ const sponsorsDummyData: string[] = [
 export default function Home() {
   return (
     <>
-      <Landing>
-        <p className="h-20 w-full bg-red-50">Placeholder navbar</p>
-      </Landing>
-
+      <div className="h-screen flex flex-col">
+        <Navbar />
+        <Landing></Landing>
+      </div>
       <Sponsor images={sponsorsDummyData} />
 
       <EventSection />
@@ -43,7 +44,7 @@ export default function Home() {
   );
 }
 
-function Landing({ children }: { children: JSX.Element }) {
+function Landing() {
   const [isSmallerScreen, setIsSmallerScreen] = useState(false);
 
   useEffect(() => {
@@ -64,9 +65,7 @@ function Landing({ children }: { children: JSX.Element }) {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-light-pink h-auto items-center relative">
-      {children}
-
+    <div className="flex flex-col flex-grow bg-light-pink items-center relative">
       <img
         src={sundae}
         className={`absolute top-40 left-12 scale-100 opacity-50 -rotate-12 mt-24 ${
