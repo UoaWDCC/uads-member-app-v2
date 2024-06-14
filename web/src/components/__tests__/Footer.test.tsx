@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Footer from "../Footer";
-import Socials from "../Socials";
 import "@testing-library/jest-dom";
 
 describe("Footer Component", () => {
