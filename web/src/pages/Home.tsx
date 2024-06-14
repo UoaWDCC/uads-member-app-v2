@@ -7,7 +7,6 @@ import creamcup from "../assets/cupcake.svg";
 import cookies from "../assets/cookies.svg";
 import icecream from "../assets/iceream_cone.svg";
 import icecreamWhiteCup from "../assets/icecream_white.svg";
-import pumpkinPie from "../assets/pumpkin_pie.svg";
 import donutChocolate from "../assets/donut_chocolate.svg";
 import { useState, useEffect } from "react";
 
@@ -128,7 +127,7 @@ function Sponsor({ images }: { images: string[] }) {
       />
       <img
         src={icecream}
-        className={`absolute z-0 left-2 h-80 ${
+        className={`absolute z-0 h-80 ${
           isSmallerScreen && "top-1/4 h-44 left-1/2 transform -translate-x-1/2"
         }`}
       />
