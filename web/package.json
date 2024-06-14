@@ -10,6 +10,11 @@
     "preview": "vite preview",
     "test": "vitest"
   },
+  "jest": {
+    "setupFiles": [
+      "test-setup.tsx"
+    ]
+  },
   "dependencies": {
     "@tailwindcss/line-clamp": "^0.4.4",
     "@tanstack/react-query": "^5.18.1",
