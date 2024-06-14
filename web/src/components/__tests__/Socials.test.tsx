@@ -33,7 +33,7 @@ describe("Socials Component", () => {
 	it("Should render the Discord icon and link correctly", () => {
 		const discordLink = screen.getByRole("link", { name: /discord/i });
 		expect(discordLink).toBeInTheDocument();
-		expect(discordLink).toHaveAttribute("href", "https://www.instagram.com/uoadessertsociety/");
+		expect(discordLink).toHaveAttribute("href", "https://discord.gg/dFuwHuU8FT");
 
 		const discordIcon = screen.getByTestId("discordLogo");
 		expect(discordIcon).toBeInTheDocument();
