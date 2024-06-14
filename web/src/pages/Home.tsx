@@ -1,18 +1,18 @@
+import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import uadslogo from "../assets/UADS Brown logo.svg";
+import cookies from "../assets/cookies.svg";
+import creamcup from "../assets/cupcake.svg";
+import donutChocolate from "../assets/donut_chocolate.svg";
 import tsujiri from "../assets/example-tsujiri-logo.png";
+import icecreamWhiteCup from "../assets/icecream_white.svg";
+import icecream from "../assets/iceream_cone.svg";
 import placeholder from "../assets/placeholder.png";
 import sundae from "../assets/sundae.svg";
-import creamcup from "../assets/cupcake.svg";
-import cookies from "../assets/cookies.svg";
-import icecream from "../assets/iceream_cone.svg";
-import icecreamWhiteCup from "../assets/icecream_white.svg";
-import donutChocolate from "../assets/donut_chocolate.svg";
-import { useState, useEffect } from "react";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
 import EventCard from "../component/EventCard";
 import Navbar from "../component/Navbar";
 
@@ -33,7 +33,7 @@ export default function Home() {
     <>
       <div className="h-screen flex flex-col">
         <Navbar />
-        <Landing></Landing>
+        <Landing />
       </div>
       <Sponsor images={sponsorsDummyData} />
 
