@@ -65,7 +65,7 @@ function Landing() {
   }, []);
 
   return (
-    <div className="flex flex-col flex-grow bg-light-pink items-center relative">
+    <div className="flex flex-col flex-grow bg-light-pink items-center relative z-0">
       <img
         src={sundae}
         className={`absolute top-40 left-12 scale-100 opacity-50 -rotate-12 mt-24 ${
