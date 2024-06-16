@@ -21,7 +21,7 @@ export default function About() {
 
 			<div className="max-w-screen h-auto bg-light-pink overflow-hidden">
 				<div className="w-full h-auto md:min-h-[500px] px-6 md:px-14 py-4 flex flex-col md:flex-row justify-between items-center">
-					<div className="w-full md:w-1/2 text-brown font-bold mb-10 md:mb-0">
+					<div className="w-full md:w-1/2 text-brown font-bold mb-10 md:mb-0" data-testid="aboutSection"> 
 						<h1 className="text-3xl mb-10">About Us</h1>
 						<p>Welcome to the sweetest corner of the University of Auckland – the Dessert Society!</p>
 						<br />
@@ -33,7 +33,7 @@ export default function About() {
 						<br />
 					</div>
 
-					<div className="w-52 h-52 md:h-80 md:w-80 rounded-full bg-pink flex justify-center items-center mb-5 overflow-hidden">
+					<div className="w-52 h-52 md:h-80 md:w-80 rounded-full bg-pink flex justify-center items-center mb-5 overflow-hidden" data-testid="icecreamPhoto">
 						<img className="w-full h-full object-cover transform -rotate-45" src={icecream} alt="ice-cream photo" />
 					</div>
 				</div>
@@ -42,7 +42,7 @@ export default function About() {
 					<h1 className="text-2xl font-bold md:text-3xl">The Executive Team</h1>
 					<div className="w-full h-auto flex flex-wrap justify-evenly">
 						{execData.map((exec, index) => (
-							<div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex flex-col items-center justify-center py-6 md:py-10">
+							<div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex flex-col items-center justify-center py-6 md:py-10" data-testid="execTitleContainer">
 								<h2 className="font-bold">{exec.role}</h2>
 								<p>{exec.name}</p>
 							</div>
@@ -53,7 +53,7 @@ export default function About() {
 				<div className="w-full h-auto bg-light-pink text-light-pink flex flex-col items-center">
 					<div className="w-full h-auto flex flex-wrap justify-center my-10">
 						{execData.map((exec, index) => (
-							<div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex justify-center">
+							<div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex justify-center" data-testid="execCardContainer">
 								<ExecCard exec={exec} />
 							</div>
 						))}

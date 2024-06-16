@@ -10,7 +10,7 @@ export default function Footer() {
 					<NavLink to={"/"}>
 						<img src={logo} alt="UADS Logo" className="w-[183px] h-[64px]" />
 					</NavLink>
-					<p className="font-raleway text-black font-bold">&copy; UADS 2024. All Rights Reserved</p>
+					<p className="font-raleway text-light-pink font-bold">&copy; UADS 2024. All Rights Reserved</p>
 				</div>
 				<div className="flex justify-center w-full lg:w-auto">
 					<Socials />
