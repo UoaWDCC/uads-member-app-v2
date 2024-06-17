@@ -1,11 +1,12 @@
-import Navbar from "../Components/Navbar"
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 export default function Sponsor() {
-    return (
-      <div>
-        <Navbar/>
-        <h1> Sponsors Page</h1>
-      </div>
-    )
+	return (
+		<div>
+			<Navbar />
+			<h1> Sponsors Page</h1>
+			<Footer />
+		</div>
+	);
 }
-  

@@ -1,5 +1,6 @@
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useState } from 'react';
-import Navbar from "../Components/Navbar";
 import cupcake from "../assets/cupcake.svg";
 import EventCard, { EventType } from "../Components/EventCard";
 
