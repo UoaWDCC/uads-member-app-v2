@@ -2,8 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState } from "react";
 import cupcake from "../assets/cupcake.svg";
-import { EventType } from "../components/EventCard";
-import EventCard from "../components/EventCard";
+import EventCard, { EventType } from "../components/EventCard";
 
 const eventsData: EventType[] = [
 	{
