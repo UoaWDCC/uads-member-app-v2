@@ -7,7 +7,6 @@ import donutChocolate from "../assets/donut_chocolate.svg";
 import tsujiri from "../assets/example-tsujiri-logo.png";
 import icecreamWhiteCup from "../assets/icecream_white.svg";
 import icecream from "../assets/iceream_cone.svg";
-import placeholder from "../assets/placeholder.png";
 import sundae from "../assets/sundae.svg";
 
 import Slider from "react-slick";
@@ -15,6 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import EventCard, { EventType } from "../components/EventCard";
 import Navbar from "../components/Navbar";
+import Footer from "@components/Footer";
 
 //TODO: Get actual info from db or cms
 const sponsorsDummyData: string[] = [tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri];
@@ -58,7 +58,7 @@ const eventsData: EventType[] = [
 	},
 ];
 export default function Home() {
-	const [displayedEvents, setDisplayedEvents] = useState<EventType[]>(eventsData);
+	const [displayedEvents] = useState<EventType[]>(eventsData);
 
 	return (
 		<>
@@ -71,6 +71,7 @@ export default function Home() {
 			<EventSection events={displayedEvents} />
 
 			<SignupSection />
+			<Footer />
 		</>
 	);
 }
