@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import EventCard, { EventType } from "../components/EventCard";
 import Navbar from "../components/Navbar";
-import Footer from "@components/Footer";
+import Footer from "../components/Footer";
 
 //TODO: Get actual info from db or cms
 const sponsorsDummyData: string[] = [tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri];
