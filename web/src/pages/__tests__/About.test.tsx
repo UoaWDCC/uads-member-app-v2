@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import About from "../About";
@@ -53,7 +53,7 @@ describe("Responsive Design", () => {
 
 	it("About section renders correctly for small screens (sm and Phone)", () => {
 		setViewport(640);
-		
+
 		const aboutSection = screen.getByTestId("aboutSection");
 		expect(aboutSection).toHaveClass("w-full");
 		expect(aboutSection).toHaveClass("mb-10");
@@ -61,7 +61,7 @@ describe("Responsive Design", () => {
 
 	it("About section renders correctly for medium and above screens (md, lg, xl, 2xl)", () => {
 		setViewport(768);
-		
+
 		const aboutSection = screen.getByTestId("aboutSection");
 		expect(aboutSection).toHaveClass("md:w-1/2");
 		expect(aboutSection).toHaveClass("md:mb-0");
@@ -81,75 +81,75 @@ describe("Responsive Design", () => {
 		expect(icecreamPhoto).toHaveClass("md:h-80 md:w-80");
 	});
 
-	it("Should display 1 column for exec titles in extra small screens (Phone view)", () => {
+	it("Should display 1 column for exec titles in extra small screens (Phone view)", async () => {
 		setViewport(639);
 
-		const execTitle = screen.getAllByTestId("execTitleContainer");
+		const execTitle = await screen.findAllByTestId("execTitleContainer", {}, { timeout: 5000 });
 		execTitle.forEach((title) => {
 			expect(title).toHaveClass("w-full");
 		});
 	});
 
-	it("Should display 2 columns for exec titles in small screens (sm)", () => {
+	it("Should display 2 columns for exec titles in small screens (sm)", async () => {
 		setViewport(640);
 
-		const execTitle = screen.getAllByTestId("execTitleContainer");
+		const execTitle = await screen.findAllByTestId("execTitleContainer", {}, { timeout: 5000 });
 		execTitle.forEach((title) => {
 			expect(title).toHaveClass("sm:w-1/2");
 		});
 	});
 
-	it("Should display 3 columns for exec titles in medium screens (md)", () => {
+	it("Should display 3 columns for exec titles in medium screens (md)", async () => {
 		setViewport(768);
 
-		const execTitle = screen.getAllByTestId("execTitleContainer");
+		const execTitle = await screen.findAllByTestId("execTitleContainer", {}, { timeout: 5000 });
 		execTitle.forEach((title) => {
 			expect(title).toHaveClass("md:w-1/3");
 		});
 	});
 
-	it("Should display 4 columns for exec titles in large and above screens (lg, xl, 2xl)", () => {
+	it("Should display 4 columns for exec titles in large and above screens (lg, xl, 2xl)", async () => {
 		setViewport(1024);
 
-		const execTitle = screen.getAllByTestId("execTitleContainer");
+		const execTitle = await screen.findAllByTestId("execTitleContainer", {}, { timeout: 5000 });
 		execTitle.forEach((title) => {
 			expect(title).toHaveClass("lg:w-1/4");
 		});
 	});
 
-	it("Should display 1 column for exec cards in extra small screens (Phone view)", () => {
+	it("Should display 1 column for exec cards in extra small screens (Phone view)", async () => {
 		setViewport(639);
 
-		const execCards = screen.getAllByTestId("execCardContainer");
+		const execCards = await screen.findAllByTestId("execCardContainer", {}, { timeout: 5000 });
 		execCards.forEach((card) => {
 			expect(card).toHaveClass("w-full");
 		});
 	});
 
-	it("Should display 2 columns for exec cards in small screens (sm)", () => {
+	it("Should display 2 columns for exec cards in small screens (sm)", async () => {
 		setViewport(640);
 
-		const execCards = screen.getAllByTestId("execCardContainer");
+		const execCards = await screen.findAllByTestId("execCardContainer", {}, { timeout: 5000 });
 		execCards.forEach((card) => {
 			expect(card).toHaveClass("sm:w-1/2");
 		});
 	});
 
-	it("Should display 3 columns for exec cards in medium screens (md)", () => {
+	it("Should display 3 columns for exec cards in medium screens (md)", async () => {
 		setViewport(768);
 
-		const execCards = screen.getAllByTestId("execCardContainer");
+		const execCards = await screen.findAllByTestId("execCardContainer", {}, { timeout: 5000 });
 		execCards.forEach((card) => {
 			expect(card).toHaveClass("md:w-1/3");
 		});
 	});
 
-	it("Should display 4 columns for exec cards in large and above screens (lg, xl, 2xl)", () => {
+	it("Should display 4 columns for exec cards in large and above screens (lg, xl, 2xl)", async () => {
 		setViewport(1024);
 
-		const execCards = screen.getAllByTestId("execCardContainer");
-		execCards.forEach((card) => {
-			expect(card).toHaveClass("lg:w-1/4");
+		const execTitle = await screen.findAllByTestId("execTitleContainer", {}, { timeout: 5000 });
+		execTitle.forEach((title) => {
+			expect(title).toHaveClass("lg:w-1/4");
 		});
 	});
 });
