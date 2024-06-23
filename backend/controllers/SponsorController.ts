@@ -61,7 +61,9 @@ const getSponsors = async (req: Request, res: Response) => {
 		image: row.Image.files[0].file.url,
 	}));
 
-	res.status(200).json(rowsStructured);
+	const orderedRowsStructured = rowsStructured.reverse();
+
+	res.status(200).json(orderedRowsStructured);
 };
 
 const createSponsor = async (req: Request, res: Response) => {
