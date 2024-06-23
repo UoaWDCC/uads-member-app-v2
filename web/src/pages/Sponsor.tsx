@@ -1,124 +1,86 @@
-import placeholder from "../assets/download.jpg";
 import donut from "../assets/dessert-donut-doughnut-svgrepo-com 1.svg";
-
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useState, useEffect } from "react";
+import SponsorCard, { SponsorType } from "../components/SponsorCard";
+import axios from "axios";
 
 export default function Sponsor() {
-    return (
-      <>
-       <p className="h-20 w-full">
-        Placeholder navbar
-        </p>
-      <SponsorSection />
-      <Footer /> 
-      </>
-    )
-}
+	const [searchQuery, setSearchQuery] = useState("");
+	const [sponsors, setSponsors] = useState<SponsorType[]>([]);
+	const [displayedSponsors, setDisplayedSponsors] = useState<SponsorType[]>([]);
 
-function Footer() {
-  return (
-    <div className="bg-brown p-2 mt-10">
-      <div className="container mx-auto text-center">
-        <p className="text-light-pink font-raleway">&copy; UADS</p>
+	useEffect(() => {
+		async function fetchSponsors() {
+			try {
+				const response = await axios.get("http://localhost:4000/api/sponsors/");
+				console.log(response.data);
+				setSponsors(response.data);
+				setDisplayedSponsors(response.data);
+			} catch (error) {
+				console.error("Error fetching sponsor data", error);
+			}
+		}
+		fetchSponsors();
+	}, []);
 
-      </div>
-    </div>
-  );
-}
+	const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const query = e.target.value.toLowerCase();
+		setSearchQuery(query);
 
+		// Filter sponsorData based on the search query
+		const filteredSponsors = sponsors.filter((sponsor) =>
+			sponsor.name.toLowerCase().includes(query)
+		);
+		setDisplayedSponsors(filteredSponsors);
+	};
 
-function SponsorSection() {
-  return (
-    <>
-      <div className="flex flex-col bg-light-pink content-center">
-        <div className="mx-20 z-10">
-          <h1 className="mt-10 mb-5 text-6xl font-bold text-brown font-raleway">
-            Our Sponsors
-          </h1>
-          <SearchBar />
-          <SponsorGroups />
-        </div>
-        <img className="absolute md:top-32 md:right-36 md:w-36 invisible md:visible " src={donut}></img>
-      </div>
-      
-    </>
-  );
-}
+	return (
+		<>
+			<Navbar />
 
-function SearchBar() {
-  return (
-    <>
-      <div className="pt-2 mx-auto text-gray-600 w-full">
-        <input className="bg-white h-14 px-5 rounded-xl text-lg focus:outline-none font-raleway font-thin justify-center w-full" type="search" name="search" placeholder="Search Sponsors..."></input>
-      </div>
-    </>
-  )
-}
+			<div className="max-w-screen h-auto bg-light-pink py-8 px-4 sm:px-8">
+				<div className="w-full h-auto mb-10 flex flex-col">
+					<div className="flex justify-between items-center">
+						<h1
+							className="text-3xl sm:text-4xl md:text-5xl font-bold font-raleway text-brown"
+							data-testid="eventsTitle"
+						>
+							Our Sponsors
+						</h1>
 
-function SponsorGroups() {
-  return (
-    <div className="container mx-auto p-10 " >
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <SponsorCard
-          image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-        <SponsorCard
-          image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-        <SponsorCard
-          image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-        <SponsorCard
-         image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-        <SponsorCard
-          image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-        <SponsorCard
-         image={placeholder}
-          sponsorName="Tsujiri"
-          sponsorDesc="Upsize and toppings for our club events"
-        />
-      </div>
-    </div>
-  );
-}
+						<div className="items-end">
+							<img className="h-16 sm:h-20 md:h-24" src={donut} alt="Donut" />
+						</div>
+					</div>
 
-interface SponsorCardProps {
-  image: string;
-  sponsorName: string;
-  sponsorDesc: string;
-}
+					<div className="w-full flex justify-center">
+						<input
+							type="text"
+							className="w-full h-12 py-2 border border-gray-300 bg-slate-50 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink px-4 sm:px-5"
+							placeholder="Search Sponsors..."
+							value={searchQuery}
+							onChange={handleSearchChange}
+						/>
+					</div>
+				</div>
 
-function SponsorCard({
-  image,
-  sponsorName,
-  sponsorDesc,
-}: SponsorCardProps) {
-  return (
-    <div className="p-4 ">
-      <div className="rounded-3xl rounded-t-none bg-pink  flex flex-col lg:flex-row items-center p-10 pb-15">
-        <img
-          className="rounded-3xl w-1/2 lg:w-full object-cover sm:rounded-2xl"
-          src={image}
-          alt={`${sponsorName} logo`}
-        />
-        <div className="lg:ml-4 mt-4 lg:mt-0 text-center lg:text-left">
-          <h2 className="text-lg text-light-pink font-semibold">{sponsorName}</h2>
-          <p className="text-sm text-light-pink">{sponsorDesc}</p>
-        </div>
-      </div>
-    </div>
-  );
+				<div className="w-full h-auto flex flex-wrap justify-center gap-6">
+					{displayedSponsors.length > 0 ? (
+						displayedSponsors.map((sponsor, index) => (
+							<div key={index} className="flex justify-center">
+								<SponsorCard sponsor={sponsor} />
+							</div>
+						))
+					) : (
+						<p className="text-2xl sm:text-3xl text-black font-bold">
+							Sorry, no sponsor found for "{searchQuery}"
+						</p>
+					)}
+				</div>
+			</div>
+
+			<Footer />
+		</>
+	);
 }
