@@ -1,4 +1,4 @@
-import donut from "../assets/dessert-donut-doughnut-svgrepo-com 1.svg";
+import donut from "../assets/half_donut_jelly.svg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
@@ -14,7 +14,6 @@ export default function Sponsor() {
 		async function fetchSponsors() {
 			try {
 				const response = await axios.get("http://localhost:4000/api/sponsors/");
-				console.log(response.data);
 				setSponsors(response.data);
 				setDisplayedSponsors(response.data);
 			} catch (error) {
