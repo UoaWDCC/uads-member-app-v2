@@ -15,7 +15,7 @@ describe("Sponsor Page Rendering", () => {
 			</MemoryRouter>
 		);
 
-		const message = screen.getByText(/Sponsors Page/i);
+		const message = screen.getByText(/Our Sponsors/i);
 
 		expect(message).toBeInTheDocument();
 	});
