@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import uadslogo from "../assets/UADS Brown logo.svg";
+import uadslogo from "../assets/uads_logo_brown.svg";
 import cookies from "../assets/cookies.svg";
 import creamcup from "../assets/cupcake.svg";
 import donutChocolate from "../assets/donut_chocolate.svg";
@@ -8,7 +8,6 @@ import tsujiri from "../assets/example-tsujiri-logo.png";
 import icecreamWhiteCup from "../assets/icecream_white.svg";
 import icecream from "../assets/iceream_cone.svg";
 import sundae from "../assets/sundae.svg";
-
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -17,7 +16,16 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 //TODO: Get actual info from db or cms
-const sponsorsDummyData: string[] = [tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri, tsujiri];
+const sponsorsDummyData: string[] = [
+	tsujiri,
+	tsujiri,
+	tsujiri,
+	tsujiri,
+	tsujiri,
+	tsujiri,
+	tsujiri,
+	tsujiri,
+];
 
 // Temp events data
 const eventsData: EventType[] = [
@@ -98,15 +106,29 @@ function Landing() {
 
 	return (
 		<div className="flex flex-col flex-grow bg-light-pink items-center relative z-0">
-			<img src={sundae} className={`absolute top-40 left-12 scale-100 opacity-50 -rotate-12 mt-24 ${isSmallerScreen && "hidden"}`} />
+			<img
+				src={sundae}
+				className={`absolute top-40 left-12 scale-100 opacity-50 -rotate-12 mt-24 ${
+					isSmallerScreen && "hidden"
+				}`}
+			/>
 
-			<img src={creamcup} className={`absolute top-40 right-0 scale-75 opacity-50 rotate-12 mt-8 ${isSmallerScreen && "hidden"}`} />
+			<img
+				src={creamcup}
+				className={`absolute top-40 right-0 scale-75 opacity-50 rotate-12 mt-8 ${
+					isSmallerScreen && "hidden"
+				}`}
+			/>
 
 			<img src={uadslogo} className="colour w-2/5 z-10 mt-11" />
 
 			<div className=" z-10 w-7/12 ">
-				<p className="text-center text-xl lg:text-4xl font-bold text-brown">University of Auckland</p>
-				<h1 className=" text-center text-5xl lg:text-8xl font-bold text-brown pb-4">Dessert Society</h1>
+				<p className="text-center text-xl lg:text-4xl font-bold text-brown">
+					University of Auckland
+				</p>
+				<h1 className=" text-center text-5xl lg:text-8xl font-bold text-brown pb-4">
+					Dessert Society
+				</h1>
 				<p className=" text-center text-xl lg:text-4xl font-bold text-pink ">
 					Where dessert lovers go to celebrate the art of making and eating desserts
 				</p>
@@ -138,10 +160,25 @@ function Sponsor({ images }: { images: string[] }) {
 	return (
 		<div className="flex flex-col gap-10 pb-20 bg-pink relative z-10 overflow-hidden">
 			<img src={cookies} className={`absolute z-0 right-2 h-80 ${isSmallerScreen && "hidden"}`} />
-			<img src={icecream} className={`absolute z-0 h-80 ${isSmallerScreen && "top-1/4 h-44 left-1/2 transform -translate-x-1/2"}`} />
-			<img src={donutChocolate} className={`absolute z-0 right-2 bottom-2 h-80 ${isSmallerScreen && "left-1/2 transform -translate-x-1/2 "}`} />
-			<img src={icecreamWhiteCup} className={`absolute z-0 left-2 bottom-2 h-80 ${isSmallerScreen && "hidden"}`} />
-			<h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway z-10">Supported by our Sponsors</h1>
+			<img
+				src={icecream}
+				className={`absolute z-0 h-80 ${
+					isSmallerScreen && "top-1/4 h-44 left-1/2 transform -translate-x-1/2"
+				}`}
+			/>
+			<img
+				src={donutChocolate}
+				className={`absolute z-0 right-2 bottom-2 h-80 ${
+					isSmallerScreen && "left-1/2 transform -translate-x-1/2 "
+				}`}
+			/>
+			<img
+				src={icecreamWhiteCup}
+				className={`absolute z-0 left-2 bottom-2 h-80 ${isSmallerScreen && "hidden"}`}
+			/>
+			<h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway z-10">
+				Supported by our Sponsors
+			</h1>
 			<SponsorLogoSlider images={images} />
 			<PinkButton linkto="/sponsors" buttontext="See our sponsors" />
 		</div>
@@ -212,7 +249,9 @@ function SponsorCard({ image }: SponsorCardProps) {
 function SignupSection() {
 	return (
 		<div className="h-fit bg-pink space-y-10 p-12">
-			<h1 className="text-center text-6xl font-bold text-light-pink font-raleway">Join UADS Today!</h1>
+			<h1 className="text-center text-6xl font-bold text-light-pink font-raleway">
+				Join UADS Today!
+			</h1>
 			<SignUpButton linkto="/signup" buttontext="Join" />
 		</div>
 	);
@@ -272,7 +311,9 @@ function EventSection({ events }: { events: EventType[] }) {
 			<h1 className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[40rem] text-light-brown font-raleway font-bold opacity-30 overflow-hidden text-nowrap">
 				UADS
 			</h1>
-			<h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">Our Upcoming Events</h1>
+			<h1 className=" p-10 text-center text-6xl font-bold text-light-pink font-raleway">
+				Our Upcoming Events
+			</h1>
 			<EventSlider events={events} />
 			<PinkButton linkto="/events" buttontext="See More Events" />
 		</div>
@@ -289,7 +330,9 @@ function PinkButton({ linkto, buttontext }: PinkButtonProps) {
 		<>
 			<div className="relative text-center z-10">
 				<NavLink to={linkto}>
-					<button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-2xl font-raleway">{buttontext}</button>
+					<button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-2xl font-raleway">
+						{buttontext}
+					</button>
 				</NavLink>
 			</div>
 		</>
@@ -301,7 +344,9 @@ function SignUpButton({ linkto, buttontext }: PinkButtonProps) {
 		<>
 			<div className="text-center">
 				<NavLink to={linkto}>
-					<button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-5xl font-raleway">{buttontext}</button>
+					<button className="bg-light-pink p-5 rounded-2xl text-brown font-bold text-5xl font-raleway">
+						{buttontext}
+					</button>
 				</NavLink>
 			</div>
 		</>

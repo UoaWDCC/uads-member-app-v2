@@ -4,9 +4,7 @@ import themes from 'daisyui/src/theming/themes';
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  plugins: [daisyui,
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [daisyui],
   theme: {
     extend: {
       fontFamily: {
