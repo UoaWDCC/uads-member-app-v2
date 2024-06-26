@@ -7,7 +7,7 @@ describe("Socials Component", () => {
 	beforeEach(() => {
 		render(
 			<MemoryRouter>
-				<Socials />
+				<Socials background="bg-brown" hoverBackground="bg-light-pink" iconColor="text-light-pink" hoverIconColor="text-black" />
 			</MemoryRouter>
 		);
 	});

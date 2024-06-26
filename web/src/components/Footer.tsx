@@ -13,7 +13,7 @@ export default function Footer() {
 					<p className="font-raleway text-light-pink font-bold">&copy; UADS 2024. All Rights Reserved</p>
 				</div>
 				<div className="flex justify-center w-full lg:w-auto">
-					<Socials />
+					<Socials background="bg-brown" hoverBackground="bg-light-pink" iconColor="text-light-pink" hoverIconColor="text-black" />
 				</div>
 			</div>
 		</div>
