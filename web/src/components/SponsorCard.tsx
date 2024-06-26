@@ -15,7 +15,7 @@ export default function SponsorCard({ sponsor }: SponsorCardProps) {
 
   return (
     <>
-      <div className="w-96 h-52 bg-pink flex rounded-b-3xl overflow-hidden relative">
+      <div className="w-96 h-52 bg-brown flex rounded-b-3xl overflow-hidden relative">
         <div className="w-full absolute top-0">
           <img src={background} alt="Pink Swiggly Background" />
         </div>
