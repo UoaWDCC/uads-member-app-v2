@@ -1,12 +1,4 @@
-export interface ExecDataType {
-	name: string;
-	role: string;
-	image: string;
-}
-
-interface ExecCardProps {
-	exec: ExecDataType;
-}
+import { ExecCardProps } from "../utils/FrontendTypes";
 
 export default function ExecCard({ exec }: ExecCardProps) {
 	const { name, role, image } = exec;

@@ -27,7 +27,7 @@ export default function SignUp() {
 			<div className="max-w-screen h-auto bg-light-pink py-10 px-5 lg:px-40">
 				<h1 className="text-4xl text-brown font-bold font-raleway">Join Us Now</h1>
 				<div className="my-5 w-full h-screen border-4 border-solid border-pink rounded-lg overflow-hidden">
-					<iframe src={signUpFormLink} width="100%" height="100%" >
+					<iframe src={signUpFormLink} width="100%" height="100%">
 						Loading…
 					</iframe>
 				</div>

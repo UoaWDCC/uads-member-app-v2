@@ -1,13 +1,4 @@
-export interface EventType {
-	name: string;
-	date: string;
-	description: string;
-	image: string;
-}
-
-interface EventCardProps {
-	event: EventType;
-}
+import { EventCardProps } from "../utils/FrontendTypes";
 
 export default function EventCard({ event }: EventCardProps) {
 	const { name, date, description, image } = event;

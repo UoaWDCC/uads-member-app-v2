@@ -2,8 +2,9 @@ import donut from "../assets/half_donut_jelly.svg";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
-import SponsorCard, { SponsorType } from "../components/SponsorCard";
+import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
+import { SponsorType } from "../utils/FrontendTypes";
 
 export default function Sponsor() {
 	const [searchQuery, setSearchQuery] = useState("");

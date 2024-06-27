@@ -2,8 +2,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
 import cupcake from "../assets/cupcake.svg";
-import EventCard, { EventType } from "../components/EventCard";
+import EventCard from "../components/EventCard";
 import axios from "axios";
+import { EventType } from "../utils/FrontendTypes";
 
 export default function Event() {
 	const [searchQuery, setSearchQuery] = useState("");

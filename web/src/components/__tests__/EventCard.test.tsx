@@ -1,7 +1,8 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import EventCard, { EventType } from "../EventCard";
+import EventCard from "../EventCard";
 import eventBackground from "../../assets/event.jpg";
+import { EventType } from "../../utils/FrontendTypes";
 
 describe("Event Card Component", () => {
 	const event: EventType = {

@@ -3,18 +3,7 @@ import { FaFacebookF, FaInstagram, FaDiscord, FaTiktok } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-interface SocialsProps {
-	background: string;
-	hoverBackground: string;
-	iconColor: string;
-	hoverIconColor: string;
-}
-
-interface SocialType {
-	name: string;
-	link: string;
-}
+import { SocialType, SocialsProps } from "../utils/FrontendTypes";
 
 export default function Socials({ background, hoverBackground, iconColor, hoverIconColor }: SocialsProps) {
 	const [socials, setSocials] = useState<SocialType[]>([]);

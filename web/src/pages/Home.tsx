@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import uadslogo from "../assets/uads_logo_brown.svg";
 import creamcup from "../assets/cupcake.svg";
 import sundae from "../assets/sundae.svg";
-import EventCard, { EventType } from "../components/EventCard";
+import EventCard from "../components/EventCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Socials from "../components/Socials";
@@ -11,9 +11,10 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper/modules";
-import SponsorCard, { SponsorType } from "../components/SponsorCard";
+import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { EventType, SponsorType } from "../utils/FrontendTypes";
 
 export default function Home() {
 	const [events, setEvents] = useState<EventType[]>([]);

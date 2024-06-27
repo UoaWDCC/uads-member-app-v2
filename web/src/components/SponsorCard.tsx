@@ -1,14 +1,5 @@
+import { SponsorCardProps } from "../utils/FrontendTypes";
 import background from "../assets/pink_sponsor_background.png";
-
-export interface SponsorType {
-  name: string;
-  description: string;
-  image: string;
-}
-
-interface SponsorCardProps {
-  sponsor: SponsorType;
-}
 
 export default function SponsorCard({ sponsor }: SponsorCardProps) {
   const { name, description, image } = sponsor;
