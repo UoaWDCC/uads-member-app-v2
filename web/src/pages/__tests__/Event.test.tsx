@@ -1,10 +1,11 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import Event from "../Event";
 import cupcake from "../../assets/cupcake.svg";
-import eventBackground from "../../assets/event.jpg";
+//import eventBackground from "../../assets/event.jpg";
 
+/*
 const eventsData = [
 	{
 		name: "Meet and Greet",
@@ -19,6 +20,7 @@ const eventsData = [
 		image: eventBackground,
 	},
 ];
+*/
 
 /*
  * Test suite to test if the elements in the Event Page are rendered correctly

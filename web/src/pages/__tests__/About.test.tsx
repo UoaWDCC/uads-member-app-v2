@@ -1,14 +1,16 @@
-import { render, screen, waitFor } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import About from "../About";
 import icecream from "../../assets/ice-cream.svg";
 
+/*
 // Helper function to change viewport size
 const setViewport = (width: number) => {
 	window.innerWidth = width;
 	window.dispatchEvent(new Event("resize"));
 };
+*/
 
 /*
  * Test suite to test if the elements in the About Page are rendered correctly

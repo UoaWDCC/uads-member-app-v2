@@ -1,11 +1,13 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ExecCard, { ExecDataType } from "../ExecCard";
+import execImage from "../../assets/placeholder.png"
 
 describe("Exec Card Component", () => {
 	const exec: ExecDataType = {
 		name: "Kai Hirafune",
 		role: "President",
+    image: execImage
 	};
 
     it("Renders the ExecCard component with correct name and role", () => {
