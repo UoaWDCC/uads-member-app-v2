@@ -98,9 +98,9 @@ export default function Home() {
 						}}
 						className="mySwiper px-0 md:px-10 py-10"
 					>
-						{sponsors.map((sponsor) => {
+						{sponsors.map((sponsor, index) => {
 							return (
-								<SwiperSlide>
+								<SwiperSlide key={index}>
 									<SponsorCard sponsor={sponsor} />
 								</SwiperSlide>
 							);
@@ -150,9 +150,9 @@ export default function Home() {
 						}}
 						className="mySwiper px-0 md:px-10 py-10"
 					>
-						{events.map((event) => {
+						{events.map((event, index) => {
 							return (
-								<SwiperSlide>
+								<SwiperSlide key={index}>
 									<EventCard event={event} />
 								</SwiperSlide>
 							);
