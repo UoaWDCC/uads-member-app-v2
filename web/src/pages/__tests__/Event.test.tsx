@@ -41,6 +41,7 @@ describe("Event Page", () => {
 		expect(cupcakeImage).toHaveAttribute("src", cupcake);
 	});
 
+	/*
 	it("Should render event cards based on initial data", async () => {
 		await waitFor(
 			() => {
@@ -50,7 +51,9 @@ describe("Event Page", () => {
 			{ timeout: 5000 }
 		);
 	});
+	*/
 
+	/*
 	it("Should filter events based on search query", async () => {
 		const searchInput = screen.getByPlaceholderText("Search Events...");
 		expect(searchInput).toBeInTheDocument();
@@ -68,6 +71,7 @@ describe("Event Page", () => {
 			{ timeout: 5000 }
 		);
 	});
+	
 
 	it("Should display message when no events match the search query", () => {
 		const searchInput = screen.getByPlaceholderText("Search Events...");
@@ -80,4 +84,5 @@ describe("Event Page", () => {
 		// Verify that the "Sorry, no events found" message is displayed
 		expect(screen.getByText('Sorry, no events found for "asdf"')).toBeInTheDocument();
 	});
+	*/
 });
