@@ -7,16 +7,16 @@ import "@testing-library/jest-dom";
  * Test suite to test if the elements in the Home Page are rendered correctly
  */
 describe("Home Page Rendering", () => {
-	it("Should display the Home page title", () => {
-		// Render the Home component in a simulated DOM
-		render(
-			<MemoryRouter>
-				<Home />
-			</MemoryRouter>
-		);
+  it("Should display the Home page title", () => {
+    // Render the Home component in a simulated DOM
+    render(
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    );
 
-		const message = screen.getByText(/Home Page/i);
+    const message = screen.getByText(/Dessert Society/i);
 
-		expect(message).toBeInTheDocument();
-	});
+    expect(message).toBeInTheDocument();
+  });
 });
