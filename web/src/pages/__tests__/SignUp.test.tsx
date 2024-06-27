@@ -15,7 +15,7 @@ describe("SignUp Page Rendering", () => {
 			</MemoryRouter>
 		);
 
-		const message = screen.getByText(/Sign Up Page/i);
+		const message = screen.getByText(/Join Us Now/i);
 
 		expect(message).toBeInTheDocument();
 	});
