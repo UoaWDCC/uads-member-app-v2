@@ -1,18 +1,9 @@
-import { Router } from "express"
-import { getSponsors, createSponsor, deleteSponsor, updateSponsor } from "../controllers/SponsorController";
+import { Router } from "express";
+import { getSponsors } from "../controllers/SponsorController";
 
 const sponsorRoutes = Router();
 
-// GET all users
-sponsorRoutes.get('/', getSponsors);
-
-// CREATE new user
-sponsorRoutes.post('/', createSponsor);
-
-// DELETE a user 
-sponsorRoutes.delete('/:id', deleteSponsor);
-
-// Update a user 
-sponsorRoutes.patch('/:id', updateSponsor);
+// Get all Sponsors
+sponsorRoutes.get("/", getSponsors);
 
 export default sponsorRoutes;

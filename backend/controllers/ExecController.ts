@@ -1,32 +1,31 @@
 import { Request, Response } from "express";
 import { Client } from "@notionhq/client";
-import { EventRow, eventRowsStructured } from "../utils/BackendTypes";
+import { ExecRow, execRowsStructured } from "../utils/BackendTypes";
 import { config } from "dotenv";
 config();
 
 const notionSecret = process.env.NOTION_SECRET;
-const eventID = process.env.EVENT_DB_ID;
+const execID = process.env.EXEC_DB_ID;
 
 const notion = new Client({
 	auth: notionSecret,
 });
 
-const getEvents = async (req: Request, res: Response) => {
-	if (!notionSecret || !eventID) {
+const getExecs = async (req: Request, res: Response) => {
+	if (!notionSecret || !execID) {
 		throw new Error("Missing creds");
 	}
 
 	const query = await notion.databases.query({
-		database_id: eventID,
+		database_id: execID,
 	});
 
 	// @ts-ignore
-	const rows = query.results.map((res) => res.properties) as EventRow[];
+	const rows = query.results.map((res) => res.properties) as ExecRow[];
 
-	const rowsStructured: eventRowsStructured = rows.map((row) => ({
+	const rowsStructured: execRowsStructured = rows.map((row) => ({
 		name: row.Name.title[0].text.content,
-		date: row.Date.date.start,
-		description: row.Description.rich_text[0].text.content,
+		role: row.Role.rich_text[0].text.content,
 		image: row.Image.files[0].file.url,
 	}));
 
@@ -35,4 +34,4 @@ const getEvents = async (req: Request, res: Response) => {
 	res.status(200).json(orderedRowsStructured);
 };
 
-export { getEvents };
+export { getExecs };

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import uadslogo from "../assets/uads_logo_brown.svg";
 import creamcup from "../assets/cupcake.svg";
 import sundae from "../assets/sundae.svg";
-import EventCard, { EventType } from "../components/EventCard";
+import EventCard from "../components/EventCard";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Socials from "../components/Socials";
@@ -11,78 +11,37 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper/modules";
-import SponsorCard, { SponsorType } from "../components/SponsorCard";
-import placeholder from "../assets/download.jpg";
-
-// Temp Sponsors data
-const sponsorData: SponsorType[] = [
-	{
-		name: "Sponsor 1",
-		description: "Sponsor 1 Description",
-		image: placeholder,
-	},
-	{
-		name: "Sponsor 2",
-		description: "Sponsor 2 Description",
-		image: placeholder,
-	},
-	{
-		name: "Sponsor 3",
-		description: "Sponsor 3 Description",
-		image: placeholder,
-	},
-	{
-		name: "Sponsor 4",
-		description: "Sponsor 4 Description",
-		image: placeholder,
-	},
-	{
-		name: "Sponsor 5",
-		description: "Sponsor 5 Description",
-		image: placeholder,
-	},
-];
-
-// Temp events data
-const eventsData: EventType[] = [
-	{
-		id: 1,
-		date: "4",
-		month: "April",
-		title: "Meet and Greet",
-		description: "Come and meet your fellow peers and connect with each other",
-	},
-	{
-		id: 2,
-		date: "5",
-		month: "May",
-		title: "Event 2",
-		description: "Event 2 Description",
-	},
-	{
-		id: 3,
-		date: "17",
-		month: "June",
-		title: "June Party",
-		description: "UADS Party in June",
-	},
-	{
-		id: 4,
-		date: "6",
-		month: "July",
-		title: "Event 4",
-		description: "Description for Event 4",
-	},
-	{
-		id: 5,
-		date: "6",
-		month: "August",
-		title: "Event 5",
-		description: "Description for Event 5",
-	},
-];
+import SponsorCard from "../components/SponsorCard";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { EventType, SponsorType } from "../utils/FrontendTypes";
 
 export default function Home() {
+	const [events, setEvents] = useState<EventType[]>([]);
+	const [sponsors, setSponsors] = useState<SponsorType[]>([]);
+
+	useEffect(() => {
+		async function fetchEvents() {
+			try {
+				const response = await axios.get("http://localhost:4000/api/events/");
+				setEvents(response.data);
+			} catch (error) {
+				console.error("Error fetching event data", error);
+			}
+		}
+		async function fetchSponsors() {
+			try {
+				const response = await axios.get("http://localhost:4000/api/sponsors/");
+				setSponsors(response.data);
+			} catch (error) {
+				console.error("Error fetching sponsor data", error);
+			}
+		}
+
+		fetchSponsors();
+		fetchEvents();
+	}, []);
+
 	return (
 		<>
 			<Navbar />
@@ -140,9 +99,9 @@ export default function Home() {
 						}}
 						className="mySwiper px-0 md:px-10 py-10"
 					>
-						{sponsorData.map((sponsor) => {
+						{sponsors.map((sponsor, index) => {
 							return (
-								<SwiperSlide>
+								<SwiperSlide key={index}>
 									<SponsorCard sponsor={sponsor} />
 								</SwiperSlide>
 							);
@@ -192,9 +151,9 @@ export default function Home() {
 						}}
 						className="mySwiper px-0 md:px-10 py-10"
 					>
-						{eventsData.map((event) => {
+						{events.map((event, index) => {
 							return (
-								<SwiperSlide>
+								<SwiperSlide key={index}>
 									<EventCard event={event} />
 								</SwiperSlide>
 							);
