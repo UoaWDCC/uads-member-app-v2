@@ -2,11 +2,12 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import EventCard from "../EventCard";
 import eventBackground from "../../assets/event.jpg";
+import { EventType } from "../../utils/FrontendTypes";
 
 // Gets the current date
 const currentDate = new Date().toISOString().split("T")[0];
 
-const events = [
+const events: EventType[] = [
 	{
 		name: "Event 1",
 		date: "2024-01-01", // Past Event
