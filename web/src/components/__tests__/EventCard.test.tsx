@@ -35,7 +35,7 @@ const events: EventType[] = [
 	{
 		name: "Event 5",
 		date: "", // Missing Date
-		description: "Missing Date Event Description", 
+		description: "Missing Date Event Description",
 		image: eventBackground,
 	},
 	{
@@ -47,7 +47,7 @@ const events: EventType[] = [
 	{
 		name: "Event 7",
 		date: "2024-01-01",
-		description: "Missing Image Event Description", 
+		description: "Missing Image Event Description",
 		image: "", // Missing Image
 	},
 ];
@@ -75,10 +75,15 @@ describe("Event Card Component", () => {
 	});
 
 	it("Displays 'Happening Today' status for an event happening today", () => {
-		render(<EventCard event={events[2]} />);
-
+		const currentYear = new Date().getFullYear();
+		const currentMonthNumber = new Date().toLocaleString("default", { month: "2-digit" });
 		const currentMonth = new Date().toLocaleString("default", { month: "long" });
 		const currentDay = new Date().getDate().toString();
+
+		const newDate = `${currentYear}-${currentMonthNumber}-${currentDay}`;
+		events[2].date = newDate;
+
+		render(<EventCard event={events[2]} />);
 
 		expect(screen.getByText("Happening Today")).toBeInTheDocument();
 		expect(screen.getByText("Event 3")).toBeInTheDocument();
