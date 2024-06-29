@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import apiURL from "../utils/urls";
 
 export default function SignUp() {
 	const [signUpFormLink, setSignUpFormLink] = useState<string>("");
@@ -9,7 +10,7 @@ export default function SignUp() {
 	useEffect(() => {
 		async function fetchSocials() {
 			try {
-				const response = await axios.get("http://localhost:4000/api/socials/");
+				const response = await axios.get(`${apiURL}/api/socials/`);
 				// Sign Up Link is the last index of the response body
 				setSignUpFormLink(response.data[response.data.length - 1].link);
 			} catch (error) {

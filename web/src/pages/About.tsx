@@ -5,6 +5,7 @@ import ExecCard from "../components/ExecCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { ExecType } from "../utils/FrontendTypes";
+import apiURL from "../utils/urls";
 
 export default function About() {
 	const [execs, setExecs] = useState<ExecType[]>([]);
@@ -12,7 +13,7 @@ export default function About() {
 	useEffect(() => {
 		async function fetchExecs() {
 			try {
-				const response = await axios.get("http://localhost:4000/api/execs/");
+				const response = await axios.get(`${apiURL}/api/execs/`);
 				setExecs(response.data);
 			} catch (error) {
 				console.error("Error fetching exec data", error);
