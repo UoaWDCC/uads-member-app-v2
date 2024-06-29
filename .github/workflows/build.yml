@@ -26,7 +26,7 @@ jobs:
         run: yarn
 
       - name: Run Test Cases
-        run: yarn test
+        run: yarn coverage
 
       - name: Build the Project
         run: yarn build

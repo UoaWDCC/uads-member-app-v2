@@ -67,7 +67,7 @@ describe("Event Page", () => {
 
 		// Simulate user typing 'Meet' in the search input
 		await waitFor(() => {
-			fireEvent.change(searchInput, { target: { value: "Meet" } });
+			fireEvent.change(searchInput, { target: { value: "meet" } });
 		});
 
 		// Ensure only 'Meet and Greet' event is displayed
