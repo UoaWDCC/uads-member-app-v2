@@ -67,12 +67,14 @@ describe("Event Page", () => {
 
 		// Simulate user typing 'Meet' in the search input
 		await waitFor(() => {
-			fireEvent.change(searchInput, { target: { value: "meet" } });
+			fireEvent.change(searchInput, { target: { value: "Meet" } });
 		});
 
-		// Ensure only 'Meet and Greet' event is displayed
-		expect(screen.getByText("Meet and Greet")).toBeInTheDocument();
-		expect(screen.queryByText("Event 2")).not.toBeInTheDocument();
+		await waitFor(() => {
+			// Ensure only 'Meet and Greet' event is displayed
+			expect(screen.getByText("Meet and Greet")).toBeInTheDocument();
+			expect(screen.queryByText("Event 2")).not.toBeInTheDocument();
+		});
 	});
 
 	it("Should display message when no events match the search query", async () => {
@@ -83,7 +85,9 @@ describe("Event Page", () => {
 			fireEvent.change(searchInput, { target: { value: "workshop" } });
 		});
 
-		// Ensure message is displayed
-		expect(screen.getByText('Sorry, no events found for "workshop"')).toBeInTheDocument();
+		await waitFor(() => {
+			// Ensure message is displayed
+			expect(screen.getByText('Sorry, no events found for "workshop"')).toBeInTheDocument();
+		});
 	});
 });
