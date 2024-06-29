@@ -15,6 +15,7 @@ import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { EventType, SponsorType } from "../utils/FrontendTypes";
+import apiURL from "../utils/urls";
 
 export default function Home() {
 	const [events, setEvents] = useState<EventType[]>([]);
@@ -23,7 +24,7 @@ export default function Home() {
 	useEffect(() => {
 		async function fetchEvents() {
 			try {
-				const response = await axios.get("http://localhost:4000/api/events/");
+				const response = await axios.get(`${apiURL}/api/events/`);
 				setEvents(response.data);
 			} catch (error) {
 				console.error("Error fetching event data", error);
@@ -31,7 +32,7 @@ export default function Home() {
 		}
 		async function fetchSponsors() {
 			try {
-				const response = await axios.get("http://localhost:4000/api/sponsors/");
+				const response = await axios.get(`${apiURL}/api/sponsors/`);
 				setSponsors(response.data);
 			} catch (error) {
 				console.error("Error fetching sponsor data", error);

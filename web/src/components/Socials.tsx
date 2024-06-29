@@ -4,6 +4,7 @@ import { IoMdMail } from "react-icons/io";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { SocialType, SocialsProps } from "../utils/FrontendTypes";
+import apiURL from "../utils/urls";
 
 export default function Socials({ background, hoverBackground, iconColor, hoverIconColor }: SocialsProps) {
 	const [socials, setSocials] = useState<SocialType[]>([]);
@@ -11,7 +12,7 @@ export default function Socials({ background, hoverBackground, iconColor, hoverI
 	useEffect(() => {
 		async function fetchSocials() {
 			try {
-				const response = await axios.get("http://localhost:4000/api/socials/");
+				const response = await axios.get(`${apiURL}/api/socials/`);
 				setSocials(response.data);
 			} catch (error) {
 				console.error("Error fetching social data", error);

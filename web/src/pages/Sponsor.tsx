@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
 import { SponsorType } from "../utils/FrontendTypes";
+import apiURL from "../utils/urls";
 
 export default function Sponsor() {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -14,7 +15,7 @@ export default function Sponsor() {
 	useEffect(() => {
 		async function fetchSponsors() {
 			try {
-				const response = await axios.get("http://localhost:4000/api/sponsors/");
+				const response = await axios.get(`${apiURL}/api/sponsors/`);
 				setSponsors(response.data);
 				setDisplayedSponsors(response.data);
 			} catch (error) {
