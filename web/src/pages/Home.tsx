@@ -13,21 +13,21 @@ import { Autoplay, Pagination } from "swiper/modules";
 import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { EventType, SponsorType } from "../utils/FrontendTypes";
+import { SponsorType } from "../utils/FrontendTypes";
 
 export default function Home() {
-  const [events, setEvents] = useState<EventType[]>([]);
+  // const [events, setEvents] = useState<EventType[]>([]);
   const [sponsors, setSponsors] = useState<SponsorType[]>([]);
 
   useEffect(() => {
-    async function fetchEvents() {
-      try {
-        const response = await axios.get("http://localhost:4000/api/events/");
-        setEvents(response.data);
-      } catch (error) {
-        console.error("Error fetching event data", error);
-      }
-    }
+    // async function fetchEvents() {
+    //   try {
+    //     const response = await axios.get("http://localhost:4000/api/events/");
+    //     setEvents(response.data);
+    //   } catch (error) {
+    //     console.error("Error fetching event data", error);
+    //   }
+    // }
     async function fetchSponsors() {
       try {
         const response = await axios.get("http://localhost:4000/api/sponsors/");
@@ -38,7 +38,7 @@ export default function Home() {
     }
 
     fetchSponsors();
-    fetchEvents();
+    // fetchEvents();
   }, []);
 
   return (
