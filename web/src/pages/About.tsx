@@ -15,25 +15,31 @@ function AboutUs() {
   return (
     <>
     <div className="bg-light-pink h-fit w-screen">
-      <div className="flex flex-row py-36 px-20">
-        <div className="flex flex-col w-7/12 mr-52 text-brown font-semibold text-2xl tracking-wide font-raleway">
-          <h1 className="text-6xl mb-10 font-bold">About us</h1>
-          <p className="mb-10">Welcome to the sweetest corner of the University of Auckland – the Dessert Society!<br /></p>
-
-          <p className="mb-10">Whether you're a baker, connoisseur, or simply love sweets, you'll find a home with us.<br /></p>
-
-          <p className="mb-10">Explore classic recipes to innovative creations through our events, workshops, and gatherings. Join us on a delightful journey through dessert-making, from perfect bakes to annual dessert crawls.<br /></p>
-
-          <p className="mb-5">No matter your skill level or background, everyone is welcome at the University of Auckland Dessert Society!</p>
-        </div>
-        <div className="self-center justify-self-center w-1/2">
-          <div className="bg-pink aspect-square rounded-full">
-            <img src={icecream} className="-rotate-12"></img>
+      <div className="flex flex-row py-14 lg:pl-20 px-20 lg:px-0">
+        <div className="flex flex-col lg:w-2/3 xl:w-3/4 2xl:w-7/12 text-brown font-semibold text-lg md:text-2xl md:tracking-tight lg:tracking-wide font-raleway relative">
+          <div className="flex flex-row items-center mb-4 lg:mb-10">
+            <h1 className="text-5xl font-bold item-center">About us</h1>
+            <div className="lg:hidden relative top-0 left-0 flex items-center justify-center w-24 h-24 self-start">
+              <div className="absolute bg-pink aspect-square rounded-full w-16 h-16">
+              </div>
+              <img src={icecream} className="absolute -rotate-12 w-36 h-36"></img>
+            </div>
           </div>
+          <p className="mb-5 lg:mb-10">Welcome to the sweetest corner of the University of Auckland – the Dessert Society!<br /></p>
+          <p className="mb-5 lg:mb-10">Whether you're a baker, connoisseur, or simply love sweets, you'll find a home with us.<br /></p>
+          <p className="mb-5 lg:mb-10">Explore classic recipes to innovative creations through our events, workshops, and gatherings. Join us on a delightful journey through dessert-making, from perfect bakes to annual dessert crawls.<br /></p>
+          <p className="mb-5 lg:mb-10">No matter your skill level or background, everyone is welcome at the University of Auckland Dessert Society!</p>
+        </div>
+        <div className="hidden relative lg:flex items-center justify-center w-1/2 2xl:w-5/12 lg:ml-2 xl:ml-20 2xl:ml-40">
+          <div className="absolute bg-pink aspect-square rounded-full lg:w-64 lg:h-64 xl:w-72  2xl:w-96 2xl:h-96">
+          </div>
+          <img src={icecream} className="absolute -rotate-12 w-auto"></img>
         </div>
       </div>
     </div>
-    </>
+  </>
+  
+
   )
 }
 
@@ -66,4 +72,26 @@ function ExecutiveTeam() {
     </div>
     </>
   )
+}
+
+function ExecutivePhotos() {
+  const members = [
+    { role: "President", name: "Kai" },
+    { role: "Co-president", name: "Kai" },
+    { role: "Social", name: "Kai" },
+    { role: "Marketing", name: "Kai" },
+    { role: "Tech Head", name: "Kai" },
+    { role: "Tech Member", name: "Kai" },
+    { role: "Tiktok", name: "Kai" },
+    { role: "Marketing Member", name: "Kai" },
+  ];
+
+  return (
+    <>
+    <div>
+
+    </div>
+    </>
+  )
+
 }
