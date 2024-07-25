@@ -1,47 +1,26 @@
-import EventCard from "../components/EventCard";
-import { EventType } from "../utils/FrontendTypes";
+import Navbar from "../components/Navbar";
+import cupcake from "../assets/cupcake.svg";
+
 
 export default function Event() {
   return (
     <>
-      <div className="max-w-screen h-auto bg-light-pink py-8 px-4 sm:px-8">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-raleway text-brown">
-          Events Page
-        </h1>
-        <div className="flex flex-col md:flex-row gap-x-16 p-5 sm:gap-y-16 ">
-          <div className="w-full md:w-1/3 text-center">
-            {/*  fix small padding issue  */}
-            <EventCard
-              event={{
-                name: "test",
-                date: "test",
-                description: "test",
-                image: "test",
-              }}
-            />
-          </div>
-          <div className="w-full md:w-1/3 text-center">
-            <EventCard
-              event={{
-                name: "test",
-                date: "test",
-                description: "test",
-                image: "test",
-              }}
-            />
-          </div>
-          <div className="w-full md:w-1/3 text-center">
-            <EventCard
-              event={{
-                name: "test",
-                date: "test",
-                description: "test",
-                image: "test",
-              }}
-            />
-          </div>
+      <Navbar />
+
+      <div className="max-w-screen bg-light-pink h-96 p-10">
+        <div className="w-full h-auto flex justify-between">
+          <h1 className="pt-5 text-brown text-4xl font-raleway font-bold">Events</h1>
+          <img className="h-24" src={cupcake} alt="Cupcake" />
+        </div>
+        <div className="w-full h-auto"> 
+          <input
+							type="text"
+              className="bg-white w-full h-14 px-5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-pink"
+							placeholder="Search Events..."
+						/>
         </div>
       </div>
+      
     </>
   );
 }
