@@ -18,7 +18,7 @@ export default function EventCard({ event }: EventCardProps) {
 
 	return (
 		<>
-			<div className="w-96 flex flex-col bg-pink rounded-3xl overflow-hidden">
+			<div className="w-96 h-96 flex flex-col bg-pink rounded-3xl overflow-hidden">
 				<div className="relative h-3/5 group">
 					<img src={image} alt="Background Image" className="w-full h-full object-cover" />
 					<div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center text-white text-2xl font-bold opacity-0 cursor-pointer group-hover:opacity-100 transition-opacity duration-300">
