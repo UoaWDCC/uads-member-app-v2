@@ -69,7 +69,7 @@ export default function About() {
 				<div className="w-full h-auto bg-light-pink text-light-pink flex flex-col items-center">
 					<div className="w-full h-auto flex flex-wrap justify-center my-10">
 						{execs.map((exec, index) => (
-							<div key={index} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex justify-center" data-testid="execCardContainer">
+							<div key={index} className="flex justify-center px-10" data-testid="execCardContainer">
 								<ExecCard exec={exec} />
 							</div>
 						))}

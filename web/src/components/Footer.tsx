@@ -12,9 +12,7 @@ export default function Footer() {
 					</NavLink>
 					<p className="font-raleway text-light-pink font-bold">&copy; UADS 2024. All Rights Reserved</p>
 				</div>
-				<div className="flex justify-center w-full lg:w-auto">
-					<Socials background="bg-brown" hoverBackground="bg-light-pink" iconColor="text-light-pink" hoverIconColor="text-black" />
-				</div>
+				<Socials background="bg-brown" hoverBackground="bg-light-pink" iconColor="text-light-pink" hoverIconColor="text-black" />
 			</div>
 		</div>
 	);

@@ -6,7 +6,7 @@ export default function ExecCard({ exec }: ExecCardProps) {
 	return (
 		<>
 			<div
-				className="w-64 h-64 rounded-3xl m-2 flex justify-center items-center hover:cursor-pointer hover:rounded-3xl"
+				className="w-44 h-44 rounded-3xl m-2 flex justify-center items-center hover:cursor-pointer hover:rounded-3xl"
 				style={{
 					backgroundImage: `url(${image})`,
 					backgroundSize: "cover",
