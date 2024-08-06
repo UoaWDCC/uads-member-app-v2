@@ -39,7 +39,7 @@ export default function Sponsor() {
 		<>
 			<Navbar />
 
-			<div className="max-w-screen h-auto bg-light-pink py-8 px-4 sm:px-8">
+			<div className="max-w-screen min-h-screen bg-light-pink py-8 px-4 sm:px-8">
 				<div className="w-full h-auto mb-10 flex flex-col">
 					<div className="flex justify-between items-center">
 						<h1
