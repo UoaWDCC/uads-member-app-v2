@@ -15,7 +15,9 @@ router.use("/api/sponsors", sponsorRoutes);
 // All exec routes
 router.use("/api/execs", execRoutes);
 
-// All exec routes
+// All social routes
 router.use("/api/socials", socialRoutes);
+
+// Define user routes here
 
 export default router;

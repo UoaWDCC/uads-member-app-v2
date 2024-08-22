@@ -1,23 +1,11 @@
-import express, { json } from "express";
-import cors from "cors";
-import router from "./routes/routes";
-import { config } from "dotenv";
-config();
+// Create your express server here
 
-// Sets our port to the PORT .env value or 4000 by default if .env is not configured
-const PORT = process.env.PORT ?? 4000;
+// Configure your express server here
 
-// Creates the express server
-const app = express();
+// Start your express server here
 
-// Express middleware
-app.use(json());
-app.use(cors());
-app.use(express.static("public"));
+// Connect to the database here
 
-// Routes
-app.use("/", router);
+// Initialise your routes here
 
-app.listen(PORT, () => {
-	console.log(`Listening on port ${PORT}`);
-});
+// Dont forget to create your Models/Schemas in another folder
