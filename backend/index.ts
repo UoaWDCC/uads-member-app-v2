@@ -1,11 +1,24 @@
-// Create your express server here
+import express, { json } from "express";
+import cors from "cors";
+import { config } from "dotenv";
+import routes from "./routes/routes";
+import mongoose from "mongoose";
+config();
 
-// Configure your express server here
+const PORT = process.env.PORT ?? 4000;
 
-// Start your express server here
+const app = express();
 
-// Connect to the database here
+app.use(cors());
 
-// Initialise your routes here
+app.use(express.json());
+
+app.use(routes);
+
+mongoose.connect(process.env.MONGO_URL ?? "").then(() => {
+	app.listen(PORT, () => {
+		console.log(`Listening on port ${PORT}`);
+	});
+});
 
 // Dont forget to create your Models/Schemas in another folder
