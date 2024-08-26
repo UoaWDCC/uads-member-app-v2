@@ -11,6 +11,7 @@ const notion = new Client({
 	auth: notionSecret,
 });
 
+
 const getSponsors = async (req: Request, res: Response) => {
 	if (!notionSecret || !sponsorID) {
 		throw new Error("Missing creds");
