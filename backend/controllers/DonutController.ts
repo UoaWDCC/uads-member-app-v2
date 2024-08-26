@@ -2,7 +2,17 @@ import { Request, Response } from "express";
 import { DonutModel } from "../models/donutSchema";
 
 const getDonut = async (req: Request, res: Response) => {
-	res.send("Hello from the user controller!");
+	try {
+		const donuts = await DonutModel.find({});
+
+		if (donuts.length === 0) {
+			return res.status(404).send("No donuts found!");
+		}
+		res.status(200).json(donuts);
+	} catch (error: any) {
+		console.error("Error:", error);
+		res.status(500).send("Internal server error");
+	}
 };
 
 const createDonut = async (req: Request, res: Response) => {
