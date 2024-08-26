@@ -6,4 +6,6 @@ const sponsorRoutes = Router();
 // Get all Sponsors
 sponsorRoutes.get("/", getSponsors);
 
+
+
 export default sponsorRoutes;
