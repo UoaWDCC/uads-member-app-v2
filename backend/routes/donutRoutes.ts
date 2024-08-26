@@ -1,10 +1,16 @@
 import { Router } from "express";
-import { getDonut, createDonut } from "../controllers/DonutController";
+import {
+	getDonuts,
+	createDonut,
+	putDonut,
+} from "../controllers/DonutController";
 
 const donutRoutes = Router();
 
-donutRoutes.get("/", getDonut);
+donutRoutes.get("/", getDonuts);
 
 donutRoutes.post("/", createDonut);
+
+donutRoutes.put("/", putDonut);
 
 export default donutRoutes;
