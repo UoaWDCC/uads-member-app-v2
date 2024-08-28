@@ -3,6 +3,7 @@ import eventRoutes from "./eventRoutes";
 import sponsorRoutes from "./sponsorRoutes";
 import execRoutes from "./execRoutes";
 import socialRoutes from "./socialRoutes";
+import userRoutes from "./userRoutes";
 
 const router = express.Router();
 
@@ -17,5 +18,8 @@ router.use("/api/execs", execRoutes);
 
 // All exec routes
 router.use("/api/socials", socialRoutes);
+
+// All user routes
+router.use("/api/users", userRoutes);
 
 export default router;

@@ -21,6 +21,10 @@ const navlinks = [
 		title: "Sponsors",
 		link: "/sponsors",
 	},
+	{
+		title: "Users",
+		link: "/users",
+	},
 ];
 
 export default function Navbar() {

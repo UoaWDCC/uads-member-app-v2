@@ -6,6 +6,7 @@ import About from "@pages/About";
 import Event from "@pages/Event";
 import Sponsor from "@pages/Sponsor";
 import SignUp from "@pages/SignUp";
+import User from "@pages/User";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/sponsors",
     element: <Sponsor />,
+  },
+  {
+    path: "/users",
+    element: <User />,
   },
 ]);
 
