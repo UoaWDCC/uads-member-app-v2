@@ -1,37 +1,44 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import Event from "../Event";
 import cupcake from "../../assets/cupcake.svg";
-//import eventBackground from "../../assets/event.jpg";
+import eventBackground from "../../assets/event.jpg";
+import { EventType } from "../../utils/FrontendTypes";
+import axios from "axios";
+import { vi } from "vitest";
 
-/*
-const eventsData = [
+vi.mock("axios");
+
+const mockEvents: EventType[] = [
 	{
 		name: "Meet and Greet",
-		date: "2024-01-02",
+		date: "2024-01-01",
 		description: "Meet and Greet Description",
 		image: eventBackground,
 	},
 	{
 		name: "Event 2",
-		date: "2024-01-01",
+		date: "2024-01-02",
 		description: "Event 2 Description",
 		image: eventBackground,
 	},
 ];
-*/
 
 /*
  * Test suite to test if the elements in the Event Page are rendered correctly
  */
 describe("Event Page", () => {
-	beforeEach(() => {
+	beforeEach(async () => {
+		(axios.get as jest.Mock).mockResolvedValue({ data: mockEvents });
+
 		render(
 			<MemoryRouter>
 				<Event />
 			</MemoryRouter>
 		);
+
+		await waitFor(() => expect(axios.get).toHaveBeenCalled());
 	});
 
 	it("Should render 'Events' section with correct title and image", () => {
@@ -43,48 +50,44 @@ describe("Event Page", () => {
 		expect(cupcakeImage).toHaveAttribute("src", cupcake);
 	});
 
-	/*
-	it("Should render event cards based on initial data", async () => {
-		await waitFor(
-			() => {
-				const eventTitle = screen.getByText("Meet and Greet");
-				expect(eventTitle).toBeInTheDocument();
-			},
-			{ timeout: 5000 }
-		);
-	});
-	*/
+	it("Should display events fetched from API", async () => {
+		await waitFor(() => {
+			mockEvents.forEach((event) => {
+				const eventName = screen.getByText(event.name);
+				expect(eventName).toBeInTheDocument();
 
-	/*
-	it("Should filter events based on search query", async () => {
+				const eventDescription = screen.getByText(event.description);
+				expect(eventDescription).toBeInTheDocument();
+			});
+		});
+	});
+
+	it("Should filter events correctly based on search input", async () => {
 		const searchInput = screen.getByPlaceholderText("Search Events...");
-		expect(searchInput).toBeInTheDocument();
 
-		// Simulate typing in the search input
-		// For example, search for "Meet"
-		fireEvent.change(searchInput, { target: { value: "Meet" } });
+		// Simulate user typing 'Meet' in the search input
+		await waitFor(() => {
+			fireEvent.change(searchInput, { target: { value: "Meet" } });
+		});
 
-		// Verify that only "Meet and Greet" event is displayed
-		await waitFor(
-			() => {
-				expect(screen.getByText("Meet and Greet")).toBeInTheDocument();
-				expect(screen.queryByText("Event 2")).not.toBeInTheDocument();
-			},
-			{ timeout: 5000 }
-		);
+		await waitFor(() => {
+			// Ensure only 'Meet and Greet' event is displayed
+			expect(screen.getByText("Meet and Greet")).toBeInTheDocument();
+			expect(screen.queryByText("Event 2")).not.toBeInTheDocument();
+		});
 	});
-	
 
-	it("Should display message when no events match the search query", () => {
+	it("Should display message when no events match the search query", async () => {
 		const searchInput = screen.getByPlaceholderText("Search Events...");
-		expect(searchInput).toBeInTheDocument();
 
-		// Simulate typing in the search input
-		// For example, search for "asdf"
-		fireEvent.change(searchInput, { target: { value: "asdf" } });
+		// Simulate user typing 'Workshop' in the search input using fireEvent.change
+		await waitFor(() => {
+			fireEvent.change(searchInput, { target: { value: "workshop" } });
+		});
 
-		// Verify that the "Sorry, no events found" message is displayed
-		expect(screen.getByText('Sorry, no events found for "asdf"')).toBeInTheDocument();
+		await waitFor(() => {
+			// Ensure message is displayed
+			expect(screen.getByText('Sorry, no events found for "workshop"')).toBeInTheDocument();
+		});
 	});
-	*/
 });

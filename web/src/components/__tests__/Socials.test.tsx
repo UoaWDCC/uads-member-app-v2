@@ -1,13 +1,14 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Socials from "../Socials";
+import { SocialType } from "../../utils/FrontendTypes";
 import "@testing-library/jest-dom";
 import axios from "axios";
 import { vi } from "vitest";
 
 vi.mock("axios");
 
-const mockSocials = [
+const mockSocials: SocialType[] = [
 	{ name: "Facebook", link: "https://www.facebook.com/uoadessertsociety" },
 	{ name: "Instagram", link: "https://www.instagram.com/uoadessertsociety/" },
 	{ name: "Discord", link: "https://discord.gg/dFuwHuU8FT" },

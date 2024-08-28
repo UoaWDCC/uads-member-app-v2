@@ -1,9 +1,7 @@
-let apiUrl: string = import.meta.env.VITE_API_URL || 'http://localhost:3000';
+let apiURL: string = import.meta.env.VITE_API_URL || "http://localhost:4000";
 
-if (apiUrl.endsWith('/')) {
-  apiUrl = apiUrl.slice(0, -1);
+if (apiURL.endsWith("/")) {
+	apiURL = apiURL.slice(0, -1);
 }
 
-export default {
-  apiUrl,
-};
+export default apiURL;

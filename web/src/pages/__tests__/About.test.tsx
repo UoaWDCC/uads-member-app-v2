@@ -1,27 +1,53 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import "@testing-library/jest-dom";
 import About from "../About";
 import icecream from "../../assets/ice-cream.svg";
+import placeholder from "../../assets/placeholder.png";
+import { ExecType } from "../../utils/FrontendTypes";
+import axios from "axios";
+import { vi } from "vitest";
 
-/*
+vi.mock("axios");
+
+const mockExecs: ExecType[] = [
+	{
+		name: "Exec 1",
+		role: "President",
+		image: placeholder,
+	},
+	{
+		name: "Exec 2",
+		role: "Vice-President",
+		image: placeholder,
+	},
+	{
+		name: "Exec 3",
+		role: "Treasurer",
+		image: placeholder,
+	},
+];
+
 // Helper function to change viewport size
 const setViewport = (width: number) => {
 	window.innerWidth = width;
 	window.dispatchEvent(new Event("resize"));
 };
-*/
 
 /*
  * Test suite to test if the elements in the About Page are rendered correctly
  */
 describe("About Page", () => {
-	beforeEach(() => {
+	beforeEach(async () => {
+		(axios.get as jest.Mock).mockResolvedValue({ data: mockExecs });
+
 		render(
 			<MemoryRouter>
 				<About />
 			</MemoryRouter>
 		);
+
+		await waitFor(() => expect(axios.get).toHaveBeenCalled());
 	});
 
 	it("Should render 'About Us' section", () => {
@@ -42,17 +68,35 @@ describe("About Page", () => {
 		const execTitle = screen.getByText(/The Executive Team/i);
 		expect(execTitle).toBeInTheDocument();
 	});
+
+	it("Should display execs fetched from API", async () => {
+		await waitFor(() => {
+			mockExecs.forEach((exec) => {
+				const execName = screen.getAllByText(exec.name);
+				// Exec name is displayed twice in the About page
+				expect(execName).toHaveLength(2);
+
+				
+				const execRole = screen.getAllByText(exec.role);
+				// Exec role is displayed twice in the About page
+				expect(execRole).toHaveLength(2);
+			});
+		});
+	});
 });
 
-/** Temporarily Disabled for now
- * 
+
 describe("Responsive Design", () => {
-	beforeEach(() => {
+	beforeEach(async () => {
+		(axios.get as jest.Mock).mockResolvedValue({ data: mockExecs });
+
 		render(
 			<MemoryRouter>
 				<About />
 			</MemoryRouter>
 		);
+
+		await waitFor(() => expect(axios.get).toHaveBeenCalled());
 	});
 
 	it("About section renders correctly for small screens (sm and Phone)", () => {
@@ -157,4 +201,4 @@ describe("Responsive Design", () => {
 		});
 	});
 });
-*/
+

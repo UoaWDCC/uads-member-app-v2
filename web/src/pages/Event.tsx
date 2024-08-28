@@ -5,6 +5,7 @@ import cupcake from "../assets/cupcake.svg";
 import EventCard from "../components/EventCard";
 import axios from "axios";
 import { EventType } from "../utils/FrontendTypes";
+import apiURL from "../utils/urls";
 
 export default function Event() {
 	const [searchQuery, setSearchQuery] = useState("");
@@ -14,7 +15,7 @@ export default function Event() {
 	useEffect(() => {
 		async function fetchEvents() {
 			try {
-				const response = await axios.get("http://localhost:4000/api/events/");
+				const response = await axios.get(`${apiURL}/api/events/`);
 				setEvents(response.data);
 				setDisplayedEvents(response.data);
 			} catch (error) {
@@ -40,10 +41,7 @@ export default function Event() {
 			<div className="max-w-screen min-h-screen bg-light-pink py-8 px-4 sm:px-8">
 				<div className="w-full h-auto mb-10 flex flex-col">
 					<div className="flex justify-between items-center">
-						<h1
-							className="text-3xl sm:text-4xl md:text-5xl font-bold font-raleway text-brown"
-							data-testid="eventsTitle"
-						>
+						<h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-raleway text-brown" data-testid="eventsTitle">
 							Events
 						</h1>
 
@@ -71,9 +69,7 @@ export default function Event() {
 							</div>
 						))
 					) : (
-						<p className="text-2xl sm:text-3xl text-black font-bold">
-							Sorry, no events found for "{searchQuery}"
-						</p>
+						<p className="text-2xl sm:text-3xl text-black font-bold">Sorry, no events found for "{searchQuery}"</p>
 					)}
 				</div>
 			</div>
