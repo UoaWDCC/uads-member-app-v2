@@ -39,4 +39,15 @@ const putDonut = async (req: Request, res: Response) => {
 	}
 };
 
-export { getDonuts, createDonut, putDonut };
+const deleteDonut = async (req: Request, res: Response) => {
+	try {
+		const { id } = req.params;
+		await DonutModel.findByIdAndDelete(id);
+		res.status(200).send("Donut deleted!");
+	} catch (error: any) {
+		console.error("Error:", error);
+		res.status(500).send("Internal server error");
+	}
+};
+
+export { getDonuts, createDonut, putDonut, deleteDonut };
