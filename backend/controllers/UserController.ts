@@ -21,7 +21,7 @@ const createUser = async (req: Request, res: Response) => {
 
     await user.save();
 
-    return res.status(201).json({ message: "User created successfully" });
+    return res.status(201).json({ message: "User created successfully", user });
 
   } catch (error) {
 
@@ -33,14 +33,10 @@ const createUser = async (req: Request, res: Response) => {
 const getUser = async (req: Request, res: Response) => {
   try {
     // Get email
-    const { email } = req.body;
-
-    if (!email) {
-      return res.status(400).json({ message: "Email not provided" });
-    }
+    const { id } = req.params;
 
     // Find the user by email
-    const user = await userModel.findOne({ email });
+    const user = await userModel.findById(id);    
 
     // If user not found
     if (!user) {
@@ -59,25 +55,16 @@ const getUser = async (req: Request, res: Response) => {
 const updateUser = async (req: Request, res: Response) => {
   try {
     // Get email, username, password from body
-    const { username, email, password } = req.body;
-
-    // Check if email is provided
-    if (!email) {
-      return res.status(400).json({ message: "Email is required" });
-    }
+    const { id } = req.params;
+    const { newName } = req.body;
 
     // Check if no data is provided for update
-    if (!username && !password) {
+    if (!newName) {
       return res.status(400).json({ message: "No data provided for update" });
     }
 
-    // Prepare the update data
-    const updateData: any = {};
-    if (username) updateData.username = username;
-    if (password) updateData.password = password;
-
     // Find the user by email and update
-    const user = await userModel.findOneAndUpdate({ email }, updateData, { new: true });
+    const user = await userModel.findByIdAndUpdate(id, {username: newName}, { new: true });
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
@@ -94,22 +81,17 @@ const updateUser = async (req: Request, res: Response) => {
 
 const deleteUser = async (req: Request, res: Response) => {
   try {
-    const { username, email, password } = req.body;
-
-    // Check if email is provided
-    if (!username || !email || !password) {
-      return res.status(400).json({ message: "Information is required" });
-    }
+    const { id } = req.params;
 
     // Find the user by email and delete
-    const user = await userModel.findOneAndDelete({ email, username, password });
+    const user = await userModel.findByIdAndDelete(id);
 
     // If user not found
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
-    return res.status(204).json({ message: "User deleted successfully" });
+    return res.status(200).json({ message: "User deleted successfully" });
 
   } catch (error) {
 
@@ -118,4 +100,18 @@ const deleteUser = async (req: Request, res: Response) => {
   }
 };
 
-export { createUser, getUser, updateUser, deleteUser }; 
+const getAllUsers = async (req: Request, res: Response) => {
+  try {
+    // Find all users
+    const users = await userModel.find();
+
+    return res.status(200).json({ message: "Users obtained successfully", users });
+
+  } catch (error) {
+
+    return res.status(500).json({ message: "Internal Server Error" });
+
+  }
+}
+
+export { createUser, getUser, updateUser, deleteUser, getAllUsers }; 
