@@ -3,7 +3,12 @@ import userModel from '../models/User';
 
 
 const getUsers = async (req: Request, res: Response) => {
-    res.status(200).json("Hello");
+  try{
+    const users = await userModel.find();
+    return res.status(200).json(users);
+  }catch(err: any){
+    return res.status(500).json(err);
+  }
 }
 
 const createUser = async (req: Request, res: Response) => {
