@@ -12,7 +12,6 @@ WORKDIR /app
 ARG YARN_VERSION=1.22.19
 RUN npm install -g yarn@$YARN_VERSION --force
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as build
 
@@ -35,7 +34,6 @@ RUN yarn run build
 
 # Remove development dependencies
 RUN yarn install --production=true
-
 
 # Final stage for app image
 FROM nginx
