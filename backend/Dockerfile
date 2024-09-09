@@ -12,7 +12,6 @@ WORKDIR /app
 ARG YARN_VERSION=1.22.19
 RUN npm install -g yarn@$YARN_VERSION --force
 
-
 # Throw-away build stage to reduce size of final image
 FROM base as install 
 
@@ -40,5 +39,5 @@ FROM base
 COPY --from=build /app /app
 
 # Start the server by default, this can be overwritten at runtime
-EXPOSE 3000
+EXPOSE 4000
 CMD [ "yarn", "run", "start" ]
