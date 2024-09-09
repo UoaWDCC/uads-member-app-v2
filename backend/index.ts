@@ -4,8 +4,8 @@ import router from "./routes/routes";
 import { config } from "dotenv";
 config();
 
-// Sets our port to the PORT .env value or 4000 by default if .env is not configured
-const PORT = process.env.PORT ?? 4000;
+// Sets our port to the PORT .env value or 3000 by default if .env is not configured
+const PORT = process.env.PORT ?? 3000;
 
 // Creates the express server
 const app = express();
@@ -19,5 +19,5 @@ app.use(express.static("public"));
 app.use("/", router);
 
 app.listen(PORT, () => {
-	console.log(`Listening on port ${PORT}`);
+  console.log(`Listening on port ${PORT}`);
 });
