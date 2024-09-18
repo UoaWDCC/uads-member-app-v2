@@ -59,6 +59,38 @@ const getUser = async (req: Request, res: Response) => {
   }
 };
 
+const getUserByName = async (req: Request, res: Response) => {
+  try {
+    const { name } = req.params;
+
+    const user = await User.findOne({ name: name });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    return res.status(200).json(user);
+  } catch (err) {
+    return res.status(500).json({ message: "Internal Server error" });
+  }
+};
+
+const getUserByEmail = async (req: Request, res: Response) => {
+  try {
+    const { email } = req.params;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    return res.status(200).json(user);
+  } catch (err) {
+    return res.status(500).json({ message: "Internal Server error" });
+  }
+};
+
 const updateUserName = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
@@ -92,4 +124,4 @@ const deleteUser = async (req: Request, res: Response) => {
   }
 };
 
-export { createUser, getUsers, getUser, updateUserName, deleteUser };
+export { createUser, getUsers, getUser, getUserByName, getUserByEmail, updateUserName, deleteUser };
