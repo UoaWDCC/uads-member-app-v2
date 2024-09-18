@@ -10,7 +10,8 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "nodemon index.ts",
-    "email": "email dev"
+    "email": "email dev",
+    "test": "vitest"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
@@ -33,8 +34,10 @@
     "express": "^4.18.2",
     "express-cors": "^0.0.3",
     "jsonwebtoken": "^9.0.2",
+    "mongodb-memory-server": "^10.0.0",
     "mongoose": "^8.1.1",
     "ts-node": "^10.9.2",
+    "vitest": "^2.1.1",
     "zod": "^3.22.4"
   }
 }
