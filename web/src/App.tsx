@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useState } from "react";
 import { MantineProvider } from "@mantine/core";
 import "@mantine/core/styles.css";
+import "@mantine/carousel/styles.css";
 import Home from "@pages/Home";
 import About from "@pages/About";
 import Event from "@pages/Event";
