@@ -5,22 +5,24 @@ import { useState, useEffect } from "react";
 import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
 import { SponsorType } from "../utils/FrontendTypes";
+import { Loader } from "@mantine/core";
 
 export default function Sponsor() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sponsors, setSponsors] = useState<SponsorType[]>([]);
   const [displayedSponsors, setDisplayedSponsors] = useState<SponsorType[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     async function fetchSponsors() {
       try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/sponsors/`
-        );
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/sponsors/`);
         setSponsors(response.data);
         setDisplayedSponsors(response.data);
       } catch (error) {
         console.error("Error fetching sponsor data", error);
+      } finally {
+        setLoading(false);
       }
     }
     fetchSponsors();
@@ -68,7 +70,11 @@ export default function Sponsor() {
         </div>
 
         <div className="w-full h-auto flex flex-wrap justify-center gap-6">
-          {displayedSponsors.length > 0 ? (
+          {loading ? ( 
+            <div className="flex justify-center py-10">
+              <Loader size="lg" color="blue" />
+            </div>
+          ) : displayedSponsors.length > 0 ? (
             displayedSponsors.map((sponsor, index) => (
               <div key={index} className="flex justify-center">
                 <SponsorCard sponsor={sponsor} />

@@ -9,6 +9,7 @@ import Socials from "../components/Socials";
 import { Carousel } from "@mantine/carousel";
 import { useMediaQuery } from "@mantine/hooks";
 import { useMantineTheme } from "@mantine/core";
+import { Loader } from "@mantine/core";
 import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -17,6 +18,8 @@ import { EventType, SponsorType } from "../utils/FrontendTypes";
 export default function Home() {
   const [events, setEvents] = useState<EventType[]>([]);
   const [sponsors, setSponsors] = useState<SponsorType[]>([]);
+  const [loadingEvents, setLoadingEvents] = useState<boolean>(true);
+  const [loadingSponsors, setLoadingSponsors] = useState<boolean>(true);
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
 
@@ -27,6 +30,8 @@ export default function Home() {
         setEvents(response.data);
       } catch (error) {
         console.error("Error fetching event data", error);
+      } finally {
+        setLoadingEvents(false);
       }
     }
     async function fetchSponsors() {
@@ -35,6 +40,8 @@ export default function Home() {
         setSponsors(response.data);
       } catch (error) {
         console.error("Error fetching sponsor data", error);
+      } finally {
+        setLoadingSponsors(false);
       }
     }
 
@@ -83,21 +90,27 @@ export default function Home() {
         </h1>
 
         <div className="w-full h-auto">
-          <Carousel
-            slideSize={mobile ? "100%" : "auto"}
-            slideGap="sm"
-            align={mobile ? "center" : "start"}
-            slidesToScroll={1}
-            dragFree
-            withIndicators
-            loop
-          >
-            {sponsors.map((sponsor, index) => (
-              <Carousel.Slide key={index} className="my-8">
-                <SponsorCard sponsor={sponsor} />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
+          {loadingSponsors ? (
+            <div className="flex justify-center py-10">
+              <Loader size="lg" color="blue" />
+            </div>
+          ) : (
+            <Carousel
+              slideSize={mobile ? "100%" : "auto"}
+              slideGap="sm"
+              align={mobile ? "center" : "start"}
+              slidesToScroll={1}
+              dragFree
+              withIndicators
+              loop
+            >
+              {sponsors.map((sponsor, index) => (
+                <Carousel.Slide key={index} className="my-8">
+                  <SponsorCard sponsor={sponsor} />
+                </Carousel.Slide>
+              ))}
+            </Carousel>
+          )}
         </div>
 
         <NavLink
@@ -116,21 +129,27 @@ export default function Home() {
         </h1>
 
         <div className="w-full h-auto">
-          <Carousel
-            slideSize={mobile ? "100%" : "auto"}
-            slideGap="sm"
-            align={mobile ? "center" : "start"}
-            slidesToScroll={1}
-            dragFree
-            withIndicators
-            loop
-          >
-            {events.map((event, index) => (
-              <Carousel.Slide key={index} className="my-8">
-                <EventCard event={event} />
-              </Carousel.Slide>
-            ))}
-          </Carousel>
+          {loadingEvents ? (
+            <div className="flex justify-center py-10">
+              <Loader size="lg" color="blue" />
+            </div>
+          ) : (
+            <Carousel
+              slideSize={mobile ? "100%" : "auto"}
+              slideGap="sm"
+              align={mobile ? "center" : "start"}
+              slidesToScroll={1}
+              dragFree
+              withIndicators
+              loop
+            >
+              {events.map((event, index) => (
+                <Carousel.Slide key={index} className="my-8">
+                  <EventCard event={event} />
+                </Carousel.Slide>
+              ))}
+            </Carousel>
+          )}
         </div>
 
         <NavLink
