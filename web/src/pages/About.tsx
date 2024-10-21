@@ -7,7 +7,7 @@ import axios from "axios";
 import { ExecType } from "../utils/FrontendTypes";
 import { Loader } from "@mantine/core";
 import { motion } from "framer-motion";
-import { cardVariant, parentVariant } from "@utils/AnimationUtils";
+import { cardVariant, parentVariant } from "../utils/AnimationUtils";
 
 export default function About() {
   const [execs, setExecs] = useState<ExecType[]>([]);
