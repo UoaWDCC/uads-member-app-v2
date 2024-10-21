@@ -6,6 +6,8 @@ import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
 import { SponsorType } from "../utils/FrontendTypes";
 import { Loader } from "@mantine/core";
+import { motion } from "framer-motion";
+import { cardVariant, parentVariant } from "@utils/AnimationUtils";
 
 export default function Sponsor() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -44,7 +46,13 @@ export default function Sponsor() {
       <Navbar />
 
       <div className="max-w-screen min-h-screen bg-light-pink py-8 px-4 sm:px-8">
-        <div className="w-full h-auto mb-10 flex flex-col">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 15 }}
+          transition={{ delay: 0.15 }}
+          className="w-full h-auto mb-10 flex flex-col"
+        >
           <div className="flex justify-between items-center">
             <h1
               className="text-3xl sm:text-4xl md:text-5xl font-bold font-raleway text-brown"
@@ -67,25 +75,30 @@ export default function Sponsor() {
               onChange={handleSearchChange}
             />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="w-full h-auto flex flex-wrap justify-center gap-6">
-          {loading ? ( 
-            <div className="flex justify-center py-10">
-              <Loader size="lg" color="blue" />
-            </div>
-          ) : displayedSponsors.length > 0 ? (
-            displayedSponsors.map((sponsor, index) => (
-              <div key={index} className="flex justify-center">
+        {loading ? (
+          <div className="flex justify-center py-10">
+            <Loader size="lg" color="blue" />
+          </div>
+        ) : displayedSponsors.length > 0 ? (
+          <motion.div
+            variants={parentVariant}
+            initial="hidden"
+            animate="show"
+            className="w-full h-auto flex flex-wrap justify-center gap-6"
+          >
+            {displayedSponsors.map((sponsor, index) => (
+              <motion.div variants={cardVariant} key={index} className="flex justify-center">
                 <SponsorCard sponsor={sponsor} />
-              </div>
-            ))
-          ) : (
-            <p className="text-2xl sm:text-3xl text-black font-bold">
-              Sorry, no sponsor found for "{searchQuery}"
-            </p>
-          )}
-        </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        ) : (
+          <p className="text-2xl sm:text-3xl text-black font-bold">
+            Sorry, no sponsor found for "{searchQuery}"
+          </p>
+        )}
       </div>
 
       <Footer />

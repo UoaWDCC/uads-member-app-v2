@@ -14,6 +14,8 @@ import SponsorCard from "../components/SponsorCard";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { EventType, SponsorType } from "../utils/FrontendTypes";
+import { motion } from "framer-motion";
+import { cardVariant, parentVariant } from "@utils/AnimationUtils";
 
 export default function Home() {
   const [events, setEvents] = useState<EventType[]>([]);
@@ -54,7 +56,13 @@ export default function Home() {
       <Navbar />
 
       <div className="max-w-screen bg-light-pink px-5 lg:px-10">
-        <div className="w-full flex flex-col md:flex-row justify-between items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 15 }}
+          transition={{ delay: 0.5 }}
+          className="w-full flex flex-col md:flex-row justify-between items-center"
+        >
           <img
             src={sundae}
             alt="Sundae Image"
@@ -81,7 +89,7 @@ export default function Home() {
             alt="Cupcake Image"
             className="transform hidden md:block rotate-12 opacity-50"
           />
-        </div>
+        </motion.div>
       </div>
 
       <div className="max-w-screen h-auto flex flex-col items-center py-4 px-5 md:px-10 lg:px-40 bg-pink">
@@ -89,12 +97,17 @@ export default function Home() {
           Supported by our Sponsors
         </h1>
 
-        <div className="w-full h-auto">
-          {loadingSponsors ? (
-            <div className="flex justify-center py-10">
-              <Loader size="lg" color="blue" />
-            </div>
-          ) : (
+        {loadingSponsors ? (
+          <div className="flex justify-center py-10">
+            <Loader size="lg" color="blue" />
+          </div>
+        ) : (
+          <motion.div
+            variants={parentVariant}
+            initial="hidden"
+            animate="show"
+            className="w-full h-auto"
+          >
             <Carousel
               slideSize={mobile ? "100%" : "auto"}
               slideGap="sm"
@@ -106,12 +119,14 @@ export default function Home() {
             >
               {sponsors.map((sponsor, index) => (
                 <Carousel.Slide key={index} className="my-8">
-                  <SponsorCard sponsor={sponsor} />
+                  <motion.div variants={cardVariant}>
+                    <SponsorCard sponsor={sponsor} />
+                  </motion.div>
                 </Carousel.Slide>
               ))}
             </Carousel>
-          )}
-        </div>
+          </motion.div>
+        )}
 
         <NavLink
           to="/sponsors"
@@ -128,12 +143,17 @@ export default function Home() {
           Our Exciting Events
         </h1>
 
-        <div className="w-full h-auto">
-          {loadingEvents ? (
-            <div className="flex justify-center py-10">
-              <Loader size="lg" color="blue" />
-            </div>
-          ) : (
+        {loadingEvents ? (
+          <div className="flex justify-center py-10">
+            <Loader size="lg" color="blue" />
+          </div>
+        ) : (
+          <motion.div
+            variants={parentVariant}
+            initial="hidden"
+            animate="show"
+            className="w-full h-auto"
+          >
             <Carousel
               slideSize={mobile ? "100%" : "auto"}
               slideGap="sm"
@@ -145,12 +165,14 @@ export default function Home() {
             >
               {events.map((event, index) => (
                 <Carousel.Slide key={index} className="my-8">
-                  <EventCard event={event} />
+                  <motion.div variants={cardVariant}>
+                    <EventCard event={event} />
+                  </motion.div>
                 </Carousel.Slide>
               ))}
             </Carousel>
-          )}
-        </div>
+          </motion.div>
+        )}
 
         <NavLink
           to="/events"

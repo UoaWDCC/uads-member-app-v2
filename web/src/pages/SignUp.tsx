@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Loader } from "@mantine/core";
+import { motion } from "framer-motion";
 
 export default function SignUp() {
   const [signUpFormLink, setSignUpFormLink] = useState<string>("");
@@ -30,7 +31,13 @@ export default function SignUp() {
 
       <div className="max-w-screen h-auto bg-light-pink py-10 px-5 lg:px-40">
         <h1 className="text-4xl text-brown font-bold font-raleway">Join Us Now</h1>
-        <div className="my-5 w-full h-screen border-4 border-solid border-pink rounded-lg overflow-hidden">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 15 }}
+          transition={{ delay: 0.5 }}
+          className="my-5 w-full h-screen border-4 border-solid border-pink rounded-lg overflow-hidden"
+        >
           {loading ? (
             <div className="flex justify-center items-center h-full">
               <Loader size="lg" color="blue" />
@@ -40,7 +47,7 @@ export default function SignUp() {
               Loading…
             </iframe>
           )}
-        </div>
+        </motion.div>
       </div>
 
       <Footer />
